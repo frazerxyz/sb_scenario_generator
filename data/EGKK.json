@@ -2,8 +2,8 @@
     "icao": "EGKK",
     "elevation": 203.0,
     "runways": [
-        {"name": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "depSpawn": "N051.09.08.800:W000.09.32.300"},
-        {"name": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "depSpawn": "N051.08.38.700:W000.13.10.800"}
+        {"designator": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "depSpawn": "N051.09.08.800:W000.09.32.300"},
+        {"designator": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "depSpawn": "N051.08.38.700:W000.13.10.800"}
     ],
     "holds": [
         {"fix": "TIMBA", "inbound": 308, "direction": "R"},
@@ -31,8 +31,6 @@
         }
     ],
     "standardRoutes": [
-        {"name": "ADC_26L", "route": "WILLO/7000 MAY/3000 OLEVI K26LF ILS26L#VR"},
-        {"name": "VASUX1G", "route": "VASUX DISVO/13000 TELTU HOLLY KKS16 WILLO"},
         {
             "name": "DVR_DEP",
             "route": [
@@ -53,7 +51,7 @@
         {
             "dep": "EGJJ",
             "callsigns": ["EZY45ZD", "EZY35YK", "EZY26WL", "EZY19HN", "EFW5JM", "EFW8CM", "EFW5BR"],
-            "types": ["A320, A319"],
+            "types": ["A320", "A319"],
             "filedRoute": "ORIST L982 VASUX",
             "ctrRoute": {"spawnCoords": "N049.15.45.900:W002.02.38.300", "spawnAlt": 5000, "flownRoute": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
             "appRoute": {"spawnCoords": "N050.30.09.200:W001.15.17.000", "spawnAlt": 19000, "flownRoute": "ROXOG/19000 $VASUX1G"},
