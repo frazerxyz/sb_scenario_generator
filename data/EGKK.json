@@ -2,8 +2,8 @@
     "icao": "EGKK",
     "elevation": 203.0,
     "runways": [
-        {"designator": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "depSpawn": "N051.09.08.800:W000.09.32.300"},
-        {"designator": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "depSpawn": "N051.08.38.700:W000.13.10.800"}
+        {"designator": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "dep_spawn": "N051.09.08.800:W000.09.32.300"},
+        {"designator": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "dep_spawn": "N051.08.38.700:W000.13.10.800"}
     ],
     "holds": [
         {"fix": "TIMBA", "inbound": 308, "direction": "R"},
@@ -26,11 +26,11 @@
     ],
     "terminals": [
         {"id": 1, "label": "Pier 1", "stands": [
-                {"id": 1, "coords": "51.15490556:-0.1641528", "bearing": 77.6, "maxSize": "F"}
+                {"id": 1, "coords": "51.15490556:-0.1641528", "bearing": 77.6, "max_size": "F"}
             ]
         }
     ],
-    "standardRoutes": [
+    "standard_routes": [
         {
             "name": "DVR_DEP",
             "route": [
@@ -38,24 +38,24 @@
             ]
         }
     ],
-    "departureRoutes": [
+    "departure_routes": [
         {
             "dest": "LEAL",
             "callsigns": ["EFW1RF", "EFW7HH", "TOM5PT",  "TOM5DX", "RYR86HL", "EXS68M", "EZY31BD", "EZY61VT", "EZY36DH", "EZY32VA", "EZY45NK", "EZY74FX", "EZY17VD", "EZY87PQ", "VLG415M", "VLG2ZZ", "VLG317A"],
             "types": ["A320", "A20N", "A321", "A21N", "B738", "B78M", "B788", "B789"],
-            "filedRoute": "SFD Y47 DRAKE L151 SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
-            "flownRoute": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO/17000 DRAKE/29000 SITET/37000 ETRAT"
+            "filed_route": "SFD Y47 DRAKE L151 SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
+            "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO/17000 DRAKE/29000 SITET/37000 ETRAT"
         }
     ],
-    "arrivalRoutes": [
+    "arrival_routes": [
         {
             "dep": "EGJJ",
             "callsigns": ["EZY45ZD", "EZY35YK", "EZY26WL", "EZY19HN", "EFW5JM", "EFW8CM", "EFW5BR"],
             "types": ["A320", "A319"],
-            "filedRoute": "ORIST L982 VASUX",
-            "ctrRoute": {"spawnCoords": "N049.15.45.900:W002.02.38.300", "spawnAlt": 5000, "flownRoute": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
-            "appRoute": {"spawnCoords": "N050.30.09.200:W001.15.17.000", "spawnAlt": 19000, "flownRoute": "ROXOG/19000 $VASUX1G"},
-            "adcRoute": {"spawnCoords": "N050.53.12.000:W000.05.42.000", "spawnAlt": 19000, "flownRoute": "$"}
+            "filed_route": "ORIST L982 VASUX",
+            "ctr_route": {"spawn_coords": "N049.15.45.900:W002.02.38.300", "spawnAlt": 5000, "flown_route": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
+            "app_route": {"spawn_coords": "N050.30.09.200:W001.15.17.000", "spawnAlt": 19000, "flown_route": "ROXOG/19000 $VASUX1G"},
+            "adc_route": {"spawn_coords": "N050.53.12.000:W000.05.42.000", "spawnAlt": 19000, "flown_route": "$"}
         }
     ]
 }
