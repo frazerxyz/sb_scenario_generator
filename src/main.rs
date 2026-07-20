@@ -1,97 +1,15 @@
+mod aircraft;
+mod airport;
+mod controller;
+mod route;
+
+use crate::airport::Airport;
+use crate::airport::Hold;
+use crate::airport::Runway;
+use crate::controller::Controller;
+use crate::route::Route;
+
 use std::fs;
-
-struct Hold {
-    fix: String,
-    course: u16,
-    direction: i8,
-}
-
-impl Hold {
-    fn new(fix: &str, course: u16, direction: i8) -> Hold {
-        Hold {
-            fix: fix.to_string(),
-            course,
-            direction,
-        }
-    }
-}
-
-struct Runway {
-    number: String,
-    coords: String,
-}
-
-impl Runway {
-    fn new(number: &str, coords: &str) -> Runway {
-        Runway {
-            number: number.to_string(),
-            coords: coords.to_string(),
-        }
-    }
-}
-
-struct Route {
-    name: String,
-    route: String,
-}
-
-impl Route {
-    fn new(name: &str, route: &str) -> Route {
-        Route {
-            name: name.to_string(),
-            route: route.to_string(),
-        }
-    }
-}
-
-struct Controller {
-    callsign: String,
-    frequency: String,
-}
-
-impl Controller {
-    fn new(callsign: &str, frequency: &str) -> Controller {
-        Controller {
-            callsign: callsign.to_string(),
-            frequency: frequency.to_string(),
-        }
-    }
-}
-
-struct Airport {
-    icao: String,
-    altitude: f64,
-    runways: Vec<Runway>,
-    holds: Vec<Hold>,
-    routes: Vec<Route>,
-    controllers: Vec<Controller>,
-}
-
-impl Airport {
-    fn new(
-        icao: &str,
-        altitude: f64,
-        runways: Vec<Runway>,
-        holds: Vec<Hold>,
-        routes: Vec<Route>,
-        controllers: Vec<Controller>,
-    ) -> Airport {
-        Airport {
-            icao: icao.to_string(),
-            altitude,
-            runways,
-            holds,
-            routes,
-            controllers,
-        }
-    }
-}
-
-enum FlightType {
-    Departure,
-    Arrival,
-    Vfr
-}
 
 fn runways(r: &[Runway]) -> String {
     r.iter()
