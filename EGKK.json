@@ -1,0 +1,63 @@
+{
+    "icao": "EGKK",
+    "elevation": 203.0,
+    "runways": [
+        {"name": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "depSpawn": "N051.09.08.800:W000.09.32.300"},
+        {"name": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "depSpawn": "N051.08.38.700:W000.13.10.800"}
+    ],
+    "holds": [
+        {"fix": "TIMBA", "inbound": 308, "direction": "R"},
+        {"fix": "WILLO", "inbound": 283, "direction": "L"},
+        {"fix": "MAY", "inbound": 88, "direction": "L"},
+        {"fix": "GWC", "inbound": 174, "direction": "L"}
+    ],
+    "customRoutes": [
+        {"name": "26L LH", "route": "KK26LUC/1500 KK26LCD/1500 KK26LDB/1100 KK26LBF/800 ILS26L"},
+        {"name": "RNP 26L", "route": "OLEVI/3000 K26LF ILS26L"}
+    ],
+    "controllers": [
+        {"callsign": "EGKK_N_GND", "frequency": "121.540"},
+        {"callsign": "EGKK_APP", "frequency": "126.825"}
+    ],
+    "airlines": [
+        {"icao": "EZY", "terminal": [4,5,6], "types": ["A319", "A320", "A20N", "A21N"]},
+        {"icao": "EFW", "terminal": [1,2,3], "types": ["A320", "A321"]},
+        {"icao": "TOM", "terminal": [4,5,6], "types": ["B738", "B38M", "B788", "B789"]}
+    ],
+    "terminals": [
+        {"id": 1, "label": "Pier 1", "stands": [
+                {"id": 1, "coords": "51.15490556:-0.1641528", "bearing": 77.6}
+            ]
+        }
+    ],
+    "standardRoutes": [
+        {"name": "ADC_26L", "route": "WILLO/7000 MAY/3000 OLEVI K26LF ILS26L#VR"},
+        {"name": "VASUX1G", "route": "VASUX DISVO/13000 TELTU HOLLY KKS16 WILLO"},
+        {
+            "name": "DVR_DEP",
+            "route": [
+                {"runway": "26L", "route": ""}
+            ]
+        }
+    ],
+    "departureRoutes": [
+        {
+            "dest": "LEAL",
+            "callsigns": ["EFW1RF", "EFW7HH", "TOM5PT",  "TOM5DX", "RYR86HL", "EXS68M", "EZY31BD", "EZY61VT", "EZY36DH", "EZY32VA", "EZY45NK", "EZY74FX", "EZY17VD", "EZY87PQ", "VLG415M", "VLG2ZZ", "VLG317A"],
+            "types": ["A320", "A20N", "A321", "A21N", "B738", "B78M", "B788", "B789"],
+            "filedRoute": "SFD Y47 DRAKE L151 SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
+            "flownRoute": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO/17000 DRAKE/29000 SITET/37000 ETRAT"
+        }
+    ],
+    "arrivalRoutes": [
+        {
+            "dep": "EGJJ",
+            "callsigns": ["EZY45ZD", "EZY35YK", "EZY26WL", "EZY19HN", "EFW5JM", "EFW8CM", "EFW5BR"],
+            "types": ["A320, A319"],
+            "filedRoute": "ORIST L982 VASUX",
+            "ctrRoute": {"spawnCoords": "N049.15.45.900:W002.02.38.300", "spawnAlt": 5000, "flownRoute": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
+            "appRoute": {"spawnCoords": "N050.30.09.200:W001.15.17.000", "spawnAlt": 19000, "flownRoute": "ROXOG/19000 $VASUX1G"},
+            "adcRoute": {"spawnCoords": "N050.53.12.000:W000.05.42.000", "spawnAlt": 19000, "flownRoute": "$"}
+        }
+    ]
+}
