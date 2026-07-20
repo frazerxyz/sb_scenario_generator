@@ -1,6 +1,6 @@
 {
     "icao": "EGKK",
-    "elevation": 203.0,
+    "elevation": 203,
     "runways": [
         {"designator": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "dep_spawn": "N051.09.08.800:W000.09.32.300"},
         {"designator": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "dep_spawn": "N051.08.38.700:W000.13.10.800"}
@@ -11,13 +11,13 @@
         {"fix": "MAY", "inbound": 88, "direction": "L"},
         {"fix": "GWC", "inbound": 174, "direction": "L"}
     ],
-    "customRoutes": [
+    "custom_routes": [
         {"name": "26L LH", "route": "KK26LUC/1500 KK26LCD/1500 KK26LDB/1100 KK26LBF/800 ILS26L"},
         {"name": "RNP 26L", "route": "OLEVI/3000 K26LF ILS26L"}
     ],
     "controllers": [
-        {"callsign": "EGKK_N_GND", "frequency": "121.540"},
-        {"callsign": "EGKK_APP", "frequency": "126.825"}
+        {"callsign": "EGKK_N_GND", "frequency": 121.540},
+        {"callsign": "EGKK_APP", "frequency": 126.825}
     ],
     "airlines": [
         {"icao": "EZY", "terminal": [4,5,6], "types": ["A319", "A320", "A20N", "A21N"]},
@@ -32,9 +32,10 @@
     ],
     "standard_routes": [
         {
-            "name": "DVR_DEP",
+            "name": "dvr_dep",
             "route": [
-                {"runway": "26L", "route": ""}
+                {"runway": "26L", "filed_route": "", "flown_route": ""},
+                {"runway": "08R", "filed_route": "", "flown_route": ""}
             ]
         }
     ],
@@ -53,9 +54,9 @@
             "callsigns": ["EZY45ZD", "EZY35YK", "EZY26WL", "EZY19HN", "EFW5JM", "EFW8CM", "EFW5BR"],
             "types": ["A320", "A319"],
             "filed_route": "ORIST L982 VASUX",
-            "ctr_route": {"spawn_coords": "N049.15.45.900:W002.02.38.300", "spawnAlt": 5000, "flown_route": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
-            "app_route": {"spawn_coords": "N050.30.09.200:W001.15.17.000", "spawnAlt": 19000, "flown_route": "ROXOG/19000 $VASUX1G"},
-            "adc_route": {"spawn_coords": "N050.53.12.000:W000.05.42.000", "spawnAlt": 19000, "flown_route": "$"}
+            "ctr_route": {"spawn_coords": "N049.15.45.900:W002.02.38.300", "spawn_alt": 5000, "flown_route": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
+            "app_route": {"spawn_coords": "N050.30.09.200:W001.15.17.000", "spawn_alt": 19000, "flown_route": "ROXOG/19000 $VASUX1G"},
+            "adc_route": {"spawn_coords": "N050.53.12.000:W000.05.42.000", "spawn_alt": 19000, "flown_route": "$"}
         }
     ]
 }

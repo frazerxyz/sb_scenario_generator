@@ -1,91 +1,14 @@
-mod aircraft;
-mod airport;
-mod controller;
-mod route;
+mod airport_parser;
 
-use crate::airport::Airport;
-use crate::airport::Hold;
-use crate::airport::Runway;
-use crate::controller::Controller;
-use crate::route::Route;
-
+use airport_parser::Airport;
 use std::fs;
 
-fn runways(r: &[Runway]) -> String {
-    r.iter()
-        .map(|r| format!("ILS{}:{}", r.number, r.coords))
-        .collect::<Vec<_>>()
-        .join("\n")
-}
-
-fn holds(h: &[Hold]) -> String {
-    h.iter()
-        .map(|h| format!("HOLDING:{}:{}:{}", h.fix, h.course, h.direction))
-        .collect::<Vec<_>>()
-        .join("\n")
-}
-
-fn routes(r: &[Route]) -> String {
-    r.iter()
-        .map(|r| format!("ROUTE:{}:{}", r.name, r.route))
-        .collect::<Vec<_>>()
-        .join("\n")
-}
-
-fn controllers(c: &[Controller]) -> String {
-    c.iter()
-        .map(|c| format!("PSEUDOPILOT:ALL\nCONTROLLER:{}:{}", c.callsign, c.frequency))
-        .collect::<Vec<_>>()
-        .join("\n")
-}
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let user_runways = vec![
-        Runway::new("26L", "51.1515041:-0.1660353:51.1458769:-0.2067485"),
-        Runway::new("08R", "51.1451795:-0.2120965:51.1514852:-0.1659789"),
-    ];
+    let json = fs::read_to_string("data/EGKK.json")?;
 
-    let user_holds: Vec<Hold> = vec![
-        Hold::new("TIMBA", 308, 1),
-        Hold::new("WILLO", 283, -1),
-        Hold::new("MAY", 88, -1),
-    ];
+    let a: Airport = serde_json::from_str(&json)?;
 
-    let user_routes: Vec<Route> = vec![
-        Route::new(
-            "VFR Left Hand",
-            "KK26LUC/1500 KK26LCD/1500 KK26LDB/1100 KK26LBF/800 ILS26L",
-        ),
-        Route::new("RNP26L", "OLEVI/3000 K26LF ILS26L"),
-    ];
-
-    let user_controllers: Vec<Controller> = vec![
-        Controller::new("EGKK_N_GND", "121.540"),
-        Controller::new("EGKK_APP", "126.825"),
-        Controller::new("LTC_S_CTR", "134.125"),
-    ];
-
-    let a = Airport::new(
-        "EGKK",
-        202.0,
-        user_runways,
-        user_holds,
-        user_routes,
-        user_controllers,
-    );
-
-    let output: String = format!(
-        "PSEUDOPILOT:ALL\n\nAIRPORT_ALT:{:.1}\n\n{}\n\n{}\n\n{}\n\n{}",
-        a.altitude,
-        runways(&a.runways),
-        holds(&a.holds),
-        routes(&a.routes),
-        controllers(&a.controllers)
-    );
-
-    fs::write("output.txt", output)?;
-
-    println!("Generated sweatbox scenario file for {}", a.icao);
+    println!("{:#?}", a);
 
     Ok(())
 }
