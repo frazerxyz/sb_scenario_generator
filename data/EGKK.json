@@ -1,6 +1,6 @@
 {
     "icao": "EGKK",
-    "elevation": 203,
+    "elevation": 203.2,
     "runways": [
         {"designator": "08R", "threshold": "51.1451795:-0.2120965", "track": 77.6, "dep_spawn": "N051.09.08.800:W000.09.32.300"},
         {"designator": "26L", "threshold": "51.1515041:-0.1660353", "track": 257.6, "dep_spawn": "N051.08.38.700:W000.13.10.800"}

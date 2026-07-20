@@ -84,7 +84,7 @@ pub struct DepartureRoute {
     pub callsigns: Vec<String>,
     pub types: Vec<String>,
     pub filed_route: String,
-    pub lown_route: Option<String>,
+    pub flown_route: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -108,7 +108,7 @@ pub struct ArrivalRoute {
 #[derive(Debug, Deserialize)]
 pub struct Airport {
     icao: String,
-    elevation: u32,
+    elevation: f32,
     runways: Vec<Runway>,
     holds: Vec<Hold>,
     custom_routes: Vec<CustomRoute>,
