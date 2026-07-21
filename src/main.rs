@@ -1,6 +1,9 @@
-mod airport_parser;
+mod airport;
+mod global;
+mod aircraft;
+mod apc;
 
-use airport_parser::Airport;
+use airport::Airport;
 use std::fs;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -8,7 +11,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let a: Airport = serde_json::from_str(&json)?;
 
-    println!("{:#?}", a);
+    // println!("{:#?}", a);
+
+    println!("{}\n", Airport::format_elevation(&a));
+    println!("{}\n", Airport::format_runways(&a));
+    println!("{}\n", Airport::format_holds(&a));
 
     Ok(())
 }

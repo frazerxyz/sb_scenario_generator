@@ -1,3 +1,5 @@
+use std::fmt::format;
+
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
@@ -12,6 +14,15 @@ pub struct Runway {
 pub enum Direction {
     L,
     R,
+}
+
+impl Direction {
+    pub fn to_i8(&self) -> i8 {
+        match self {
+            Direction::L => -1,
+            Direction::R => 1,
+        }
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -118,4 +129,38 @@ pub struct Airport {
     standard_routes: Vec<StandardRoute>,
     departure_routes: Vec<DepartureRoute>,
     arrival_routes: Vec<ArrivalRoute>,
+}
+
+impl Airport {
+    pub fn format_elevation(&self) -> String {
+        format!("AIRPORT_ALT:{:.1}", self.elevation)
+    }
+    pub fn format_holds(&self) -> String {
+        self.holds
+            .iter()
+            .map(|h| format!("HOLDING:{}:{}:{}", h.fix, h.inbound, h.direction.to_i8()))
+            .collect::<Vec<_>>()
+            .join("\n")
+    }
+    pub fn format_runways(&self) -> String {
+        self.runways
+            .iter()
+            .map(|r| format!("ILS{}:{}:{}", r.designator, r.threshold, r.track))
+            .collect::<Vec<_>>()
+            .join("\n")
+    }
+    pub fn format_custom_routes(&self) -> String {
+        self.custom_routes
+            .iter()
+            .map(|r| format!("ROUTE:{}:{}", r.name, r.route))
+            .collect::<Vec<_>>()
+            .join("\n")
+    }
+    pub fn format_controllers(&self) -> String {
+        self.controllers
+            .iter()
+            .map(|c| format!("PSEUDOPILOT:ALL\nCONTROLLER:{}:{}", c.callsign, c.frequency))
+            .collect::<Vec<_>>()
+            .join("\n")
+    }
 }
