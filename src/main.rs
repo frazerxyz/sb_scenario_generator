@@ -1,21 +1,33 @@
 mod aircraft;
 mod airport;
-mod apc;
+mod generator;
 mod global;
 
 use airport::Airport;
+use dialoguer::{Select, theme::ColorfulTheme};
+use generator::SessionType;
 use std::fs;
 
+use crate::generator::generate_app;
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let json = fs::read_to_string("data/EGKK.json")?;
+    let session_types = &[SessionType::Adc, SessionType::App, SessionType::Ctr];
 
-    let a: Airport = serde_json::from_str(&json)?;
+    let scenario = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select scenario type")
+        .default(1)
+        .items(&session_types[..])
+        .interact()?;
 
-    // println!("{:#?}", a);
+    match session_types[scenario] {
+        SessionType::Adc => println!("ADC not supported yet"),
+        SessionType::App => generate_app(),
+        SessionType::Ctr => println!("CTR not supported yet"),
+    }
 
-    println!("{}\n", Airport::format_elevation(&a));
-    println!("{}\n", Airport::format_runways(&a));
-    println!("{}\n", Airport::format_holds(&a));
+    let json = fs::read_to_string("data/airports/EGKK.json")?;
+
+    let _a: Airport = serde_json::from_str(&json)?;
 
     Ok(())
 }

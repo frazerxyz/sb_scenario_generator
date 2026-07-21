@@ -116,17 +116,17 @@ pub struct ArrivalRoute {
 
 #[derive(Debug, Deserialize)]
 pub struct Airport {
-    icao: String,
-    elevation: f32,
-    runways: Vec<Runway>,
-    holds: Vec<Hold>,
-    custom_routes: Vec<CustomRoute>,
-    controllers: Vec<Controller>,
-    airlines: Vec<Airline>,
-    terminals: Vec<Terminal>,
-    standard_routes: Vec<StandardRoute>,
-    departure_routes: Vec<DepartureRoute>,
-    arrival_routes: Vec<ArrivalRoute>,
+    pub icao: String,
+    pub elevation: f32,
+    pub runways: Vec<Runway>,
+    pub holds: Vec<Hold>,
+    pub custom_routes: Vec<CustomRoute>,
+    pub controllers: Vec<Controller>,
+    pub airlines: Vec<Airline>,
+    pub terminals: Vec<Terminal>,
+    pub standard_routes: Vec<StandardRoute>,
+    pub departure_routes: Vec<DepartureRoute>,
+    pub arrival_routes: Vec<ArrivalRoute>,
 }
 
 impl Airport {
@@ -157,7 +157,7 @@ impl Airport {
     pub fn format_controllers(&self) -> String {
         self.controllers
             .iter()
-            .map(|c| format!("PSEUDOPILOT:ALL\nCONTROLLER:{}:{}", c.callsign, c.frequency))
+            .map(|c| format!("PSEUDOPILOT:ALL\nCONTROLLER:{}:{:.3}", c.callsign, c.frequency))
             .collect::<Vec<_>>()
             .join("\n")
     }
