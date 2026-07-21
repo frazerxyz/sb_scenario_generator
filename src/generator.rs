@@ -58,7 +58,8 @@ pub fn write_output(
     scenario_name: String,
 ) -> Result<(), Box<dyn std::error::Error>> {
     let file_name = format!("{scenario_name}.txt");
-    fs::write(file_name, output)?;
+    fs::write(&file_name, output)?;
+    println!("\nFile written to {}", &file_name);
     Ok(())
 }
 

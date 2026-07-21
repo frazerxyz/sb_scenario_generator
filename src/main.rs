@@ -3,10 +3,21 @@ mod airport;
 mod generator;
 mod global;
 
+use std::io::{self, Write};
+
 use dialoguer::{Select, theme::ColorfulTheme};
 use generator::SessionType;
 
 use crate::generator::generate_app;
+
+
+fn press_enter_to_exit() {
+    print!("Press Enter to exit...");
+    io::stdout().flush().unwrap();
+
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
+}
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let session_types = &[SessionType::Adc, SessionType::App, SessionType::Ctr];
@@ -22,6 +33,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         SessionType::App => generate_app(),
         SessionType::Ctr => println!("CTR not supported yet"),
     }
+
+    press_enter_to_exit();
 
     Ok(())
 }
