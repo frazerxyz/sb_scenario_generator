@@ -1,7 +1,7 @@
-mod airport;
-mod global;
 mod aircraft;
+mod airport;
 mod apc;
+mod global;
 
 use airport::Airport;
 use std::fs;

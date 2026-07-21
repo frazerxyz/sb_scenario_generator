@@ -1,5 +1,3 @@
-use std::fmt::format;
-
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
