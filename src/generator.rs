@@ -50,6 +50,7 @@ pub struct AppConfig {
     dep_rate: u8,
     arr_rate: u8,
     ramp_time: Option<u8>,
+    name: String,
 }
 
 pub fn app_wizard() -> AppConfig {
@@ -87,11 +88,18 @@ pub fn app_wizard() -> AppConfig {
     } else {
         None
     };
+
+    let name = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Name this scenario")
+        .interact()
+        .expect(INPUT_ERROR);
+
     AppConfig {
         airport,
         dep_rate,
         arr_rate,
         ramp_time,
+        name,
     }
 }
 

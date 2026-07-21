@@ -157,7 +157,12 @@ impl Airport {
     pub fn format_controllers(&self) -> String {
         self.controllers
             .iter()
-            .map(|c| format!("PSEUDOPILOT:ALL\nCONTROLLER:{}:{:.3}", c.callsign, c.frequency))
+            .map(|c| {
+                format!(
+                    "PSEUDOPILOT:ALL\nCONTROLLER:{}:{:.3}",
+                    c.callsign, c.frequency
+                )
+            })
             .collect::<Vec<_>>()
             .join("\n")
     }
