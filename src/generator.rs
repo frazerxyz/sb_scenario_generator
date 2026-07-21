@@ -53,6 +53,15 @@ pub struct AppConfig {
     name: String,
 }
 
+pub fn write_output(
+    output: String,
+    scenario_name: String,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let file_name = format!("{scenario_name}.txt");
+    fs::write(file_name, output)?;
+    Ok(())
+}
+
 pub fn app_wizard() -> AppConfig {
     let airport_configs = get_airport_configs();
 
@@ -107,5 +116,17 @@ pub fn generate_app() {
     let config = app_wizard();
     let airport = &config.airport;
 
-    println!("Airport details:\n{:#?}", &airport)
+    let output: String = format!(
+        "PSEUDOPILOT:ALL\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}",
+        airport.format_elevation(),
+        airport.format_runways(),
+        airport.format_holds(),
+        airport.format_custom_routes(),
+        airport.format_controllers()
+    );
+
+    match write_output(output, config.name) {
+        Ok(()) => (),
+        Err(e) => println!("We couldn't write the file\n\n{e}"),
+    }
 }

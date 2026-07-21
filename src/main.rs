@@ -22,5 +22,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         SessionType::App => generate_app(),
         SessionType::Ctr => println!("CTR not supported yet"),
     }
+
     Ok(())
 }
