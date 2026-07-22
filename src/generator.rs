@@ -132,33 +132,6 @@ pub fn app_wizard() -> AppConfig {
     }
 }
 
-pub struct Departure {
-    pub dest: String,
-    pub callsign: String,
-    pub aircraft_type: String,
-    pub filed_route: String,
-    pub flown_route: String,
-}
-
-pub struct DeparturePool {
-    pub available: Vec<Departure>,
-}
-
-impl DeparturePool {
-    fn new(rng: &mut impl rand::Rng, departures: Vec<Departure>) -> DeparturePool {
-        let mut available = departures;
-        available.shuffle(rng);
-        DeparturePool { available }
-    }
-
-    fn allocate(&mut self) -> Option<Departure> {
-        self.available.pop()
-    }
-}
-
-pub fn radar_departures(config: &AppConfig) {
-    
-}
 
 pub fn generate_app() {
     let config = app_wizard();
@@ -177,6 +150,4 @@ pub fn generate_app() {
         Ok(()) => (),
         Err(e) => println!("We couldn't write the file\n\n{e}"),
     }
-
-    println!("{:#?}", airport.standard_routes);
 }
