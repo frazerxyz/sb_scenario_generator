@@ -33,9 +33,14 @@
     "standard_routes": [
         {
             "name": "dvr_dep",
-            "route": [
-                {"runway": "26L", "filed_route": "", "flown_route": ""},
-                {"runway": "08R", "filed_route": "", "flown_route": ""}
+            "routes": [
+                {"runway": "26L", "filed_route": "26L DVR DEP FILED", "flown_route": "26L DVR DEP FLOWN"},
+                {"runway": "08R", "filed_route": "08R DVR DEP FILED", "flown_route": "08R DVR DEP FLOWN"}
+            ]
+        },{
+            "name": "VASUX1G",
+            "routes": [
+                {"filed_route": "VASUX FILED", "flown_route": "VASUX FLOWN"}
             ]
         }
     ],
