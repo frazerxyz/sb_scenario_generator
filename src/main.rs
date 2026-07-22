@@ -2,6 +2,7 @@ mod aircraft;
 mod airport;
 mod generator;
 mod global;
+mod route_parser;
 
 use std::io::{self, Write};
 
@@ -10,13 +11,18 @@ use generator::SessionType;
 
 use crate::generator::generate_app;
 
-
 fn press_enter_to_exit() {
     print!("Press Enter to exit...");
     io::stdout().flush().unwrap();
 
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
+}
+
+pub fn config_error(message: &str) -> ! {
+    eprintln!("\nConfig error: {message}");
+    press_enter_to_exit();
+    std::process::exit(1)
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -29,9 +35,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .interact()?;
 
     match session_types[scenario] {
-        SessionType::Adc => println!("ADC not supported yet"),
+        SessionType::Adc => todo!("Write ADC generator"),
         SessionType::App => generate_app(),
-        SessionType::Ctr => println!("CTR not supported yet"),
+        SessionType::Ctr => todo!("Write CTR generator"),
     }
 
     press_enter_to_exit();

@@ -1,4 +1,8 @@
+use core::fmt;
+
 use serde::Deserialize;
+
+use crate::route_parser::RouteType::{self, Filed, Flown};
 
 #[derive(Debug, Deserialize)]
 pub struct Runway {
@@ -6,6 +10,12 @@ pub struct Runway {
     pub threshold: String,
     pub track: f32,
     pub dep_spawn: String,
+}
+
+impl fmt::Display for Runway {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.designator)
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -46,7 +56,6 @@ pub struct Controller {
 pub struct Airline {
     pub icao: String,
     pub terminal: Vec<u8>,
-    pub types: Vec<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -75,16 +84,25 @@ pub struct Terminal {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct RunwayRoute {
+pub struct RouteEntry {
     pub runway: Option<String>,
     pub filed_route: String,
-    pub flown_route: Option<String>,
+    pub flown_route: String,
+}
+
+impl RouteEntry {
+    pub fn route(&self, route_type: &RouteType) -> &str {
+        match route_type {
+            Filed => &self.filed_route,
+            Flown => &self.flown_route,
+        }
+    }
 }
 
 #[derive(Debug, Deserialize)]
 pub struct StandardRoute {
     pub name: String,
-    pub route: Vec<RunwayRoute>,
+    pub routes: Vec<RouteEntry>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -93,7 +111,7 @@ pub struct DepartureRoute {
     pub callsigns: Vec<String>,
     pub types: Vec<String>,
     pub filed_route: String,
-    pub flown_route: Option<String>,
+    pub flown_route: String,
 }
 
 #[derive(Debug, Deserialize)]

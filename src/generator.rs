@@ -1,8 +1,9 @@
 use core::fmt;
 use dialoguer::{Confirm, Input, Select, theme::ColorfulTheme};
+use rand::seq::SliceRandom;
 use std::fs;
 
-use crate::airport::Airport;
+use crate::airport::{Airport, DepartureRoute, Runway};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum SessionType {
@@ -47,8 +48,10 @@ pub fn airport_from_json(path: &str) -> Airport {
 
 pub struct AppConfig {
     airport: Airport,
+    selected_runway: usize,
     dep_rate: u8,
     arr_rate: u8,
+    duration: u8,
     ramp_time: Option<u8>,
     name: String,
 }
@@ -75,13 +78,27 @@ pub fn app_wizard() -> AppConfig {
 
     let airport = airport_from_json(&format!("data/airports/{}", airport_configs[selection]));
 
+    let runways = &airport.runways;
+
+    let runway_index = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select runway")
+        .default(0)
+        .items(runways)
+        .interact()
+        .expect(INPUT_ERROR);
+
     let dep_rate = Input::with_theme(&ColorfulTheme::default())
-        .with_prompt("Select departure rate (aircraft per hour)")
+        .with_prompt("Enter departure rate (aircraft per hour)")
         .interact()
         .expect(INPUT_ERROR);
 
     let arr_rate = Input::with_theme(&ColorfulTheme::default())
-        .with_prompt("Select arrival rate (aircraft per hour)")
+        .with_prompt("Enter arrival rate (aircraft per hour)")
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let duration = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter session duration in minutes")
         .interact()
         .expect(INPUT_ERROR);
 
@@ -91,7 +108,7 @@ pub fn app_wizard() -> AppConfig {
         .expect(INPUT_ERROR)
     {
         let ramp = Input::with_theme(&ColorfulTheme::default())
-            .with_prompt("Specify ramp time in minutes")
+            .with_prompt("Enter ramp time in minutes")
             .interact()
             .expect(INPUT_ERROR);
         Some(ramp)
@@ -106,10 +123,36 @@ pub fn app_wizard() -> AppConfig {
 
     AppConfig {
         airport,
+        selected_runway: runway_index,
         dep_rate,
         arr_rate,
+        duration,
         ramp_time,
         name,
+    }
+}
+
+pub struct Departure {
+    pub dest: String,
+    pub callsign: String,
+    pub aircraft_type: String,
+    pub filed_route: String,
+    pub flown_route: String,
+}
+
+pub struct DeparturePool {
+    pub available: Vec<Departure>,
+}
+
+impl DeparturePool {
+    fn new(rng: &mut impl rand::Rng, departures: Vec<Departure>) -> DeparturePool {
+        let mut available = departures;
+        available.shuffle(rng);
+        DeparturePool { available }
+    }
+
+    fn allocate(&mut self) -> Option<Departure> {
+        self.available.pop()
     }
 }
 
@@ -130,4 +173,6 @@ pub fn generate_app() {
         Ok(()) => (),
         Err(e) => println!("We couldn't write the file\n\n{e}"),
     }
+
+    println!("{:#?}", airport.standard_routes);
 }
