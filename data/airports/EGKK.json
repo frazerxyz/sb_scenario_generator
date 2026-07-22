@@ -20,9 +20,9 @@
         {"callsign": "EGKK_APP", "frequency": 126.825}
     ],
     "airlines": [
-        {"icao": "EZY", "terminal": [4,5,6], "types": ["A319", "A320", "A20N", "A21N"]},
-        {"icao": "EFW", "terminal": [1,2,3], "types": ["A320", "A321"]},
-        {"icao": "TOM", "terminal": [4,5,6], "types": ["B738", "B38M", "B788", "B789"]}
+        {"icao": "EZY", "terminal": [4,5,6]},
+        {"icao": "EFW", "terminal": [1,2,3]},
+        {"icao": "TOM", "terminal": [4,5,6]}
     ],
     "terminals": [
         {"id": 1, "label": "Pier 1", "stands": [
