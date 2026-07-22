@@ -1,9 +1,18 @@
 use core::fmt;
 use dialoguer::{Confirm, Input, Select, theme::ColorfulTheme};
-use rand::seq::SliceRandom;
+use rand::{
+    rng,
+    seq::{IndexedRandom, SliceRandom},
+};
 use std::fs;
 
-use crate::airport::{Airport, DepartureRoute, Runway};
+use crate::{
+    airport::{Airport, DepartureRoute, Runway},
+    route_parser::{
+        RouteType::{Filed, Flown},
+        route_parser,
+    },
+};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum SessionType {
@@ -54,6 +63,12 @@ pub struct AppConfig {
     duration: u8,
     ramp_time: Option<u8>,
     name: String,
+}
+
+impl AppConfig {
+    pub fn runway(&self) -> &Runway {
+        &self.airport.runways[self.selected_runway]
+    }
 }
 
 pub fn write_output(
@@ -132,6 +147,53 @@ pub fn app_wizard() -> AppConfig {
     }
 }
 
+#[derive(Debug)]
+pub struct StagedAircraft {
+    pub callsign: String,
+    pub outstation: String,
+    pub aircraft_type: String,
+    pub filed_route: String,
+    pub flown_route: String,
+}
+
+pub fn app_departures(
+    departure_routes: &[DepartureRoute],
+    config: &AppConfig,
+) -> Vec<StagedAircraft> {
+    let mut out = Vec::new();
+
+    for route in departure_routes {
+        for c in &route.callsigns {
+            let callsign = c.to_string();
+            let outstation = route.dest.to_string();
+            let aircraft_type = &route
+                .types
+                .choose(&mut rng())
+                .expect("No aircraft type provided for one or more routes");
+            let filed_route = route_parser(
+                &route.filed_route,
+                &config.airport.standard_routes,
+                &config.runway().designator,
+                &Filed,
+            );
+            let flown_route = route_parser(
+                &route.flown_route,
+                &config.airport.standard_routes,
+                &config.runway().to_string(),
+                &Flown,
+            );
+
+            out.push(StagedAircraft {
+                callsign,
+                outstation,
+                aircraft_type: aircraft_type.to_string(),
+                filed_route,
+                flown_route,
+            });
+        }
+    }
+    out
+}
 
 pub fn generate_app() {
     let config = app_wizard();
@@ -145,6 +207,8 @@ pub fn generate_app() {
         airport.format_custom_routes(),
         airport.format_controllers()
     );
+
+    println!("{:#?}", app_departures(&config.airport.departure_routes, &config));
 
     match write_output(output, config.name) {
         Ok(()) => (),
