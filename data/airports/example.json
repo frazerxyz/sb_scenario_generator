@@ -1,0 +1,119 @@
+{
+    "icao": "EGXX",
+    "elevation": 100.0,
+    "runways": [
+        {"designator": "09L", "threshold": "51.5000000:-0.5000000", "track": 92.5, "dep_spawn": "N051.30.00.000:W000.30.00.000"},
+        {"designator": "27R", "threshold": "51.5100000:-0.4500000", "track": 272.5, "dep_spawn": "N051.30.36.000:W000.27.00.000"}
+    ],
+    "holds": [
+        {"fix": "ALPHA", "inbound": 90, "direction": "R"},
+        {"fix": "BRAVO", "inbound": 270, "direction": "L"},
+        {"fix": "CHARL", "inbound": 180, "direction": "R"}
+    ],
+    "custom_routes": [
+        {"name": "09L LH", "route": "XX09LUC/1500 XX09LCD/1500 XX09LDB/1100 XX09LBF/800 ILS09L"},
+        {"name": "RNP 27R", "route": "XXOLE/3000 X27RF ILS27R"}
+    ],
+    "controllers": [
+        {"callsign": "EGXX_GND", "frequency": 121.700},
+        {"callsign": "EGXX_TWR", "frequency": 118.500},
+        {"callsign": "EGXX_APP", "frequency": 127.250}
+    ],
+    "airlines": [
+        {"icao": "AAA", "terminal": [1]},
+        {"icao": "BBB", "terminal": [2]},
+        {"icao": "CCC", "terminal": [1,2]}
+    ],
+    "terminals": [
+        {"id": 1, "label": "Terminal One", "stands": [
+                {"id": 11, "coords": "51.5020000:-0.4980000", "bearing": 90.0, "max_size": "C"},
+                {"id": 12, "coords": "51.5021000:-0.4979000", "bearing": 90.0, "max_size": "E"}
+            ]
+        },
+        {"id": 2, "label": "Terminal Two", "stands": [
+                {"id": 21, "coords": "51.5030000:-0.4960000", "bearing": 270.0, "max_size": "F"},
+                {"id": 22, "coords": "51.5031000:-0.4959000", "bearing": 270.0, "max_size": "A"}
+            ]
+        }
+    ],
+    "standard_routes": [
+        {
+            "name": "north_dep",
+            "routes": [
+                {"runway": "09L", "filed_route": "09L NORTH DEP FILED", "flown_route": "09L NORTH DEP FLOWN"},
+                {"runway": "27R", "filed_route": "27R NORTH DEP FILED", "flown_route": "27R NORTH DEP FLOWN"}
+            ]
+        },
+        {
+            "name": "south_dep",
+            "routes": [
+                {"runway": "09L", "filed_route": "09L SOUTH DEP FILED", "flown_route": "09L SOUTH DEP FLOWN"},
+                {"runway": "27R", "filed_route": "27R SOUTH DEP FILED", "flown_route": "27R SOUTH DEP FLOWN"}
+            ]
+        },
+        {
+            "name": "ALPHA1A",
+            "routes": [
+                {"filed_route": "ALPHA1A ANYRWY FILED", "flown_route": "ALPHA1A ANYRWY FLOWN"}
+            ]
+        },
+        {
+            "name": "BRAVO2B",
+            "routes": [
+                {"filed_route": "BRAVO2B ANYRWY FILED", "flown_route": "BRAVO2B ANYRWY FLOWN"}
+            ]
+        }
+    ],
+    "departure_routes": [
+        {
+            "callsigns": ["AAA101", "AAA202"],
+            "dest": "EGYY",
+            "types": ["A320", "A20N"],
+            "filed_route": "$north_dep UPPER AIRWAY DEST",
+            "flown_route": "XXD01/5000 $north_dep CRUISE/33000"
+        },
+        {
+            "callsigns": ["BBB303", "BBB404", "BBB505"],
+            "dest": "EGZZ",
+            "types": ["B738"],
+            "filed_route": "$south_dep OTHER AIRWAY DEST",
+            "flown_route": "XXD02/5000 $south_dep CRUISE/29000"
+        },
+        {
+            "callsigns": ["CCC606"],
+            "dest": "LFXX",
+            "types": ["A319", "A321"],
+            "filed_route": "PLAIN ROUTE NO EXPANSION",
+            "flown_route": "XXD03/4000 PLAIN ROUTE CRUISE/37000"
+        }
+    ],
+    "arrival_routes": [
+        {
+            "callsigns": ["AAA111", "AAA222", "AAA333"],
+            "dep": "EGYY",
+            "types": ["A320", "A20N"],
+            "filed_route": "ORIGIN AIRWAY $ALPHA1A",
+            "ctr_route": {"spawn_coords": "N052.00.00.000:W001.00.00.000", "spawn_alt": 24000, "flown_route": "FAR/24000 $ALPHA1A ALPHA"},
+            "app_route": {"spawn_coords": "N051.45.00.000:W000.50.00.000", "spawn_alt": 15000, "flown_route": "MID/15000 $ALPHA1A"},
+            "adc_route": {"spawn_coords": "N051.35.00.000:W000.40.00.000", "spawn_alt": 7000, "flown_route": "NEAR/7000 ILS09L"}
+        },
+        {
+            "callsigns": ["BBB777", "BBB888"],
+            "dep": "EGZZ",
+            "types": ["B738", "B38M"],
+            "filed_route": "ORIGIN AIRWAY $BRAVO2B",
+            "ctr_route": {"spawn_coords": "N051.00.00.000:E000.30.00.000", "spawn_alt": 22000, "flown_route": "FAR2/22000 $BRAVO2B BRAVO"},
+            "app_route": {"spawn_coords": "N051.20.00.000:E000.10.00.000", "spawn_alt": 14000, "flown_route": "MID2/14000 $BRAVO2B"},
+            "adc_route": {"spawn_coords": "N051.30.00.000:W000.20.00.000", "spawn_alt": 8000, "flown_route": "NEAR2/8000 ILS27R"}
+        },
+        {
+            "callsigns": ["CCC999"],
+            "dep": "LFXX",
+            "types": ["A319"],
+            "filed_route": "ORIGIN AIRWAY DIRECT",
+            "ctr_route": {"spawn_coords": "N050.30.00.000:W000.45.00.000", "spawn_alt": 20000, "flown_route": "SOUTH/20000 CHARL"},
+            "app_route": null,
+            "adc_route": null
+        }
+    ]
+}

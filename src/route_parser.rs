@@ -1,5 +1,7 @@
 use crate::{
-    airport::{RouteEntry, StandardRoute}, config_error, route_parser::RouteType::Filed,
+    airport::{RouteEntry, StandardRoute},
+    config_error,
+    route_parser::RouteType::Filed,
 };
 
 pub enum RouteType {
@@ -25,15 +27,12 @@ pub fn find_runway_route(
     runway: &str,
     route_type: &RouteType,
 ) -> String {
-    match route_entries
-        .iter()
-        .find(|e| match &e.runway {
-            None => true,
-            Some(r) => r == runway
-        })
-    {
+    match route_entries.iter().find(|e| match &e.runway {
+        None => true,
+        Some(r) => r == runway,
+    }) {
         Some(r) => r.route(route_type).to_string(),
-        None => config_error(&format!("Config error for standard route")),
+        None => config_error(&format!("standard route could not be found for {runway}")),
     }
 }
 

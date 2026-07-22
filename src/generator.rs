@@ -156,6 +156,10 @@ impl DeparturePool {
     }
 }
 
+pub fn radar_departures(config: &AppConfig) {
+    
+}
+
 pub fn generate_app() {
     let config = app_wizard();
     let airport = &config.airport;
