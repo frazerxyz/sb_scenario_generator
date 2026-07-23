@@ -4,7 +4,7 @@ use rand::{
     rng,
     seq::{IndexedRandom, SliceRandom},
 };
-use std::fs;
+use std::{fs};
 
 use crate::{
     aircraft::{
@@ -12,10 +12,7 @@ use crate::{
         FlightRule::I,
         FlightType::{Arrival, Departure},
         assign_squawks,
-    },
-    airport::{Airport, ArrivalRoute, DepartureRoute, PositionRoute, Runway},
-    generator::SessionType::{Adc, App, Ctr},
-    route_parser::{
+    }, airport::{Airport, ArrivalRoute, DepartureRoute, PositionRoute, Runway}, generator::SessionType::{Adc, App, Ctr}, press_enter_to_exit, route_parser::{
         RouteType::{Filed, Flown},
         route_parser,
     },
@@ -41,6 +38,35 @@ impl fmt::Display for SessionType {
 
 static FILE_ERROR: &str = "File I/O error";
 static INPUT_ERROR: &str = "Input error";
+
+pub fn check_file(file_name: &str) {
+    match fs::exists(&file_name) {
+        Ok(true) => {
+            if !Confirm::with_theme(&ColorfulTheme::default())
+                .with_prompt(format!("{} already exists, overwrite?", &file_name))
+                .interact()
+                .expect(INPUT_ERROR)
+            {
+                println!("Aborting");
+                press_enter_to_exit();
+                std::process::exit(0)
+            }
+        },
+        Ok(false) => (),
+        Err(e) => println!("Error checking if file exists: {e}")
+    }
+}
+
+pub fn write_output(
+    output: String,
+    scenario_name: String,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let file_name = format!("{scenario_name}.txt");
+    check_file(&file_name);
+    fs::write(&file_name, output)?;
+    println!("\nFile written to {}", &file_name);
+    Ok(())
+}
 
 pub fn get_airport_configs() -> Vec<String> {
     let airport_config_folder = "data/airports";
@@ -77,16 +103,6 @@ impl AppConfig {
     pub fn runway(&self) -> &Runway {
         &self.airport.runways[self.selected_runway]
     }
-}
-
-pub fn write_output(
-    output: String,
-    scenario_name: String,
-) -> Result<(), Box<dyn std::error::Error>> {
-    let file_name = format!("{scenario_name}.txt");
-    fs::write(&file_name, output)?;
-    println!("\nFile written to {}", &file_name);
-    Ok(())
 }
 
 pub fn app_wizard() -> AppConfig {
