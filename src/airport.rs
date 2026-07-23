@@ -110,6 +110,7 @@ pub struct DepartureRoute {
     pub dest: String,
     pub callsigns: Vec<String>,
     pub types: Vec<String>,
+    pub rfl: u16,
     pub filed_route: String,
     pub flown_route: String,
 }
@@ -126,6 +127,7 @@ pub struct ArrivalRoute {
     pub dep: String,
     pub callsigns: Vec<String>,
     pub types: Vec<String>,
+    pub rfl: u16,
     pub filed_route: String,
     pub ctr_route: Option<PositionRoute>,
     pub app_route: Option<PositionRoute>,

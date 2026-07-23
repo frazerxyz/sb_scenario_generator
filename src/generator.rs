@@ -200,6 +200,7 @@ pub struct StagedAircraft {
     pub flown_route: String,
     pub spawn_coords: Option<String>,
     pub spawn_alt: Option<u16>,
+    pub rfl: u16,
 }
 
 pub fn spawn_timings(session_duration: f32, target_interval: f32, ramp: Option<u8>) -> Vec<u16> {
@@ -250,6 +251,7 @@ pub fn stage_app_departures(
                 &config.runway().designator,
                 &Flown,
             );
+            let rfl = route.rfl;
 
             out.push(StagedAircraft {
                 callsign,
@@ -259,6 +261,7 @@ pub fn stage_app_departures(
                 flown_route,
                 spawn_coords: None,
                 spawn_alt: None,
+                rfl,
             });
         }
     }
@@ -294,6 +297,7 @@ pub fn stage_app_arrivals(
                 );
                 let spawn_coords = Some(pos.spawn_coords.clone());
                 let spawn_alt = Some(pos.spawn_alt);
+                let rfl = route.rfl;
 
                 out.push(StagedAircraft {
                     callsign,
@@ -303,6 +307,7 @@ pub fn stage_app_arrivals(
                     flown_route,
                     spawn_coords,
                     spawn_alt,
+                    rfl,
                 });
             }
         }
@@ -337,7 +342,7 @@ pub fn app_arrivals(config: &AppConfig) -> Vec<Aircraft> {
             dest: config.airport.icao.clone(),
             filed_route: a.filed_route,
             tas: Some(250), //placeholder
-            rfl: None,
+            rfl: Some(a.rfl),
             flown_route: a.flown_route,
             start: *t,
             delay: None,
@@ -375,7 +380,7 @@ pub fn app_departures(config: &AppConfig) -> Vec<Aircraft> {
             dest: a.outstation,
             filed_route: a.filed_route,
             tas: Some(250), //placeholder
-            rfl: None,
+            rfl: Some(a.rfl),
             flown_route: a.flown_route,
             start: *t,
             delay: None,
