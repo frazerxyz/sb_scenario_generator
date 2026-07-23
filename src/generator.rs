@@ -336,7 +336,7 @@ pub fn app_arrivals(config: &AppConfig) -> Vec<Aircraft> {
             origin: a.outstation,
             dest: config.airport.icao.clone(),
             filed_route: a.filed_route,
-            tas: None,
+            tas: Some(250), //placeholder
             rfl: None,
             flown_route: a.flown_route,
             start: *t,
@@ -374,7 +374,7 @@ pub fn app_departures(config: &AppConfig) -> Vec<Aircraft> {
             origin: config.airport.icao.clone(),
             dest: a.outstation,
             filed_route: a.filed_route,
-            tas: None,
+            tas: Some(250), //placeholder
             rfl: None,
             flown_route: a.flown_route,
             start: *t,
