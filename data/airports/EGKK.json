@@ -50,6 +50,7 @@
             "callsigns": ["EFW1RF", "EFW7HH"],
             "dest": "LEAL",
             "types": ["A320", "A321"],
+            "rfl": 35000,
             "filed_route": "SFD Y47 DRAKE L151 SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
             "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO/17000 DRAKE/29000 SITET/37000 ETRAT"
         }
@@ -59,6 +60,7 @@
             "callsigns": ["EZY45ZD", "EZY35YK", "EZY26WL", "EZY19HN"],
             "dep": "EGJJ",
             "types": ["A320", "A319"],
+            "rfl": 23000,
             "filed_route": "ORIST L982 VASUX",
             "ctr_route": {"spawn_coords": "N049.15.45.900:W002.02.38.300", "spawn_alt": 5000, "flown_route": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
             "app_route": {"spawn_coords": "N050.30.09.200:W001.15.17.000", "spawn_alt": 19000, "flown_route": "ROXOG/19000 $VASUX1G"},
