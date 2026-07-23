@@ -58,8 +58,8 @@ pub fn airport_from_json(path: &str) -> Airport {
 pub struct AppConfig {
     airport: Airport,
     selected_runway: usize,
-    dep_rate: u8,
-    arr_rate: u8,
+    dep_interval: u8,
+    arr_interval: u8,
     duration: u8,
     ramp_time: Option<u8>,
     name: String,
@@ -102,13 +102,16 @@ pub fn app_wizard() -> AppConfig {
         .interact()
         .expect(INPUT_ERROR);
 
-    let dep_rate = Input::with_theme(&ColorfulTheme::default())
-        .with_prompt("Enter departure rate (aircraft per hour)")
+    let dep_interval = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter departure interval (aircraft every N minutes)")
+        .validate_with(|val: &u8 | -> Result<(), &str> {
+            if *val >= 2 { Ok(()) } else { Err("Departure interval must be at least 2 per minute")}
+        })
         .interact()
         .expect(INPUT_ERROR);
 
-    let arr_rate = Input::with_theme(&ColorfulTheme::default())
-        .with_prompt("Enter arrival rate (aircraft per hour)")
+    let arr_interval = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter arrival interval (aircraft every N minutes)")
         .interact()
         .expect(INPUT_ERROR);
 
@@ -139,8 +142,8 @@ pub fn app_wizard() -> AppConfig {
     AppConfig {
         airport,
         selected_runway: runway_index,
-        dep_rate,
-        arr_rate,
+        dep_interval,
+        arr_interval,
         duration,
         ramp_time,
         name,
@@ -155,6 +158,29 @@ pub struct StagedAircraft {
     pub filed_route: String,
     pub flown_route: String,
 }
+
+pub fn spawn_timings(session_duration: f32, target_interval: f32, ramp: Option<f32>) -> Vec<u16> {
+    let mut out: Vec<u16> = Vec::new();
+
+    let ramp_time = match ramp {
+        Some(s) => s,
+        None => 0.0,
+    };
+    let mut time: f32 = 0.0;
+
+    while time < session_duration {
+        if time < ramp_time as f32 {
+            out.push(time.round() as u16);
+            let gap = target_interval as f32 * (2.0 - time / ramp_time as f32);
+            time += gap
+        } else {
+            out.push(time.round() as u16);
+            time += target_interval
+        }
+    }
+    out
+}
+
 
 pub fn app_departures(
     departure_routes: &[DepartureRoute],
@@ -179,7 +205,7 @@ pub fn app_departures(
             let flown_route = route_parser(
                 &route.flown_route,
                 &config.airport.standard_routes,
-                &config.runway().to_string(),
+                &config.runway().designator,
                 &Flown,
             );
 
