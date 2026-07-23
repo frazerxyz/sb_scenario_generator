@@ -29,23 +29,23 @@ pub enum FlightType {
 }
 
 pub struct Aircraft {
-    flight_type: FlightType,
-    flight_rule: FlightRule,
-    callsign: String,
-    aircraft_type: String,
-    squawk: Option<u16>,
-    spawn_coords: String,
-    spawn_altitude: u16,
-    spawn_hdg: Option<u16>,
-    origin: String,
-    dest: String,
-    filed_route: String,
-    tas: Option<u16>,
-    rfl: Option<u16>,
-    flown_route: String,
-    start: u16,
-    delay: Option<[u16; 2]>,
-    initial_pseudo_pilot: String,
+    pub flight_type: FlightType,
+    pub flight_rule: FlightRule,
+    pub callsign: String,
+    pub aircraft_type: String,
+    pub squawk: Option<u16>,
+    pub spawn_coords: String,
+    pub spawn_altitude: u16,
+    pub spawn_hdg: Option<u16>,
+    pub origin: String,
+    pub dest: String,
+    pub filed_route: String,
+    pub tas: Option<u16>,
+    pub rfl: Option<u16>,
+    pub flown_route: String,
+    pub start: u16,
+    pub delay: Option<[u16; 2]>,
+    pub initial_pseudo_pilot: String,
 }
 
 impl fmt::Display for Aircraft {
@@ -76,7 +76,7 @@ impl fmt::Display for Aircraft {
 
         write!(
             f,
-            "{aircraft_position}\n{flight_plan}\n{route}\n{}",
+            "{aircraft_position}\n{flight_plan}\n{route}\nINITIALPSEUDOPILOT:{}",
             self.initial_pseudo_pilot
         )
     }
@@ -105,11 +105,13 @@ impl SquawkPool {
     }
 }
 
-pub fn allocate_squawk(a: &Aircraft) -> u16 {
-    match (&a.flight_rule, &a.flight_type) {
-        (V, _) => 7000,
-        (I, Departure) => 2000,
-        (I, Arrival) => 1234,
-        (I, _) => 2000,
+pub fn assign_squawks(aircraft: &mut [Aircraft]) {
+    let mut pool = SquawkPool::new(&mut rand::rng());
+
+    for a in aircraft.iter_mut() {
+        a.squawk = Some(match a.flight_rule {
+            V => 7000,
+            I => pool.allocate().expect("squawk pool exhausted"),
+        });
     }
 }
