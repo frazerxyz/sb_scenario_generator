@@ -4,7 +4,7 @@ use rand::{
     rng,
     seq::{IndexedRandom, SliceRandom},
 };
-use std::{fs};
+use std::fs;
 
 use crate::{
     aircraft::{
@@ -12,7 +12,11 @@ use crate::{
         FlightRule::I,
         FlightType::{Arrival, Departure},
         assign_squawks,
-    }, airport::{Airport, ArrivalRoute, DepartureRoute, PositionRoute, Runway}, generator::SessionType::{Adc, App, Ctr}, press_enter_to_exit, route_parser::{
+    },
+    airport::{Airport, ArrivalRoute, DepartureRoute, PositionRoute, Runway},
+    generator::SessionType::{Adc, App, Ctr},
+    press_enter_to_exit,
+    route_parser::{
         RouteType::{Filed, Flown},
         route_parser,
     },
@@ -51,9 +55,9 @@ pub fn check_file(file_name: &str) {
                 press_enter_to_exit();
                 std::process::exit(0)
             }
-        },
+        }
         Ok(false) => (),
-        Err(e) => println!("Error checking if file exists: {e}")
+        Err(e) => println!("Error checking if file exists: {e}"),
     }
 }
 
