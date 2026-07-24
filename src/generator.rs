@@ -13,8 +13,7 @@ use crate::{
         FlightType::{Arrival, Departure},
         assign_squawks,
     },
-    airport::{Airport, ArrivalRoute, DepartureRoute, PositionRoute, Runway},
-    generator::SessionType::{Adc, App, Ctr},
+    airport::{Airport, ArrivalRoute, DepartureRoute, Runway},
     press_enter_to_exit,
     route_parser::{
         RouteType::{Filed, Flown},
