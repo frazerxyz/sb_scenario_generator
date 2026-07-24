@@ -143,5 +143,24 @@
             "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "MID TUFOZ $HOLLY_WILLO"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         }
+    ],
+    "local_vfr": [
+        {
+            "callsign": "GGCES",
+            "aircraft_type": "DA42",
+            "description": "Spawns south & flies around CTR counter clockwise. No FPL.",
+            "spawn_coords": "50.886967:-0.415949",
+            "spawn_alt": 2300,
+            "route": "[50.931244,0.061685]/2300 [51.021500,0.246225] [51.334844,0.221801] [51.227558,-0.619486] [50.963600,-0.578779] [50.944867,-0.255833]"
+        },
+        {
+            "callsign": "GOPLM",
+            "aircraft_type": "SR22",
+            "description": "Shoreham to Biggin. Will hold south of gatwick until cleared further.",
+            "spawn_coords": "50.842690,-0.282971",
+            "spawn_alt": 1500,
+            "route": "[50.985738,-0.315537]/2200 [50.995956,0.056257] [50.961897,-0.304682] [51.002768,0.042688] [50.958491,-0.296541]",
+            "flight_plan": {"dep": "EGKA", "dest": "EGKB", "alt": 2200, "route": "ZONE TRANSIT HANDCROSS EGKK DORKING", "remarks": "/V/"}
+        }
     ]
 }
