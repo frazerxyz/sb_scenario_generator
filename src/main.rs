@@ -11,6 +11,9 @@ use generator::SessionType;
 
 use crate::generator::generate_app;
 
+#[cfg(test)]
+mod data_tests;
+
 fn press_enter_to_exit() {
     print!("Press Enter to exit...");
     io::stdout().flush().unwrap();
