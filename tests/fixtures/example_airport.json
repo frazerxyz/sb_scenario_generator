@@ -1,0 +1,135 @@
+{
+    "icao": "EGXX",
+    "elevation": 100.4,
+    "runways": [
+        {"designator": "09L", "threshold": "51.5000000:-0.5000000", "track": 92.5, "dep_spawn": "N051.30.00.000:W000.30.00.000"},
+        {"designator": "27R", "threshold": "51.5100000:-0.4500000", "track": 272.5, "dep_spawn": "N051.30.36.000:W000.27.00.000"}
+    ],
+    "holds": [
+        {"fix": "ALPHA", "inbound": 90, "direction": "R"},
+        {"fix": "BRAVO", "inbound": 270, "direction": "L"}
+    ],
+    "custom_routes": [
+        {"name": "09L LH", "route": "XX09LUC/1500 XX09LCD/1500 XX09LBF/800 ILS09L"},
+        {"name": "RNP 27R", "route": "XXOLE/3000 X27RF ILS27R"}
+    ],
+    "controllers": [
+        {"callsign": "EGXX_GND", "frequency": 121.700},
+        {"callsign": "EGXX_TWR", "frequency": 118.500},
+        {"callsign": "EGXX_APP", "frequency": 127.250}
+    ],
+    "airlines": [
+        {"icao": "AAA", "terminal": [1]},
+        {"icao": "BBB", "terminal": [2]},
+        {"icao": "CCC", "terminal": [1,2]}
+    ],
+    "terminals": [
+        {"id": 1, "label": "Terminal One", "stands": [
+                {"id": 11, "coords": "51.5020000:-0.4980000", "bearing": 92.5, "max_size": "C"},
+                {"id": 12, "coords": "51.5021000:-0.4979000", "bearing": 92.5, "max_size": "E"}
+            ]
+        },
+        {"id": 2, "label": "Terminal Two", "stands": [
+                {"id": 21, "coords": "51.5030000:-0.4960000", "bearing": 272.5, "max_size": "F"},
+                {"id": 22, "coords": "51.5031000:-0.4959000", "bearing": 272.5, "max_size": "A"}
+            ]
+        }
+    ],
+    "standard_routes": [
+        {
+            "name": "NORTH_DEP",
+            "routes": [
+                {"runway": "09L", "filed_route": "NOKIL P44 TELBA", "flown_route": "XXD09N/5000 NOKIL TELBA/15000"},
+                {"runway": "27R", "filed_route": "WESTA P44 TELBA", "flown_route": "XXD27N/5000 WESTA TELBA/15000"}
+            ]
+        },
+        {
+            "name": "SOUTH_DEP",
+            "routes": [
+                {"runway": "09L", "filed_route": "SOKMU P12 DOVER", "flown_route": "XXD09S/5000 SOKMU DOVER/17000"},
+                {"runway": "27R", "filed_route": "SOKMU P12 DOVER", "flown_route": "XXD27S/5000 SOKMU DOVER/17000"}
+            ]
+        },
+        {
+            "name": "ALPHA_ARR",
+            "routes": [
+                {"filed_route": "", "flown_route": "DISVO TELTU ALPHA/8000"}
+            ]
+        },
+        {
+            "name": "ADC_ARR",
+            "routes": [
+                {"runway": "09L", "filed_route": "", "flown_route": "[51.520000,-0.560000]/3000 [51.515000,-0.520000] ILS09L#VR"},
+                {"runway": "27R", "filed_route": "", "flown_route": "[51.500000,-0.400000]/3000 [51.505000,-0.440000] ILS27R#VL"}
+            ]
+        }
+    ],
+    "departure_routes": [
+        {
+            "callsigns": ["AAA101", "AAA202", "AAA303"],
+            "dest": "EGYY",
+            "types": ["A320", "A20N"],
+            "rfl": 35000,
+            "filed_route": "$NORTH_DEP UN859 SOPIL VLC",
+            "flown_route": "$NORTH_DEP ETRAT"
+        },
+        {
+            "callsigns": ["BBB404", "BBB505"],
+            "dest": "EGZZ",
+            "types": ["B738"],
+            "rfl": 29000,
+            "filed_route": "OTBED $SOUTH_DEP UY47 KONAN",
+            "flown_route": "XXD02/4000 $SOUTH_DEP KONAN"
+        },
+        {
+            "callsigns": ["CCC606"],
+            "dest": "LFXX",
+            "types": ["A319", "A321"],
+            "rfl": 33000,
+            "filed_route": "DVR L9 KONAN UL607 SPI",
+            "flown_route": "XXD03/4000 DVR/17000 KONAN"
+        }
+    ],
+    "arrival_routes": [
+        {
+            "callsigns": ["AAA111", "AAA222", "AAA333"],
+            "dep": "EGYY",
+            "types": ["A320", "A20N"],
+            "rfl": 24000,
+            "filed_route": "ORIST L982 ALPHA",
+            "ctr_route": {"spawn_coords": "52.100000:-1.500000", "spawn_alt": 24000, "flown_route": "FARNO/24000 ORIST ALPHA"},
+            "app_route": {"spawn_coords": "51.800000:-0.900000", "spawn_alt": 15000, "flown_route": "ROXOG/15000 $ALPHA_ARR"},
+            "adc_route": {"spawn_coords": "51.600000:-0.700000", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["BBB777", "BBB888"],
+            "dep": "EGZZ",
+            "types": ["B738", "B38M"],
+            "rfl": 36000,
+            "filed_route": "SUKIP Y206 BRAVO",
+            "ctr_route": {"spawn_coords": "51.200000:1.200000", "spawn_alt": 22000, "flown_route": "ABTUM/22000 SUKIP BRAVO"},
+            "app_route": {"spawn_coords": "51.400000:0.800000", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN BRAVO/8000"},
+            "adc_route": {"spawn_coords": "51.600000:-0.700000", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["AAA444"],
+            "dep": "EGPH",
+            "types": ["A319", "A20N"],
+            "rfl": 37000,
+            "filed_route": "GOSAM P600 ALPHA",
+            "ctr_route": null,
+            "app_route": {"spawn_coords": "51.300000:-1.100000", "spawn_alt": 15000, "flown_route": "MID TUFOZ $ALPHA_ARR"},
+            "adc_route": {"spawn_coords": "51.600000:-0.700000", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["CCC999"],
+            "dep": "LFXX",
+            "types": ["A319"],
+            "rfl": 20000,
+            "filed_route": "DIKRO UL612 BRAVO",
+            "ctr_route": {"spawn_coords": "50.800000:-0.400000", "spawn_alt": 20000, "flown_route": "SOKNU/20000 DIKRO BRAVO"},
+            "app_route": null,
+            "adc_route": null
+        }
+    ]
+}

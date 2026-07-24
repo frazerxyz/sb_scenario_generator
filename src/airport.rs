@@ -190,3 +190,129 @@ impl Airport {
             .join("\n")
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::route_parser::route_parser;
+
+    use super::*;
+
+    fn load_fixture() -> Airport {
+        let json = std::fs::read_to_string("tests/fixtures/example_airport.json")
+            .expect("could not read test fixture");
+        serde_json::from_str(&json).expect("failed to parse JSON")
+    }
+
+    #[test]
+    fn airport_data() {
+        let a = load_fixture();
+        assert_eq!(a.icao, "EGXX");
+        assert_eq!(a.elevation, 100.4);
+    }
+
+    #[test]
+    fn hold_format() {
+        let a = load_fixture();
+        let holds = a.format_holds();
+        assert_eq!(holds, "HOLDING:ALPHA:90:1\nHOLDING:BRAVO:270:-1");
+    }
+
+    #[test]
+    fn controllers_format() {
+        let a = load_fixture();
+        let controllers = a.format_controllers();
+        let expected = "PSEUDOPILOT:ALL\nCONTROLLER:EGXX_GND:121.700\nPSEUDOPILOT:ALL\nCONTROLLER:EGXX_TWR:118.500\nPSEUDOPILOT:ALL\nCONTROLLER:EGXX_APP:127.250";
+        assert_eq!(controllers, expected)
+    }
+
+    #[test]
+    fn standard_route_runway_09l_filed() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "AAAAA $NORTH_DEP ZZZZZ",
+            &a.standard_routes,
+            "09L",
+            &RouteType::Filed,
+        );
+        assert_eq!(parsed, "AAAAA NOKIL P44 TELBA ZZZZZ");
+    }
+
+    #[test]
+    fn standard_route_runway_27r_filed() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "AAAAA $NORTH_DEP ZZZZZ",
+            &a.standard_routes,
+            "27R",
+            &RouteType::Filed,
+        );
+        assert_eq!(parsed, "AAAAA WESTA P44 TELBA ZZZZZ");
+    }
+
+    #[test]
+    fn standard_route_runway_09l_flown() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "AAAAA $SOUTH_DEP",
+            &a.standard_routes,
+            "09L",
+            &RouteType::Flown,
+        );
+        assert_eq!(parsed, "AAAAA XXD09S/5000 SOKMU DOVER/17000");
+    }
+
+    #[test]
+    fn standard_route_runway_27r_flown() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "$SOUTH_DEP ZZZZZ",
+            &a.standard_routes,
+            "27R",
+            &RouteType::Flown,
+        );
+        assert_eq!(parsed, "XXD27S/5000 SOKMU DOVER/17000 ZZZZZ");
+    }
+
+    #[test]
+    fn standard_route_no_runway_start() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "$ALPHA_ARR ZZZZZ",
+            &a.standard_routes,
+            "27R",
+            &RouteType::Flown,
+        );
+        assert_eq!(parsed, "DISVO TELTU ALPHA/8000 ZZZZZ");
+    }
+
+    #[test]
+    fn standard_route_no_runway_middle() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "AAAAA $ALPHA_ARR ZZZZZ",
+            &a.standard_routes,
+            "27R",
+            &RouteType::Flown,
+        );
+        assert_eq!(parsed, "AAAAA DISVO TELTU ALPHA/8000 ZZZZZ");
+    }
+
+    #[test]
+    fn standard_route_no_runway_end() {
+        let a = load_fixture();
+
+        let parsed = route_parser(
+            "AAAAA $ALPHA_ARR",
+            &a.standard_routes,
+            "27R",
+            &RouteType::Flown,
+        );
+        assert_eq!(parsed, "AAAAA DISVO TELTU ALPHA/8000");
+    }
+}
