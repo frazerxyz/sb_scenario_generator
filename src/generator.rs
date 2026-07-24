@@ -43,6 +43,8 @@ impl fmt::Display for SessionType {
 static FILE_ERROR: &str = "File I/O error";
 static INPUT_ERROR: &str = "Input error";
 
+static FILE_MESSAGE: &str = "; ----- Made using https://github.com/frazerxyz/sb_scenario_generator -----";
+
 pub fn check_file(file_name: &str) {
     match fs::exists(&file_name) {
         Ok(true) => {
@@ -437,7 +439,8 @@ pub fn generate_app() {
         .join("\n\n");
 
     let output: String = format!(
-        "PSEUDOPILOT:ALL\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}",
+        "{}\n\nPSEUDOPILOT:ALL\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}",
+        FILE_MESSAGE,
         airport.format_elevation(),
         airport.format_runways(),
         airport.format_holds(),
