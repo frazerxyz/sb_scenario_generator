@@ -1,7 +1,6 @@
 use crate::{
     airport::{RouteEntry, StandardRoute},
     config_error,
-    route_parser::RouteType::Filed,
 };
 
 pub enum RouteType {
