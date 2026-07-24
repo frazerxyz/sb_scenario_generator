@@ -32,16 +32,28 @@
     ],
     "standard_routes": [
         {
-            "name": "dvr_dep",
+            "name": "DEP_XAMAB",
             "routes": [
-                {"runway": "26L", "filed_route": "26L DVR DEP FILED", "flown_route": "26L DVR DEP FLOWN"},
-                {"runway": "08R", "filed_route": "08R DVR DEP FILED", "flown_route": "08R DVR DEP FLOWN"}
+                {"runway": "26L", "filed_route": "BOGNA L612 XAMAB", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO HAWKE XAMAB"},
+                {"runway": "08R", "filed_route": "SFD Y47 BENBO L612 XAMAB", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO HAWKE XAMAB"}
             ]
         },
         {
-            "name": "VASUX1G",
+            "name": "ABSAV1G",
             "routes": [
-                {"filed_route": "VASUX FILED", "flown_route": "VASUX FLOWN"}
+                {"filed_route": "ABSAV", "flown_route": "ABSAV AVANT GWC/13000 HOLLY WILLO/8000"}
+            ]
+        },
+        {
+            "name": "GWC1G",
+            "routes": [
+                {"filed_route": "GWC", "flown_route": "GWC/13000 HOLLY WILLO/8000"}
+            ]
+        },
+        {
+            "name": "BARMI1G",
+            "routes": [
+                {"filed_route": "BARMI", "flown_route": "BARMI/26000"}
             ]
         }
     ],
