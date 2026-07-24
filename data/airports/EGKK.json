@@ -32,10 +32,24 @@
     ],
     "standard_routes": [
         {
+            "name": "DEP_XIDIL",
+            "routes": [
+                {"runway": "26L", "filed_route": "HARDY UM605 XIDIL", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA HARDY XIDIL"},
+                {"runway": "08R", "filed_route": "SFD UM605 XIDIL", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD WAFFU HARDY XIDIL"}
+            ]
+        },
+        {
+            "name": "DEP_XAMAB",
+            "routes": [
+                {"runway": "26L", "filed_route": "BOGNA UL612 XAMAB", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO XAWKE XAMAB"},
+                {"runway": "08R", "filed_route": "SFD UY47 BENBO UL612 XAMAB", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO XAWKE XAMAB"}
+            ]
+        },
+        {
             "name": "DEP_SITET",
             "routes": [
-                {"runway": "26L", "filed_route": "BOGNA L612 BENBO UY47 DRAKE L151 SITET", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO DRAKE SITET"},
-                {"runway": "08R", "filed_route": "SFD Y47 DRAKE L151 SITET", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO DRAKE SITET"}
+                {"runway": "26L", "filed_route": "BOGNA UL612 BENBO UY47 DRAKE L151 SITET", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO DRAKE SITET"},
+                {"runway": "08R", "filed_route": "SFD UY47 DRAKE L151 SITET", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO DRAKE SITET"}
             ]
         },
         {
