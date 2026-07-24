@@ -72,6 +72,17 @@ pub fn write_output(
     Ok(())
 }
 
+fn aircraft_perf() -> String {
+    match fs::exists("data/aircraft_perf.txt") {
+        Ok(true) => fs::read_to_string("data/aircraft_perf.txt").expect(FILE_ERROR),
+        Ok(false) => String::from(""),
+        Err(e) => {
+            println!("Error checking if aircraft performance file exists {e}");
+            String::from("")
+        }
+    }
+}
+
 pub fn get_airport_configs() -> Vec<String> {
     let airport_config_folder = "data/airports";
 
@@ -426,13 +437,14 @@ pub fn generate_app() {
         .join("\n\n");
 
     let output: String = format!(
-        "PSEUDOPILOT:ALL\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}",
+        "PSEUDOPILOT:ALL\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}",
         airport.format_elevation(),
         airport.format_runways(),
         airport.format_holds(),
         airport.format_custom_routes(),
         airport.format_controllers(),
-        ifr_traffic
+        ifr_traffic,
+        aircraft_perf(),
     );
 
     match write_output(output, config.name) {
