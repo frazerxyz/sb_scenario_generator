@@ -70,7 +70,7 @@ impl fmt::Display for Aircraft {
             self.filed_route
         );
         let route = format!(
-            "$ROUTE:{}:{}:\nSTART:{}",
+            "$ROUTE:{}:{}\nSTART:{}",
             self.callsign, self.flown_route, self.start
         );
 
