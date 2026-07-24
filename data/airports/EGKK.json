@@ -32,28 +32,23 @@
     ],
     "standard_routes": [
         {
-            "name": "DEP_XAMAB",
+            "name": "DEP_SITET",
             "routes": [
-                {"runway": "26L", "filed_route": "BOGNA L612 XAMAB", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO HAWKE XAMAB"},
-                {"runway": "08R", "filed_route": "SFD Y47 BENBO L612 XAMAB", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO HAWKE XAMAB"}
+                {"runway": "26L", "filed_route": "BOGNA L612 BENBO UY47 DRAKE L151 SITET", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO DRAKE SITET"},
+                {"runway": "08R", "filed_route": "SFD Y47 DRAKE L151 SITET", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO DRAKE SITET"}
             ]
         },
         {
-            "name": "ABSAV1G",
+            "name": "HOLLY_WILLO",
             "routes": [
-                {"filed_route": "ABSAV", "flown_route": "ABSAV AVANT GWC/13000 HOLLY WILLO/8000"}
+                {"filed_route": "", "flown_route": "HOLLY KKS16 WILLO/8000"}
             ]
         },
         {
-            "name": "GWC1G",
+            "name": "ADC_ARR",
             "routes": [
-                {"filed_route": "GWC", "flown_route": "GWC/13000 HOLLY WILLO/8000"}
-            ]
-        },
-        {
-            "name": "BARMI1G",
-            "routes": [
-                {"filed_route": "BARMI", "flown_route": "BARMI/26000"}
+                {"runway": "26L", "filed_route": "", "flown_route": "[51.153336,0.156277]/3000 [51.192036,0.139009] [51.185844,0.089672] ILS26L#VR"},
+                {"runway": "08R", "filed_route": "", "flown_route": "[51.042835,-0.472378]/3000 [51.103589,-0.504651] [51.108314,-0.471303] ILS08R#VL"}
             ]
         }
     ],
@@ -63,8 +58,8 @@
             "dest": "LEAL",
             "types": ["A320", "A321"],
             "rfl": 35000,
-            "filed_route": "SFD Y47 DRAKE L151 SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
-            "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO/17000 DRAKE/29000 SITET/37000 ETRAT"
+            "filed_route": "$DEP_SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
+            "flown_route": "$DEP_SITET ETRAT"
         }
     ],
     "arrival_routes": [
@@ -74,9 +69,79 @@
             "types": ["A320", "A319"],
             "rfl": 23000,
             "filed_route": "ORIST L982 VASUX",
-            "ctr_route": {"spawn_coords": "N049.15.45.900:W002.02.38.300", "spawn_alt": 5000, "flown_route": "UPLIS/19000 ORIST ERGUM ROXOG VASUX DISVO TELTU HOLLY KKS16 WILLO"},
-            "app_route": {"spawn_coords": "N050.30.09.200:W001.15.17.000", "spawn_alt": 19000, "flown_route": "ROXOG/19000 $VASUX1G"},
-            "adc_route": {"spawn_coords": "N050.53.12.000:W000.05.42.000", "spawn_alt": 19000, "flown_route": "$"}
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO TELTU/13000 $HOLLY_WILLO"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["EZY24BJ", "EJU41NB", "EZY8624", "EJU82DY"],
+            "dep": "EDDB",
+            "types": ["A320", "A319", "A20N"],
+            "rfl": 36000,
+            "filed_route": "SUKIP Y206 BUREL P203 HLZ L980 ROBEG GALSO Q63 ARREK Y4 TEBRA",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "51.490120:1.614854", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN KKE63 LARCK TIMBA/8000"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["EZY82GA", "EZY62FE"],
+            "dep": "EKCH",
+            "types": ["A320", "A319", "A20N"],
+            "rfl": 36000,
+            "filed_route": "ODDON LONAM BINBO AKOKO N866 BUKUT P7 BARMI",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "51.490120:1.614854", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN KKE63 LARCK TIMBA/8000"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["NSZ3543"],
+            "dep": "EKYT",
+            "types": ["B738", "B38M"],
+            "rfl": 38000,
+            "filed_route": "AAL N866 UPGAS TIPAN WECOW BINBO AKOKO N866 BUKUT P7 BARMI",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "51.490120:1.614854", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN KKE63 LARCK TIMBA/8000"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["EWG8NB"],
+            "dep": "EDDK",
+            "types": ["A320", "A319", "B738"],
+            "rfl": 36000,
+            "filed_route": "NVO Y868 SOGRI L608 DENUT L610 TEBRA",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "51.490120:1.614854", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN KKE63 LARCK TIMBA/8000"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["EZY78ET", "EZY12CX", "EZY87AK"],
+            "dep": "HEGD",
+            "types": ["A320", "A319", "A21N", "A20N"],
+            "rfl": 34000,
+            "filed_route": "HGD V608 NABED T55 KUNKI P751 METRU TRL TUMBO RODON VAKSU BAXON CHI ALBET NEGIK RESIA ELMUR RIPUS DITON HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["EZY98FB", "EZY93DB"],
+            "dep": "HESH",
+            "types": ["A320", "A319", "A21N", "A20N"],
+            "rfl": 36000,
+            "filed_route": "KAPIT L677 CVO L617 TANSA UL613 YNN UL611 TUMBO RODON VAKSU PEVAL BORMI RESIA ELMUR RIPUS DITON HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
+        },
+        {
+            "callsigns": ["EZY51HE", "EZY41MV", "EZY42TH", "EZY35JB"],
+            "dep": "EGPH",
+            "types": ["A320", "A319", "A21N", "A20N"],
+            "rfl": 37000,
+            "filed_route": "GOSA1C GOSAM P600 FENIK L612 NAVSO ADZOP EGTOC KEPAD L151 DISIT",
+            "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "MID TUFOZ $HOLLY_WILLO"},
+            "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         }
     ]
 }

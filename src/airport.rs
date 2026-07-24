@@ -154,7 +154,7 @@ impl Airport {
         format!("AIRPORT_ALT:{:.1}", self.elevation)
     }
     pub fn round_elevation(&self) -> u16 {
-        self.elevation.round() as u16 + 200
+        ((self.elevation + 1100 as f32) / 100 as f32).round() as u16 * 100
     }
     pub fn format_holds(&self) -> String {
         self.holds
