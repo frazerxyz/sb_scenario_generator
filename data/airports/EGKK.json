@@ -74,6 +74,14 @@
             "rfl": 35000,
             "filed_route": "$DEP_SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
             "flown_route": "$DEP_SITET ETRAT"
+        },
+        {
+            "callsigns": ["EXS73J", "EZY52LD", "EFW370K", "EFW15AV", "EFW79YW"],
+            "dest": "LEIB",
+            "types": ["A21N"],
+            "rfl": 35000,
+            "filed_route": "$DEP_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL XEPLA BCN CORDA CORD5V",
+            "flown_route": "$DEP_SITET ETRAT"
         }
     ],
     "arrival_routes": [
