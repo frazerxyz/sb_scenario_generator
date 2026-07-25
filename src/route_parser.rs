@@ -44,8 +44,7 @@ pub fn route_parser(
     let mut output: Vec<String> = Vec::new();
 
     for token in original_route.split_whitespace() {
-        if token.starts_with('$') {
-            let name = &token[1..];
+        if let Some(name) = token.strip_prefix('$') {
             output.push(lookup(name, route_type, runway, standard_routes));
         } else {
             output.push(token.to_string());

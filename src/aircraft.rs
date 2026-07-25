@@ -1,10 +1,7 @@
 use rand::seq::SliceRandom;
 use std::fmt;
 
-use crate::aircraft::{
-    FlightRule::{I, V},
-    FlightType::{Arrival, Departure},
-};
+use crate::aircraft::FlightRule::{I, V};
 
 pub enum FlightRule {
     I,
@@ -46,6 +43,7 @@ pub struct Aircraft {
     pub start: u16,
     pub delay: Option<[u16; 2]>,
     pub initial_pseudo_pilot: String,
+    pub has_flight_plan: bool,
 }
 
 impl fmt::Display for Aircraft {
@@ -58,17 +56,23 @@ impl fmt::Display for Aircraft {
             self.spawn_altitude,
             string_if_none(self.spawn_hdg, "")
         );
-        let flight_plan = format!(
-            "$FP{}:*A:{}:{}:{}:{}:0000:0000:{}:{}:00:00:0:0::/v/:{}",
-            self.callsign,
-            self.flight_rule,
-            self.aircraft_type,
-            string_if_none(self.tas, "0"),
-            self.origin,
-            string_if_none(self.rfl, "2000"),
-            self.dest,
-            self.filed_route
-        );
+
+        let flight_plan = if self.has_flight_plan {
+            format!(
+                "\n$FP{}:*A:{}:{}:{}:{}:0000:0000:{}:{}:00:00:0:0::/v/:{}",
+                self.callsign,
+                self.flight_rule,
+                self.aircraft_type,
+                string_if_none(self.tas, "0"),
+                self.origin,
+                string_if_none(self.rfl, "2000"),
+                self.dest,
+                self.filed_route
+            )
+        } else {
+            "".to_string()
+        };
+
         let route = format!(
             "$ROUTE:{}:{}\nSTART:{}",
             self.callsign, self.flown_route, self.start
@@ -76,7 +80,7 @@ impl fmt::Display for Aircraft {
 
         write!(
             f,
-            "{aircraft_position}\n{flight_plan}\n{route}\nINITIALPSEUDOPILOT:{}",
+            "{aircraft_position}{flight_plan}\n{route}\nINITIALPSEUDOPILOT:{}",
             self.initial_pseudo_pilot
         )
     }

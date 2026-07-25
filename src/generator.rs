@@ -1,5 +1,5 @@
 use core::fmt;
-use dialoguer::{Confirm, Input, Select, theme::ColorfulTheme};
+use dialoguer::{Confirm, Input, MultiSelect, Select, theme::ColorfulTheme};
 use rand::{
     rng,
     seq::{IndexedRandom, SliceRandom},
@@ -9,11 +9,11 @@ use std::fs;
 use crate::{
     aircraft::{
         Aircraft,
-        FlightRule::I,
-        FlightType::{Arrival, Departure},
+        FlightRule::{I, V},
+        FlightType::{Arrival, Departure, Local},
         assign_squawks,
     },
-    airport::{Airport, ArrivalRoute, DepartureRoute, Runway},
+    airport::{Airport, ArrivalRoute, DepartureRoute, LocalVfr, Runway, VfrFlightPlan},
     press_enter_to_exit,
     route_parser::{
         RouteType::{Filed, Flown},
@@ -46,7 +46,7 @@ static FILE_MESSAGE: &str =
     "; ----- Made using https://github.com/frazerxyz/sb_scenario_generator -----";
 
 pub fn check_file(file_name: &str) {
-    match fs::exists(&file_name) {
+    match fs::exists(file_name) {
         Ok(true) => {
             if !Confirm::with_theme(&ColorfulTheme::default())
                 .with_prompt(format!("{} already exists, overwrite?", &file_name))
@@ -59,7 +59,20 @@ pub fn check_file(file_name: &str) {
             }
         }
         Ok(false) => (),
-        Err(e) => println!("Error checking if file exists: {e}"),
+        Err(_) => {
+            if !Confirm::with_theme(&ColorfulTheme::default())
+                .with_prompt(format!(
+                    "There was an error checking if {} already exists. Write anyway overwrite?",
+                    &file_name
+                ))
+                .interact()
+                .expect(INPUT_ERROR)
+            {
+                println!("Aborting");
+                press_enter_to_exit();
+                std::process::exit(0)
+            }
+        }
     }
 }
 
@@ -114,6 +127,7 @@ pub struct AppConfig {
     ramp_time: Option<u8>,
     name: String,
     initial_pseudo_pilot: String,
+    vfr_traffic: Vec<Aircraft>,
 }
 
 impl AppConfig {
@@ -149,7 +163,7 @@ pub fn app_wizard() -> AppConfig {
             if *val >= 2 {
                 Ok(())
             } else {
-                Err("Departure interval must be at least 2 per minute")
+                Err("Departure interval must be at least 2 minutes")
             }
         })
         .interact()
@@ -157,6 +171,13 @@ pub fn app_wizard() -> AppConfig {
 
     let arr_interval = Input::with_theme(&ColorfulTheme::default())
         .with_prompt("Enter arrival interval (aircraft every N minutes)")
+        .validate_with(|val: &u8| -> Result<(), &str> {
+            if *val >= 1 {
+                Ok(())
+            } else {
+                Err("Arrival interval cannot be 0")
+            }
+        })
         .interact()
         .expect(INPUT_ERROR);
 
@@ -189,23 +210,25 @@ pub fn app_wizard() -> AppConfig {
         .expect(INPUT_ERROR)
     {
         Input::with_theme(&ColorfulTheme::default())
-            .with_prompt("Enter pseudo pilot callsign")
-            .validate_with({
-                let mut force = None;
-                move |input: &String| -> Result<(), &str> {
-                    if input.contains('_') || (force.as_ref() == Some(input)) {
-                        Ok(())
-                    } else {
-                        force = Some(input.clone());
-                        Err("That doesn't look like a mentor callsign. Enter again to force procede")
-                    }
+        .with_prompt("Enter pseudo pilot callsign")
+        .validate_with({
+            let mut force = None;
+            move |input: &String| -> Result<(), &str> {
+                if input.contains('_') || (force.as_ref() == Some(input)) {
+                    Ok(())
+                } else {
+                    force = Some(input.clone());
+                    Err("That doesn't look like a mentor callsign. Enter again to force proceed")
                 }
-            })
-            .interact()
-            .expect(INPUT_ERROR)
+            }
+        })
+        .interact()
+        .expect(INPUT_ERROR)
     } else {
         default_pseudo_pilot
     };
+
+    let vfr_traffic = configure_vfr(&airport, &initial_pseudo_pilot);
 
     let name = Input::with_theme(&ColorfulTheme::default())
         .with_prompt("Name this scenario")
@@ -221,6 +244,7 @@ pub fn app_wizard() -> AppConfig {
         ramp_time,
         name,
         initial_pseudo_pilot,
+        vfr_traffic,
     }
 }
 
@@ -239,16 +263,13 @@ pub struct StagedAircraft {
 pub fn spawn_timings(session_duration: f32, target_interval: f32, ramp: Option<u8>) -> Vec<u16> {
     let mut out: Vec<u16> = Vec::new();
 
-    let ramp_time = match ramp {
-        Some(s) => s,
-        None => 0,
-    };
+    let ramp_time = ramp.unwrap_or_default();
     let mut time: f32 = 0.0;
 
     while time < session_duration {
         if time < ramp_time as f32 {
             out.push(time.round() as u16);
-            let gap = target_interval as f32 * (2.0 - time / ramp_time as f32);
+            let gap = target_interval * (2.0 - time / ramp_time as f32);
             time += gap
         } else {
             out.push(time.round() as u16);
@@ -380,6 +401,7 @@ pub fn app_arrivals(config: &AppConfig) -> Vec<Aircraft> {
             start: *t,
             delay: None,
             initial_pseudo_pilot: config.initial_pseudo_pilot.clone(),
+            has_flight_plan: true,
         };
         out.push(aircraft);
     }
@@ -418,6 +440,7 @@ pub fn app_departures(config: &AppConfig) -> Vec<Aircraft> {
             start: *t,
             delay: None,
             initial_pseudo_pilot: config.initial_pseudo_pilot.clone(),
+            has_flight_plan: true,
         };
         out.push(aircraft);
     }
@@ -431,8 +454,9 @@ pub fn generate_app() {
     let mut aircraft = app_departures(&config);
     aircraft.extend(app_arrivals(&config));
     assign_squawks(&mut aircraft);
+    aircraft.extend(config.vfr_traffic);
 
-    let ifr_traffic = aircraft
+    let traffic = aircraft
         .iter()
         .map(|a| a.to_string())
         .collect::<Vec<_>>()
@@ -446,7 +470,7 @@ pub fn generate_app() {
         airport.format_holds(),
         airport.format_custom_routes(),
         airport.format_controllers(),
-        ifr_traffic,
+        traffic,
         aircraft_perf(),
     );
 
@@ -454,4 +478,147 @@ pub fn generate_app() {
         Ok(()) => (),
         Err(e) => println!("Couldn't write the file\n\n{e}"),
     }
+}
+
+pub fn local_vfr_wizard(local_aircraft: &[LocalVfr]) -> Vec<LocalVfr> {
+    let selected = MultiSelect::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select local VFR aircraft (space to select, enter to confirm)")
+        .items(local_aircraft)
+        .interact()
+        .expect(INPUT_ERROR);
+
+    selected
+        .into_iter()
+        .map(|i| local_aircraft[i].clone())
+        .collect()
+}
+
+struct StagedGroundVfr {
+    callsign: String,
+    aircraft_type: String,
+    flight_plan: VfrFlightPlan,
+}
+
+fn ground_vfr_wizard(default_flight_plan: &VfrFlightPlan) -> StagedGroundVfr {
+    let theme = ColorfulTheme::default();
+
+    let callsign: String = Input::with_theme(&theme)
+        .with_prompt("Enter callsign")
+        .validate_with(|callsign: &String| -> Result<(), &str> {
+            if callsign.len() <= 7 {
+                if callsign.is_empty() {
+                    Err("Please enter a callsign")
+                } else {
+                    Ok(())
+                }
+            } else {
+                Err("Callsign too long. Max 7 characters")
+            }
+        })
+        .interact_text()
+        .expect(INPUT_ERROR);
+
+    let aircraft_type: String = Input::with_theme(&theme)
+        .with_prompt("Enter aircraft type code")
+        .validate_with(|a: &String| -> Result<(), &str> {
+            if a.len() <= 4 {
+                if a.is_empty() {
+                    Err("Please enter a type code")
+                } else {
+                    Ok(())
+                }
+            } else {
+                Err("Type code length too long. Max 4 characters")
+            }
+        })
+        .interact_text()
+        .expect(INPUT_ERROR);
+
+    let flight_plan = default_flight_plan.clone();
+
+    StagedGroundVfr {
+        callsign,
+        aircraft_type,
+        flight_plan,
+    }
+}
+
+pub fn configure_vfr(airport: &Airport, initial_pseudo_pilot: &str) -> Vec<Aircraft> {
+    let mut vfr_aircraft = Vec::new();
+
+    if let Some(a) = &airport.local_vfr {
+        for i in local_vfr_wizard(a) {
+            let has_flight_plan: bool = !i.flight_plan.dep.is_empty();
+            vfr_aircraft.push(Aircraft {
+                flight_type: Local,
+                flight_rule: V,
+                callsign: i.callsign,
+                aircraft_type: i.aircraft_type,
+                squawk: Some(7000),
+                spawn_coords: i.spawn_coords,
+                spawn_altitude: i.spawn_alt,
+                spawn_hdg: None,
+                origin: i.flight_plan.dep,
+                dest: i.flight_plan.dest,
+                filed_route: i.flight_plan.route,
+                tas: Some(120),
+                rfl: Some(i.flight_plan.alt),
+                flown_route: i.route,
+                start: 0,
+                delay: None,
+                initial_pseudo_pilot: initial_pseudo_pilot.to_string(),
+                has_flight_plan,
+            });
+        }
+    }
+
+    if let Some(g) = &airport.ground_vfr {
+        let mut staged: Vec<StagedGroundVfr> = Vec::new();
+
+        let max = g.spawn_coords.len();
+
+        while staged.len() < max {
+            let ad: String = if staged.is_empty() {
+                "any".to_string()
+            } else {
+                "another".to_string()
+            };
+            if Confirm::with_theme(&ColorfulTheme::default())
+                .with_prompt(format!(
+                    "Would you like to configure {ad} ground VFR aircraft?"
+                ))
+                .interact()
+                .expect(INPUT_ERROR)
+            {
+                staged.push(ground_vfr_wizard(&g.default_flight_plan));
+            } else {
+                break;
+            }
+        }
+
+        for (s, coord) in staged.into_iter().zip(g.spawn_coords.iter()) {
+            vfr_aircraft.push(Aircraft {
+                flight_type: Local,
+                flight_rule: V,
+                callsign: s.callsign,
+                aircraft_type: s.aircraft_type,
+                squawk: Some(7000),
+                spawn_coords: coord.clone(),
+                spawn_altitude: airport.elevation as u16,
+                spawn_hdg: None,
+                origin: s.flight_plan.dep,
+                dest: s.flight_plan.dest,
+                filed_route: s.flight_plan.route,
+                tas: Some(120),
+                rfl: Some(s.flight_plan.alt),
+                flown_route: "".to_string(),
+                start: 0,
+                delay: None,
+                initial_pseudo_pilot: initial_pseudo_pilot.to_string(),
+                has_flight_plan: true,
+            });
+        }
+    }
+
+    vfr_aircraft
 }

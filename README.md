@@ -8,7 +8,6 @@
 I will release a compiled executable at some point once more features are working.
 
 ## Known issues
-- VFR not supported for all session types
 - ADC not supported
 - CTR not supported
 

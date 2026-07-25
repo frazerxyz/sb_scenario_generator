@@ -171,10 +171,14 @@
             "callsign": "GOPLM",
             "aircraft_type": "SR22",
             "description": "Shoreham to Biggin. Will hold south of gatwick until cleared further.",
-            "spawn_coords": "50.842690,-0.282971",
+            "spawn_coords": "50.842690:-0.282971",
             "spawn_alt": 1500,
             "route": "[50.985738,-0.315537]/2200 [50.995956,0.056257] [50.961897,-0.304682] [51.002768,0.042688] [50.958491,-0.296541]",
-            "flight_plan": {"dep": "EGKA", "dest": "EGKB", "alt": 2200, "route": "ZONE TRANSIT HANDCROSS EGKK DORKING", "remarks": "/V/"}
+            "flight_plan": {"dep": "EGKA", "dest": "EGKB", "alt": 2200, "route": "ZONE TRANSIT HANDCROSS EGKK DORKING"}
         }
-    ]
+    ],
+    "ground_vfr": {
+        "default_flight_plan": {"dep": "EGKK", "dest": "EGKK", "alt": 2200, "route": "LOCAL VFR"},
+        "spawn_coords": ["51.147347:-0.173785", "51.147403:-0.171861", "51.153351:-0.192106", "51.154090:-0.192323"]
+    }
 }
