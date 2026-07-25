@@ -175,7 +175,7 @@ pub fn app_wizard() -> AppConfig {
             if *val >= 1 {
                 Ok(())
             } else {
-                Err("Departure interval cannot be 0")
+                Err("Arrival interval cannot be 0")
             }
         })
         .interact()
