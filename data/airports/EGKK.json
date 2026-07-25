@@ -162,5 +162,10 @@
             "route": "[50.985738,-0.315537]/2200 [50.995956,0.056257] [50.961897,-0.304682] [51.002768,0.042688] [50.958491,-0.296541]",
             "flight_plan": {"dep": "EGKA", "dest": "EGKB", "alt": 2200, "route": "ZONE TRANSIT HANDCROSS EGKK DORKING", "remarks": "/V/"}
         }
-    ]
+    ],
+    "ground_vfr": {
+        "callsigns": ["OYSKJ", "GSWLF", "BEANS", "TARTN1"],
+        "default_flight_plan": {"dep": "EGKK", "dest": "EGKK", "alt": 2200, "route": "LOCAL VFR", "remarks": "/V/"},
+        "spawn_coords": ["51.147347:-0.173785", "51.147403:-0.171861", "51.153351:-0.192106", "51.154090:-0.192323"]
+    }
 }
