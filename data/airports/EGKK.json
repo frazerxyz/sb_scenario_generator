@@ -26,7 +26,7 @@
     ],
     "terminals": [
         {"id": 1, "label": "Pier 1", "stands": [
-                {"id": 1, "coords": "51.154869,-0.164379", "bearing": 77.6, "max_size": "C"}
+                {"id": 1, "coords": "51.154869:-0.164379", "bearing": 77.6, "max_size": "C"}
             ]
         }
     ],
