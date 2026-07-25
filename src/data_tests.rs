@@ -143,14 +143,14 @@ fn spawn_coords_contains_colon() {
         for terminal in &airport.terminals {
             for stand in &terminal.stands {
                 if !stand.coords.contains(':') {
-                    problems.push(format!("{}: Stand number {} coordinates are incorectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display(), stand.id));
+                    problems.push(format!("{}: Stand number {} coordinates are incorrectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display(), stand.id));
                 }
             }
         }
 
         for runway in &airport.runways {
             if !runway.dep_spawn.contains(':') {
-                problems.push(format!("{}: Runway {} spawn coordiantes are incorectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display(), runway.designator));
+                problems.push(format!("{}: Runway {} spawn coordinates are incorrectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display(), runway.designator));
             }
         }
 
@@ -170,7 +170,7 @@ fn spawn_coords_contains_colon() {
 
         for r in routes {
             if !r.spawn_coords.contains(':') {
-                problems.push(format!("{}: One or more position route spawn coordiantes are incorectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display()));
+                problems.push(format!("{}: One or more position route spawn coordinates are incorrectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display()));
             }
         }
 

@@ -59,7 +59,20 @@ pub fn check_file(file_name: &str) {
             }
         }
         Ok(false) => (),
-        Err(e) => println!("Error checking if file exists: {e}"),
+        Err(_) => {
+            if !Confirm::with_theme(&ColorfulTheme::default())
+                .with_prompt(format!(
+                    "There was an error checking if {} already exists. Write anyway overwrite?",
+                    &file_name
+                ))
+                .interact()
+                .expect(INPUT_ERROR)
+            {
+                println!("Aborting");
+                press_enter_to_exit();
+                std::process::exit(0)
+            }
+        }
     }
 }
 
@@ -150,7 +163,7 @@ pub fn app_wizard() -> AppConfig {
             if *val >= 2 {
                 Ok(())
             } else {
-                Err("Departure interval must be at least 2 per minute")
+                Err("Departure interval must be at least 2 minutes")
             }
         })
         .interact()
@@ -158,6 +171,13 @@ pub fn app_wizard() -> AppConfig {
 
     let arr_interval = Input::with_theme(&ColorfulTheme::default())
         .with_prompt("Enter arrival interval (aircraft every N minutes)")
+        .validate_with(|val: &u8| -> Result<(), &str> {
+            if *val >= 1 {
+                Ok(())
+            } else {
+                Err("Departure interval cannot be 0")
+            }
+        })
         .interact()
         .expect(INPUT_ERROR);
 
@@ -198,7 +218,7 @@ pub fn app_wizard() -> AppConfig {
                     Ok(())
                 } else {
                     force = Some(input.clone());
-                    Err("That doesn't look like a mentor callsign. Enter again to force procede")
+                    Err("That doesn't look like a mentor callsign. Enter again to force proceed")
                 }
             }
         })
