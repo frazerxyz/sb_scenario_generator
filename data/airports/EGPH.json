@@ -1,0 +1,209 @@
+{
+    "icao": "EGPH",
+    "elevation": 136.0,
+    "runways": [
+        {"designator": "24", "threshold": "55.9558841:-3.3551289", "track": 239, "dep_spawn": "55.940446:-3.400193"},
+        {"designator": "06", "threshold": "55.9450169:-3.3870825", "track": 59, "dep_spawn": "55.959532:-3.344455"}
+    ],
+    "holds": [
+        {"fix": "TARTN", "inbound": 15, "direction": "L"},
+        {"fix": "STIRA", "inbound": 233, "direction": "R"},
+        {"fix": "EDN", "inbound": 240, "direction": "L"},
+        {"fix": "UW", "inbound": 60, "direction": "R"}
+    ],
+    "custom_routes": [
+        {"name": "24 RH", "route": "PH24UC PH24CD/1100 PH24DB/800 PH24BF/600 ILS24"},
+        {"name": "24 Standard Missed", "route": "H059/3000"},
+        {"name": "06 Standard Missed", "route": "H239/3000"}
+    ],
+    "controllers": [
+        {"callsign": "EGPH__TWR", "frequency": 118.705},
+        {"callsign": "EGPH_GND", "frequency": 121.755},
+        {"callsign": "EGPH_APP", "frequency": 121.205},
+        {"callsign": "SCO_CTR", "frequency": 125.680},
+        {"callsign": "SCL_TMA_CTR", "frequency": 126.300},
+        {"callsign": "SCL_GTA_CTR", "frequency": 124.930},
+        {"callsign": "EGPF_APP", "frequency": 119.105},
+        {"callsign": "EGPK_APP", "frequency": 129.455}
+    ],
+    "airlines": [
+        {"icao": "ABR", "terminal": [6]},
+        {"icao": "BCS", "terminal": [7]},
+        {"icao": "BEE", "terminal": [4]},
+        {"icao": "CFE", "terminal": [3, 4]},
+        {"icao": "DHK", "terminal": [7]},
+        {"icao": "EFU", "terminal": [4, 5]},
+        {"icao": "EZY", "terminal": [2, 3, 4, 5]},
+        {"icao": "FAH", "terminal": [6]},
+        {"icao": "FPO", "terminal": [6]},
+        {"icao": "LOG", "terminal": [3, 4]},
+        {"icao": "NPT", "terminal": [6]},
+        {"icao": "QTR", "terminal": [5]},
+        {"icao": "SHT", "terminal": [2, 3]},
+        {"icao": "SRR", "terminal": [7]},
+        {"icao": "TAY", "terminal": [6]},
+        {"icao": "UAE", "terminal": [4]},
+        {"icao": "UPS", "terminal": [7]}
+    ],
+    "terminals": [
+        {
+            "id": 1,
+            "label": "West side of E",
+            "stands": [
+                {"id": 100, "coords": "55.94616750:-3.3683481", "bearing": 243.0, "max_size": "C"},
+                {"id": 102, "coords": "55.94663528:-3.3683678", "bearing": 243.0, "max_size": "C"},
+                {"id": 103, "coords": "55.94702500:-3.3687861", "bearing": 243.0, "max_size": "C"},
+                {"id": 104, "coords": "55.94741944:-3.3689556", "bearing": 243.0, "max_size": "C"},
+                {"id": 105, "coords": "55.94781111:-3.3691111", "bearing": 243.0, "max_size": "C"},
+                {"id": 106, "coords": "55.94837778:-3.3692556", "bearing": 243.0, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 2,
+            "label": "Main Apron terminal west face",
+            "stands": [
+                {"id": 1, "coords": "55.94667611:-3.3662250", "bearing": 89.6, "max_size": "D"},
+                {"id": 2, "coords": "55.94712306:-3.3661658", "bearing": 89.6, "max_size": "C"},
+                {"id": 3, "coords": "55.94755583:-3.3663122", "bearing": 89.6, "max_size": "C"},
+                {"id": 4, "coords": "55.94800083:-3.3661947", "bearing": 89.6, "max_size": "C"},
+                {"id": 198, "coords": "55.946131:-3.366230", "bearing": 89.6, "max_size": "C"},
+                {"id": 199, "coords": "55.945729:-3.366218", "bearing": 89.6, "max_size": "C"}
+
+            ]
+        },
+        {
+            "id": 3,
+            "label": "Main terminal",
+            "stands": [
+                {"id": 5, "coords": "55.94844639:-3.3663631", "bearing": 153.0, "max_size": "C"},
+                {"id": 6, "coords": "55.94863667:-3.3659656", "bearing": 153.0, "max_size": "C"},
+                {"id": 7, "coords": "55.94884361:-3.3653703", "bearing": 153.0, "max_size": "C"},
+                {"id": 8, "coords": "55.94904000:-3.3647789", "bearing": 153.0, "max_size": "C"},
+                {"id": 9, "coords": "55.94924722:-3.3641947", "bearing": 153.0, "max_size": "C"},
+                {"id": 10, "coords": "55.94948306:-3.3635025", "bearing": 153.0, "max_size": "C"},
+                {"id": 11, "coords": "55.94969472:-3.3628097", "bearing": 153.0, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 4,
+            "label": "Southeast Pier",
+            "stands": [
+                {"id": 15, "coords": "55.950239:-3.360558", "bearing": 220.2, "max_size": "E"},
+                {"id": 16, "coords": "55.94947778:-3.3606083", "bearing": 220.2, "max_size": "E"},
+                {"id": 17, "coords": "55.94890000:-3.3603028", "bearing": 220.2, "max_size": "C"},
+                {"id": 19, "coords": "55.94847222:-3.3595222", "bearing": 220.2, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 5,
+            "label": "Southeast Apron",
+            "stands": [
+                {"id": 18, "coords": "55.94868333:-3.3600278", "bearing": 203.5, "max_size": "E"},
+                {"id": 20, "coords": "55.94840833:-3.3587833", "bearing": 203.5, "max_size": "C"},
+                {"id": 22, "coords": "55.94861083:-3.3579558", "bearing": 203.5, "max_size": "C"},
+                {"id": 24, "coords": "55.94803333:-3.3575556", "bearing": 203.5, "max_size": "C"},
+                {"id": 25, "coords": "55.94806500:-3.3568764", "bearing": 203.5, "max_size": "C"},
+                {"id": 26, "coords": "55.94799778:-3.3560894", "bearing": 203.5, "max_size": "B"},
+                {"id": 27, "coords": "55.94778611:-3.3555586", "bearing": 203.5, "max_size": "C"},
+                {"id": 28, "coords": "55.94758194:-3.3549361", "bearing": 203.5, "max_size": "C"},
+                {"id": 29, "coords": "55.94738694:-3.3543064", "bearing": 203.5, "max_size": "C"},
+                {"id": 30, "coords": "55.94719417:-3.3536761", "bearing": 203.5, "max_size": "C"},
+                {"id": 31, "coords": "55.94711889:-3.3529086", "bearing": 203.5, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 6,
+            "label": "North Apron",
+            "stands": [
+                {"id": 200, "coords": "55.95243472:-3.3571086", "bearing": 28.3, "max_size": "C"},
+                {"id": 201, "coords": "55.95227111:-3.3565950", "bearing": 28.3, "max_size": "C"},
+                {"id": 202, "coords": "55.95210806:-3.3560603", "bearing": 28.3, "max_size": "C"},
+                {"id": 203, "coords": "55.95203861:-3.3553931", "bearing": 28.3, "max_size": "C"},
+                {"id": 204, "coords": "55.95185028:-3.3548403", "bearing": 28.3, "max_size": "C"},
+                {"id": 205, "coords": "55.95166250:-3.3542428", "bearing": 28.3, "max_size": "C"},
+                {"id": 206, "coords": "55.95143889:-3.3537442", "bearing": 28.3, "max_size": "C"},
+                {"id": 207, "coords": "55.95127083:-3.3532142", "bearing": 28.3, "max_size": "B"},
+                {"id": 208, "coords": "55.95105194:-3.3526364", "bearing": 28.3, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 7,
+            "label": "East Apron",
+            "stands": [
+                {"id": 210, "coords": "55.95019500:-3.3484928", "bearing": 28.6, "max_size": "D"},
+                {"id": 211, "coords": "55.94993833:-3.3476503", "bearing": 28.6, "max_size": "D"},
+                {"id": 212, "coords": "55.94967028:-3.3467872", "bearing": 28.6, "max_size": "D"}
+            ]
+        },
+        {
+            "id": 9,
+            "label": "Midfield Apron remote",
+            "stands": [
+                {"id": 403, "coords": "55.94894700:-3.3546610", "bearing": 28.8, "max_size": "C"},
+                {"id": 404, "coords": "55.94874800:-3.3540450", "bearing": 28.8, "max_size": "C"},
+                {"id": 405, "coords": "55.94856600:-3.3534210", "bearing": 28.8, "max_size": "C"},
+                {"id": 406, "coords": "55.94837600:-3.3527770", "bearing": 28.8, "max_size": "C"},
+                {"id": 407, "coords": "55.94817400:-3.3521700", "bearing": 28.8, "max_size": "C"}
+            ]
+        }
+    ],
+    "standard_routes": [
+        {
+            "name": "DEP_GOSAM",
+            "routes": [
+                {"runway": "24", "filed_route": "", "flown_route": "UW/6000 MAVIX GOSAM"},
+                {"runway": "06", "filed_route": "", "flown_route": "D050C/6000 GOW35 GOW30 CUMBO GOSAM"}
+            ]
+        },
+        {
+            "name": "ADC_ARR",
+            "routes": [
+                {"runway": "24", "filed_route": "", "flown_route": "[55.987570,-3.008209]/3000 [56.050938,-3.070343] [56.039755,-3.101410] ILS24#VL"},
+                {"runway": "06", "filed_route": "", "flown_route": "[55.803681,-3.611797]/3000 [55.852138,-3.667274] [55.859593,-3.640645] ILS06#VR"}
+            ]
+        }
+    ],
+    "departure_routes": [
+        {
+            "callsigns": ["SHT9W"],
+            "dest": "EGLL",
+            "types": ["A320", "A21N", "A319", "A20N"],
+            "rfl": 37000,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO AKOMU VAMEB NUGRA",
+            "flown_route": "$DEP_GOSAM FENIK"
+        }
+    ],
+    "arrival_routes": [
+        {
+            "callsigns": ["SHT8K"],
+            "dep": "EGJJ",
+            "types": ["A320", "A21N", "A319", "A20N"],
+            "rfl": 38000,
+            "filed_route": "UMLAT T418 WELIN T420 TNT UN57 POL UN601 RIBEL INPIP INPI1E",
+            "adc_route": {"spawn_coords": "55.792809:-3.195443", "spawn_alt": 6000, "flown_route": "$ADC_ARR"}
+        }
+    ],
+    "local_vfr": [
+        {
+            "callsign": "GGCES",
+            "aircraft_type": "DA42",
+            "description": "South of Edinburgh, no flight plan or intentions.",
+            "spawn_coords": "55.882890:-2.382707",
+            "spawn_alt": 2500,
+            "route": "[55.819212,-2.840391]/2500 [55.680984,-3.336909] [55.791256,-2.793236] [55.665453,-3.311945]"
+        },
+        {
+            "callsign": "GOPLM",
+            "aircraft_type": "SR22",
+            "description": "Fife to Fife. N -> S zone traisit.",
+            "spawn_coords": "56.188855:-3.214860",
+            "spawn_alt": 1500,
+            "route": "[56.254086,-3.225956]/2000 [56.252532,-3.417351] [56.153133,-3.722474] [56.064605,-3.949929] [56.174877,-3.969346] [56.235448,-3.858392] [56.323976,-3.478375] [56.316210,-3.278659] [56.269617,-3.225956] [56.247873,-3.431220]",
+            "flight_plan": {"dep": "EGPJ", "dest": "EGPJ", "alt": 2500, "route": "ZONE TRANSIT NORTH TO SOUTH"}
+        }
+    ],
+    "ground_vfr": {
+        "default_flight_plan": {"dep": "EGPH", "dest": "EGPH", "alt": 3000, "route": "LOCAL VFR"},
+        "spawn_coords": ["55.948027:-3.344336", "55.948195:-3.343977", "55.948633:-3.343270", "55.948608:-3.343436"]
+    }
+}
