@@ -87,6 +87,27 @@
             ]
         },
         {
+            "name": "DEP_LORKU",
+            "routes": [
+                {"runway": "26L", "filed_route": "NOVMA L620 SAM M195 LORKU", "flown_route": "KKW07/4000 KKW09 MID KKS25 NOVMA NIBDA HAZEL SAM IBNID MARUK LELNA"},
+                {"runway": "08R", "filed_route": "IMVUR N63 SAM M195 LORKU", "flown_route": "KKE03/3000 KKN09 KKW19 IMVUR VOUGA SAM IBNID MARUK LELNA"}
+            ]
+        },
+        {
+            "name": "DEP_ADKIK",
+            "routes": [
+                {"runway": "26L", "filed_route": "NOVMA L620 SAM N19 ADKIK", "flown_route": "KKW07/4000 KKW09 MID KKS25 NOVMA NIBDA HAZEL SAM NULGU ADKIK"},
+                {"runway": "08R", "filed_route": "IMVUR N63 SAM N19 ADKIK", "flown_route": "KKE03/3000 KKN09 KKW19 IMVUR VOUGA SAM NULGU ADKIK"}
+            ]
+        },
+        {
+            "name": "DEP_HEKXA",
+            "routes": [
+                {"runway": "26L", "filed_route": "NOVMA L620 SAM M195 LORKU", "flown_route": "KKW07/4000 KKW09 MID KKS25 NOVMA NIBDA VOUGA NUBRI HEKXA"},
+                {"runway": "08R", "filed_route": "IMVUR N63 SAM M195 LORKU", "flown_route": "KKE03/3000 KKN09 KKW19 IMVUR VOUGA NUBRI HEKXA"}
+            ]
+        },
+        {
             "name": "HOLLY_WILLO",
             "routes": [
                 {"filed_route": "", "flown_route": "HOLLY/9000 KKS16 WILLO/8000"}
