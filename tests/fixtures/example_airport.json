@@ -131,5 +131,28 @@
             "app_route": null,
             "adc_route": null
         }
-    ]
+    ],
+    "local_vfr": [
+        {
+            "callsign": "GGCES",
+            "aircraft_type": "DA42",
+            "description": "Spawns south & flies around CTR counter clockwise. No FPL.",
+            "spawn_coords": "50.886967:-0.415949",
+            "spawn_alt": 2300,
+            "route": "[50.931244,0.061685]/2300 [51.021500,0.246225] [51.334844,0.221801] [51.227558,-0.619486] [50.963600,-0.578779] [50.944867,-0.255833]"
+        },
+        {
+            "callsign": "GOPLM",
+            "aircraft_type": "SR22",
+            "description": "Shoreham to Biggin. Will hold south of gatwick until cleared further.",
+            "spawn_coords": "50.842690:-0.282971",
+            "spawn_alt": 1500,
+            "route": "[50.985738,-0.315537]/2200 [50.995956,0.056257] [50.961897,-0.304682] [51.002768,0.042688] [50.958491,-0.296541]",
+            "flight_plan": {"dep": "EGKA", "dest": "EGKB", "alt": 2200, "route": "ZONE TRANSIT HANDCROSS EGKK DORKING"}
+        }
+    ],
+    "ground_vfr": {
+        "default_flight_plan": {"dep": "EGKK", "dest": "EGKK", "alt": 2200, "route": "LOCAL VFR"},
+        "spawn_coords": ["51.147347:-0.173785", "51.147403:-0.171861", "51.153351:-0.192106", "51.154090:-0.192323"]
+    }
 }

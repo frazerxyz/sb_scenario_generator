@@ -134,6 +134,39 @@ pub struct ArrivalRoute {
     pub adc_route: Option<PositionRoute>,
 }
 
+#[derive(Debug, Deserialize, Clone, Default)]
+#[serde(default)]
+pub struct VfrFlightPlan {
+    pub dep: String,
+    pub dest: String,
+    pub alt: u16,
+    pub route: String,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct LocalVfr {
+    pub callsign: String,
+    pub aircraft_type: String,
+    pub description: String,
+    pub spawn_coords: String,
+    pub spawn_alt: u16,
+    pub route: String,
+    #[serde(default)]
+    pub flight_plan: VfrFlightPlan,
+}
+
+impl fmt::Display for LocalVfr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}: {}", self.callsign, self.description)
+    }
+}
+
+#[derive(Debug, Deserialize, Clone)]
+pub struct GroundVfr {
+    pub default_flight_plan: VfrFlightPlan,
+    pub spawn_coords: Vec<String>,
+}
+
 #[derive(Debug, Deserialize)]
 pub struct Airport {
     pub icao: String,
@@ -147,6 +180,8 @@ pub struct Airport {
     pub standard_routes: Vec<StandardRoute>,
     pub departure_routes: Vec<DepartureRoute>,
     pub arrival_routes: Vec<ArrivalRoute>,
+    pub local_vfr: Option<Vec<LocalVfr>>,
+    pub ground_vfr: Option<GroundVfr>,
 }
 
 impl Airport {
@@ -154,7 +189,7 @@ impl Airport {
         format!("AIRPORT_ALT:{:.1}", self.elevation)
     }
     pub fn round_elevation(&self) -> u16 {
-        ((self.elevation + 1100 as f32) / 100 as f32).round() as u16 * 100
+        ((self.elevation + 1100_f32) / 100_f32).round() as u16 * 100
     }
     pub fn format_holds(&self) -> String {
         self.holds

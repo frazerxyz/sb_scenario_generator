@@ -1,6 +1,6 @@
 use std::{fs, path::PathBuf};
 
-use crate::airport::Airport;
+use crate::airport::{Airport, PositionRoute};
 
 const DATA_DIR: &str = "data/airports";
 
@@ -118,6 +118,76 @@ fn all_airport_files_parse() {
         };
         if let Err(e) = serde_json::from_str::<Airport>(&json) {
             problems.push(format!("{}: {e}", &path.display()));
+        }
+    }
+
+    assert!(
+        problems.is_empty(),
+        "airport data problems:\n{}",
+        problems.join("\n")
+    );
+}
+
+#[test]
+fn spawn_coords_contains_colon() {
+    let mut problems: Vec<String> = Vec::new();
+
+    for path in airport_files() {
+        let json = fs::read_to_string(&path).expect("could not read file");
+
+        let airport: Airport = match serde_json::from_str(&json) {
+            Ok(a) => a,
+            Err(_) => continue,
+        };
+
+        for terminal in &airport.terminals {
+            for stand in &terminal.stands {
+                if !stand.coords.contains(':') {
+                    problems.push(format!("{}: Stand number {} coordinates are incorrectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display(), stand.id));
+                }
+            }
+        }
+
+        for runway in &airport.runways {
+            if !runway.dep_spawn.contains(':') {
+                problems.push(format!("{}: Runway {} spawn coordinates are incorrectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display(), runway.designator));
+            }
+        }
+
+        let mut routes: Vec<PositionRoute> = Vec::new();
+
+        for r in airport.arrival_routes {
+            if let Some(r) = r.adc_route {
+                routes.push(r);
+            }
+            if let Some(r) = r.app_route {
+                routes.push(r);
+            }
+            if let Some(r) = r.ctr_route {
+                routes.push(r);
+            }
+        }
+
+        for r in routes {
+            if !r.spawn_coords.contains(':') {
+                problems.push(format!("{}: One or more position route spawn coordinates are incorrectly formatted. Must be \"LATITUDE:LONGITUDE\"", path.display()));
+            }
+        }
+
+        if let Some(local) = airport.local_vfr {
+            for a in local {
+                if !a.spawn_coords.contains(':') {
+                    problems.push(format!("{}: {} has incorrectly formatted spawn coordinates. Must be \"LATITUDE:LONGITUDE\"", path.display(), a.callsign));
+                }
+            }
+        }
+
+        if let Some(ground) = airport.ground_vfr {
+            for c in ground.spawn_coords {
+                if !c.contains(':') {
+                    problems.push(format!("{}: One or more ground VFR spawn coordinates are formatted incorrectly. Must be \"LATITUDE:LONGITUDE\"", path.display()));
+                }
+            }
         }
     }
 
