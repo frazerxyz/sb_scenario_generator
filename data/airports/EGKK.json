@@ -55,7 +55,7 @@
         {
             "name": "HOLLY_WILLO",
             "routes": [
-                {"filed_route": "", "flown_route": "HOLLY KKS16 WILLO/8000"}
+                {"filed_route": "", "flown_route": "HOLLY/9000 KKS16 WILLO/8000"}
             ]
         },
         {
@@ -92,7 +92,7 @@
             "rfl": 23000,
             "filed_route": "ORIST L982 VASUX",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO TELTU/13000 $HOLLY_WILLO"},
+            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO/15000 TELTU/13000 $HOLLY_WILLO"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -132,7 +132,7 @@
             "rfl": 36000,
             "filed_route": "NVO Y868 SOGRI L608 DENUT L610 TEBRA",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.490120:1.614854", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN KKE63 LARCK TIMBA/8000"},
+            "app_route": {"spawn_coords": "51.490120:1.614854", "spawn_alt": 14000, "flown_route": "ABTUM/14000 ARNUN/10000 KKE63/9000 LARCK TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -142,7 +142,7 @@
             "rfl": 34000,
             "filed_route": "HGD V608 NABED T55 KUNKI P751 METRU TRL TUMBO RODON VAKSU BAXON CHI ALBET NEGIK RESIA ELMUR RIPUS DITON HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -152,7 +152,7 @@
             "rfl": 36000,
             "filed_route": "KAPIT L677 CVO L617 TANSA UL613 YNN UL611 TUMBO RODON VAKSU PEVAL BORMI RESIA ELMUR RIPUS DITON HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -172,7 +172,7 @@
             "rfl": 36000,
             "filed_route": "KUTLI L519 ATUDO M318 GOLGU M550 RIBOT MIGMA ITRUX Y511 PMA Z712 WEJ L677 CVO L617 TANSA KOR TUMBO VAKSU ROTAR BORMI RESIA ELMUR RIPUS L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV KUNA1G",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -182,7 +182,7 @@
             "rfl": 38000,
             "filed_route": "KUTLI L519 ATUDO M318 GOLGU M550 RIBOT MIGMA ITRUX Y511 PMA Z712 WEJ L677 CVO L617 TANSA KOR TUMBO VAKSU ROTAR BORMI RESIA ELMUR RIPUS L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV KUNA1G",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -192,7 +192,7 @@
             "rfl": 36000,
             "filed_route": "EKNUD UQ26 BKZ IBLAL RASUB PADGU DIRER PODET LUMUS UMVEG KPT L856 RAVED Y112 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -202,7 +202,7 @@
             "rfl": 38000,
             "filed_route": "VASTO NIDEB TIGGI BUSEN PINEK KORUL FEJAC JSY REVTU UP88 VASUX",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO TELTU/13000 $HOLLY_WILLO"},
+            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO/15000 TELTU/13000 $HOLLY_WILLO"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -212,7 +212,7 @@
             "rfl": 38000,
             "filed_route": "VASTO NIDEB TIGGI BUSEN PINEK KORUL FEJAC JSY REVTU UP88 VASUX",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO TELTU/13000 $HOLLY_WILLO"},
+            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO/15000 TELTU/13000 $HOLLY_WILLO"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -222,7 +222,7 @@
             "rfl": 38000,
             "filed_route": "PHA M31 GENOS PEDER EVENO BENEM UN127 ADHOT TALAS PEP ENFAR POD PEVAL BABAG SUMIR SAFFA ELMUR L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -252,7 +252,7 @@
             "rfl": 38000,
             "filed_route": "BUDSI UB731 KIGRA UY333 MIGNI UY212 EREBO A604 TMS A615 GHA B726 BSA J66 ALR UG30 SADAF LUMAS SOSUR JUSQO YACIM CNA MANAK UT183 TIRAV UT501 USODA UM184 EKRAS UT507 REVTU UP88 VASUX",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO TELTU/13000 $HOLLY_WILLO"},
+            "app_route": {"spawn_coords": "50.228553:-1.614817", "spawn_alt": 19000, "flown_route": "ROXOG/19000 VASUX DISVO/15000 TELTU/13000 $HOLLY_WILLO"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -302,7 +302,7 @@
             "rfl": 38000,
             "filed_route": "DATRI L564 MIGMA M628 AMBAG M321 KSA T503 OVANO L768 SOKAN FIRAS NIKAS L619 VESAR UB545 OKLAM UL619 OSVEL UQ23 OSDAN UQ26 DIGBO UL615 VADEN EFCOM GOL ROVAM DOLAP VEBAR RUGOG RIFEN SAFFA ELMUR RIPUS L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV KUNA1G",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64 TIMBA/8000"},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
