@@ -866,9 +866,9 @@ fn adc_wizard() -> AdcConfig {
 }
 
 struct DepartureStand {
-    number: u32,
+    _number: u32,
     terminal: u32,
-    max_size: ReferenceCode,
+    _max_size: ReferenceCode,
     coords: String,
     heading: u16,
 }
@@ -879,9 +879,9 @@ fn generate_stands(airport: &Airport) -> Vec<DepartureStand> {
     for t in &airport.terminals {
         for s in &t.stands {
             stands.push(DepartureStand {
-                number: s.id,
+                _number: s.id,
                 terminal: t.id,
-                max_size: s.max_size,
+                _max_size: s.max_size,
                 coords: s.coords.clone(),
                 heading: es_heading(s.bearing),
             });
