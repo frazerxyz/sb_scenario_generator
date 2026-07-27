@@ -66,14 +66,14 @@
     ],
     "standard_routes": [
         {
-            "name": "DEP_S_XIDIL",
+            "name": "DEP_SE_XIDIL",
             "routes": [
                 {"runway": "26L", "filed_route": "HARDY UM605 XIDIL", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA HARDY XIDIL"},
                 {"runway": "08R", "filed_route": "SFD UM605 XIDIL", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD WAFFU HARDY XIDIL"}
             ]
         },
         {
-            "name": "DEP_S_XAMAB",
+            "name": "DEP_SE_XAMAB",
             "routes": [
                 {"runway": "26L", "filed_route": "BOGNA UL612 XAMAB", "flown_route": "KKW06/5000 KKW08 KKS11 KKS17 KKS20/6000 KKS25 BOGNA BENBO XAWKE XAMAB"},
                 {"runway": "08R", "filed_route": "SFD UY47 BENBO UL612 XAMAB", "flown_route": "KKE03/6000 KKS08 KKS12 KKS16 KKS22 SFD BENBO XAWKE XAMAB"}
@@ -101,10 +101,17 @@
             ]
         },
         {
-            "name": "DEP_NW_HEKXA",
+            "name": "DEP_NW_SAWPE",
             "routes": [
-                {"runway": "26L", "filed_route": "NOVMA L620 SAM M195 LORKU", "flown_route": "KKW07/4000 KKW09 MID KKS25 NOVMA NIBDA VOUGA NUBRI HEKXA"},
-                {"runway": "08R", "filed_route": "IMVUR N63 SAM M195 LORKU", "flown_route": "KKE03/3000 KKN09 KKW19 IMVUR VOUGA NUBRI HEKXA"}
+                {"runway": "26L", "filed_route": "NOVMA L620 NIBDA N14 HEKXA Q63 SAWPE", "flown_route": "KKW07/4000 KKW09 MID KKS25 NOVMA NIBDA VOUGA NUBRI HEKXA SAWPE"},
+                {"runway": "08R", "filed_route": "IMVUR N63 VOUGA N14 HEKXA Q63 SAWPE", "flown_route": "KKE03/3000 KKN09 KKW19 IMVUR VOUGA NUBRI HEKXA SAWPE"}
+            ]
+        },
+        {
+            "name": "DEP_NW_OKSAW",
+            "routes": [
+                {"runway": "26L", "filed_route": "NOVMA L620 NIBDA N14 OKSAW", "flown_route": "KKW07/4000 KKW09 MID KKS25 NOVMA NIBDA VOUGA NUBRI HEKXA DIDZA OKSAW"},
+                {"runway": "08R", "filed_route": "IMVUR N63 VOUGA N14 OKSAW", "flown_route": "KKE03/3000 KKN09 KKW19 IMVUR VOUGA NUBRI HEKXA DIDZA OKSAW"}
             ]
         },
         {
@@ -117,22 +124,22 @@
         {
             "name": "DEP_NE_GIVPO",
             "routes": [
-                {"runway": "26L", "filed_route": "FRANE", "flown_route": "KKW04/4000 DET36 DET31 DET29 ACORN/5000 DVR32 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO TESDA LAPRA BANEM EFMIH BEKMO GIVPO"},
-                {"runway": "08R", "filed_route": "FRANE", "flown_route": "KKE04/5000 KKE10 KKE17 KKE25 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO TESDA LAPRA BANEM EFMIH BEKMO GIVPO"}
+                {"runway": "26L", "filed_route": "FRANE M604 GIVPO", "flown_route": "KKW04/4000 DET36 DET31 DET29 ACORN/5000 DVR32 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO TESDA LAPRA BANEM EFMIH BEKMO GIVPO"},
+                {"runway": "08R", "filed_route": "FRANE M604 GIVPO", "flown_route": "KKE04/5000 KKE10 KKE17 KKE25 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO TESDA LAPRA BANEM EFMIH BEKMO GIVPO"}
             ]
         },
         {
             "name": "DEP_NE_SOMVA",
             "routes": [
-                {"runway": "26L", "filed_route": "FRANE", "flown_route": "KKW04/4000 DET36 DET31 DET29 ACORN/5000 DVR32 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO SOMVA"},
-                {"runway": "08R", "filed_route": "FRANE", "flown_route": "KKE04/5000 KKE10 KKE17 KKE25 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO SOMVA"}
+                {"runway": "26L", "filed_route": "FRANE M604 PAAVO Q295 SOMVA", "flown_route": "KKW04/4000 DET36 DET31 DET29 ACORN/5000 DVR32 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO SOMVA"},
+                {"runway": "08R", "filed_route": "FRANE M604 PAAVO Q295 SOMVA", "flown_route": "KKE04/5000 KKE10 KKE17 KKE25 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA PAAVO SOMVA"}
             ]
         },
         {
             "name": "DEP_NE_REDFA",
             "routes": [
-                {"runway": "26L", "filed_route": "FRANE", "flown_route": "KKW04/4000 DET36 DET31 DET29 ACORN/5000 DVR32 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA RATLO REDFA"},
-                {"runway": "08R", "filed_route": "FRANE", "flown_route": "KKE04/5000 KKE10 KKE17 KKE25 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA RATLO REDFA"}
+                {"runway": "26L", "filed_route": "FRANE M604 GASBA M197 REDFA", "flown_route": "KKW04/4000 DET36 DET31 DET29 ACORN/5000 DVR32 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA RATLO REDFA"},
+                {"runway": "08R", "filed_route": "FRANE M604 GASBA M197 REDFA", "flown_route": "KKE04/5000 KKE10 KKE17 KKE25 DET FRANE/6000 SPEAR TOVGU DAGGA GASBA RATLO REDFA"}
             ]
         },
         {
@@ -162,16 +169,16 @@
             "dest": "LEAL",
             "types": ["A320", "A321"],
             "rfl": 35000,
-            "filed_route": "$DEP_SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
-            "flown_route": "$DEP_SITET ETRAT"
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
+            "flown_route": "$DEP_S_SITET ETRAT"
         },
         {
             "callsigns": ["EXS73J", "EZY52LD", "EFW370K", "EFW15AV", "EFW79YW"],
             "dest": "LEIB",
             "types": ["A21N"],
             "rfl": 35000,
-            "filed_route": "$DEP_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL XEPLA BCN CORDA CORD5V",
-            "flown_route": "$DEP_SITET ETRAT"
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL XEPLA BCN CORDA CORD5V",
+            "flown_route": "$DEP_S_SITET ETRAT"
         }
     ],
     "arrival_routes": [
