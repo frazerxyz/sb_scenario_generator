@@ -19,9 +19,9 @@
         {"callsign": "EGXX_APP", "frequency": 127.250}
     ],
     "airlines": [
-        {"icao": "AAA", "terminal": [1]},
-        {"icao": "BBB", "terminal": [2]},
-        {"icao": "CCC", "terminal": [1,2]}
+        {"icao": "AAA", "terminals": [1]},
+        {"icao": "BBB", "terminals": [2]},
+        {"icao": "CCC", "terminals": [1,2]}
     ],
     "terminals": [
         {"id": 1, "label": "Terminal One", "stands": [

@@ -9,7 +9,7 @@ use std::io::{self, Write};
 use dialoguer::{Select, theme::ColorfulTheme};
 use generator::SessionType;
 
-use crate::generator::generate_app;
+use crate::generator::{generate_adc, generate_app};
 
 #[cfg(test)]
 mod data_tests;
@@ -29,7 +29,7 @@ pub fn config_error(message: &str) -> ! {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let session_types = &[SessionType::Adc, SessionType::App, SessionType::Ctr];
+    let session_types = &[SessionType::Adc, SessionType::App];
 
     let scenario = Select::with_theme(&ColorfulTheme::default())
         .with_prompt("Select scenario type")
@@ -38,9 +38,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .interact()?;
 
     match session_types[scenario] {
-        SessionType::Adc => todo!("Write ADC generator"),
+        SessionType::Adc => generate_adc(),
         SessionType::App => generate_app(),
-        SessionType::Ctr => todo!("Write CTR generator"),
     }
 
     press_enter_to_exit();

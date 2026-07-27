@@ -13,7 +13,10 @@ use crate::{
         FlightType::{Arrival, Departure, Local},
         assign_squawks,
     },
-    airport::{Airport, ArrivalRoute, DepartureRoute, LocalVfr, Runway, VfrFlightPlan},
+    airport::{
+        Airline, Airport, ArrivalRoute, DepartureRoute, LocalVfr, ReferenceCode, Runway,
+        VfrFlightPlan,
+    },
     press_enter_to_exit,
     route_parser::{
         RouteType::{Filed, Flown},
@@ -25,7 +28,6 @@ use crate::{
 pub enum SessionType {
     Adc,
     App,
-    Ctr,
 }
 
 impl fmt::Display for SessionType {
@@ -33,7 +35,6 @@ impl fmt::Display for SessionType {
         let text = match self {
             Self::Adc => "ADC",
             Self::App => "APP",
-            Self::Ctr => "CTR",
         };
         write!(f, "{text}")
     }
@@ -554,7 +555,7 @@ pub fn configure_vfr(airport: &Airport, initial_pseudo_pilot: &str) -> Vec<Aircr
                 flight_rule: V,
                 callsign: i.callsign,
                 aircraft_type: i.aircraft_type,
-                squawk: Some(7000),
+                squawk: Some(0o7000),
                 spawn_coords: i.spawn_coords,
                 spawn_altitude: i.spawn_alt,
                 spawn_hdg: None,
@@ -602,7 +603,7 @@ pub fn configure_vfr(airport: &Airport, initial_pseudo_pilot: &str) -> Vec<Aircr
                 flight_rule: V,
                 callsign: s.callsign,
                 aircraft_type: s.aircraft_type,
-                squawk: Some(7000),
+                squawk: Some(0o7000),
                 spawn_coords: coord.clone(),
                 spawn_altitude: airport.elevation as u16,
                 spawn_hdg: None,
@@ -621,4 +622,370 @@ pub fn configure_vfr(airport: &Airport, initial_pseudo_pilot: &str) -> Vec<Aircr
     }
 
     vfr_aircraft
+}
+
+struct AdcConfig {
+    airport: Airport,
+    arrival_runway: usize,
+    departures: u8,
+    arr_interval: u8,
+    duration: u8,
+    name: String,
+    initial_pseudo_pilot: String,
+    vfr_traffic: Vec<Aircraft>,
+}
+
+impl AdcConfig {
+    pub fn runway(&self) -> &Runway {
+        &self.airport.runways[self.arrival_runway]
+    }
+}
+
+fn preferred_terminals<'a>(callsign: &str, airlines: &'a [Airline]) -> &'a [u32] {
+    let prefix = callsign.get(..3).unwrap_or_default();
+
+    match airlines.iter().find(|a| a.icao == prefix) {
+        Some(airline) => &airline.terminals,
+        None => &[],
+    }
+}
+
+fn allocate_stand(
+    stands: &mut Vec<DepartureStand>,
+    callsign: &str,
+    airlines: &[Airline],
+) -> Option<DepartureStand> {
+    let preferred = preferred_terminals(callsign, airlines);
+
+    match stands.iter().position(|s| preferred.contains(&s.terminal)) {
+        Some(i) => Some(stands.remove(i)),
+        None => stands.pop(),
+    }
+}
+
+pub fn generate_adc() {
+    let config = adc_wizard();
+    let airport = &config.airport;
+
+    let mut aircraft = adc_arrivals(&config);
+    assign_squawks(&mut aircraft);
+    aircraft.extend(adc_departures(&config));
+    aircraft.extend(config.vfr_traffic);
+
+    let traffic = aircraft
+        .iter()
+        .map(|a| a.to_string())
+        .collect::<Vec<_>>()
+        .join("\n\n");
+
+    let output: String = format!(
+        "{}\n\nPSEUDOPILOT:ALL\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}\n\n{}",
+        FILE_MESSAGE,
+        airport.format_elevation(),
+        airport.format_runways(),
+        airport.format_holds(),
+        airport.format_custom_routes(),
+        airport.format_controllers(),
+        traffic,
+        aircraft_perf(),
+    );
+
+    match write_output(output, config.name) {
+        Ok(()) => (),
+        Err(e) => println!("Couldn't write the file\n\n{e}"),
+    }
+}
+
+fn stage_adc_arrivals(arrival_routes: &[ArrivalRoute], config: &AdcConfig) -> Vec<StagedAircraft> {
+    let mut out = Vec::new();
+
+    for route in arrival_routes {
+        if let Some(pos) = &route.adc_route {
+            for c in &route.callsigns {
+                let callsign = c.to_string();
+                let outstation = route.dep.to_string();
+                let aircraft_type = &route
+                    .types
+                    .choose(&mut rng())
+                    .expect("No aircraft type provided for one or more routes");
+                let filed_route = route_parser(
+                    &route.filed_route,
+                    &config.airport.standard_routes,
+                    &config.runway().designator,
+                    &Filed,
+                );
+                let flown_route = route_parser(
+                    &pos.flown_route,
+                    &config.airport.standard_routes,
+                    &config.runway().designator,
+                    &Flown,
+                );
+                let spawn_coords = Some(pos.spawn_coords.clone());
+                let spawn_alt = Some(pos.spawn_alt);
+                let rfl = route.rfl;
+
+                out.push(StagedAircraft {
+                    callsign,
+                    outstation,
+                    aircraft_type: aircraft_type.to_string(),
+                    filed_route,
+                    flown_route,
+                    spawn_coords,
+                    spawn_alt,
+                    rfl,
+                });
+            }
+        }
+    }
+    out
+}
+
+fn adc_arrivals(config: &AdcConfig) -> Vec<Aircraft> {
+    let mut out: Vec<Aircraft> = Vec::new();
+
+    let times = spawn_timings(config.duration as f32, config.arr_interval as f32, None);
+
+    let mut staged_aircraft = stage_adc_arrivals(&config.airport.arrival_routes, config);
+    let mut rng = rng();
+    staged_aircraft.shuffle(&mut rng);
+
+    for (t, a) in times.iter().zip(staged_aircraft) {
+        let aircraft = Aircraft {
+            flight_type: Arrival,
+            flight_rule: I,
+            callsign: a.callsign,
+            aircraft_type: a.aircraft_type,
+            squawk: None,
+            spawn_coords: a.spawn_coords.expect("arrival staged without spawn coords"),
+            spawn_altitude: a.spawn_alt.expect("arrival staged without spawn alt"),
+            spawn_hdg: None, //not needed for arrivals
+            origin: a.outstation,
+            dest: config.airport.icao.clone(),
+            filed_route: a.filed_route,
+            tas: Some(250), //placeholder
+            rfl: Some(a.rfl),
+            flown_route: a.flown_route,
+            start: *t,
+            delay: None,
+            initial_pseudo_pilot: config.initial_pseudo_pilot.clone(),
+            has_flight_plan: true,
+        };
+        out.push(aircraft);
+    }
+    out
+}
+
+fn adc_wizard() -> AdcConfig {
+    let airport_configs = get_airport_configs();
+
+    let selection = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select airport config")
+        .default(0)
+        .items(&airport_configs)
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let airport = airport_from_json(&format!("data/airports/{}", airport_configs[selection]));
+
+    let runways = &airport.runways;
+
+    let runway_index = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select runway")
+        .default(0)
+        .items(runways)
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let departures = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter number of IFR departures")
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let arr_interval = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter arrival interval (aircraft every N minutes)")
+        .validate_with(|val: &u8| -> Result<(), &str> {
+            if *val >= 1 {
+                Ok(())
+            } else {
+                Err("Arrival interval cannot be 0")
+            }
+        })
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let duration = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter session duration in minutes")
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let default_pseudo_pilot: String = format!("{}_M_TWR", airport.icao);
+
+    let initial_pseudo_pilot: String = if Confirm::with_theme(&ColorfulTheme::default())
+        .with_prompt(format!(
+            "Would you like to override the default pseudo pilot? {default_pseudo_pilot}"
+        ))
+        .interact()
+        .expect(INPUT_ERROR)
+    {
+        Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Enter pseudo pilot callsign")
+        .validate_with({
+            let mut force = None;
+            move |input: &String| -> Result<(), &str> {
+                if input.contains('_') || (force.as_ref() == Some(input)) {
+                    Ok(())
+                } else {
+                    force = Some(input.clone());
+                    Err("That doesn't look like a mentor callsign. Enter again to force proceed")
+                }
+            }
+        })
+        .interact()
+        .expect(INPUT_ERROR)
+    } else {
+        default_pseudo_pilot
+    };
+
+    let vfr_traffic = configure_vfr(&airport, &initial_pseudo_pilot);
+
+    let name = Input::with_theme(&ColorfulTheme::default())
+        .with_prompt("Name this scenario")
+        .interact()
+        .expect(INPUT_ERROR);
+
+    AdcConfig {
+        airport,
+        arrival_runway: runway_index,
+        departures,
+        arr_interval,
+        duration,
+        name,
+        initial_pseudo_pilot,
+        vfr_traffic,
+    }
+}
+
+struct DepartureStand {
+    number: u32,
+    terminal: u32,
+    max_size: ReferenceCode,
+    coords: String,
+    heading: u16,
+}
+
+fn generate_stands(airport: &Airport) -> Vec<DepartureStand> {
+    let mut stands: Vec<DepartureStand> = Vec::new();
+
+    for t in &airport.terminals {
+        for s in &t.stands {
+            stands.push(DepartureStand {
+                number: s.id,
+                terminal: t.id,
+                max_size: s.max_size,
+                coords: s.coords.clone(),
+                heading: es_heading(s.bearing),
+            });
+        }
+    }
+
+    let mut rng = rng();
+    stands.shuffle(&mut rng);
+    stands
+}
+
+fn es_heading(degrees: f32) -> u16 {
+    (((degrees * 2.88 + 0.5) as u32) << 2) as u16
+}
+
+fn adc_departures(config: &AdcConfig) -> Vec<Aircraft> {
+    let mut out: Vec<Aircraft> = Vec::new();
+
+    let mut staged_aircraft = stage_adc_departures(&config.airport.departure_routes, config);
+
+    let mut rng = rng();
+    staged_aircraft.shuffle(&mut rng);
+    staged_aircraft.truncate(config.departures as usize);
+
+    let mut stands = generate_stands(&config.airport);
+
+    for a in staged_aircraft {
+        let stand = match allocate_stand(&mut stands, &a.callsign, &config.airport.airlines) {
+            Some(s) => s,
+            None => continue,
+        };
+
+        let aircraft = Aircraft {
+            flight_type: Departure,
+            flight_rule: I,
+            callsign: a.callsign,
+            aircraft_type: a.aircraft_type,
+            squawk: Some(0o2000),
+            spawn_coords: stand.coords,
+            spawn_altitude: config.airport.elevation as u16,
+            spawn_hdg: Some(stand.heading),
+            origin: config.airport.icao.clone(),
+            dest: a.outstation,
+            filed_route: a.filed_route,
+            tas: Some(250), //placeholder
+            rfl: Some(a.rfl),
+            flown_route: a.flown_route,
+            start: 0,
+            delay: None,
+            initial_pseudo_pilot: config.initial_pseudo_pilot.clone(),
+            has_flight_plan: true,
+        };
+        out.push(aircraft);
+    }
+    out
+}
+
+fn stage_adc_departures(
+    departure_routes: &[DepartureRoute],
+    config: &AdcConfig,
+) -> Vec<StagedAircraft> {
+    let mut out = Vec::new();
+
+    for route in departure_routes {
+        for c in &route.callsigns {
+            let callsign = c.to_string();
+            let outstation = route.dest.to_string();
+            let aircraft_type = &route
+                .types
+                .choose(&mut rng())
+                .expect("No aircraft type provided for one or more routes");
+            let filed_route = route_parser(
+                &route.filed_route,
+                &config.airport.standard_routes,
+                &config.runway().designator,
+                &Filed,
+            );
+            let flown_route = route_parser(
+                &route.flown_route,
+                &config.airport.standard_routes,
+                &config.runway().designator,
+                &Flown,
+            );
+            let rfl = route.rfl;
+
+            out.push(StagedAircraft {
+                callsign,
+                outstation,
+                aircraft_type: aircraft_type.to_string(),
+                filed_route,
+                flown_route,
+                spawn_coords: None,
+                spawn_alt: None,
+                rfl,
+            });
+        }
+    }
+    out
+}
+
+#[test]
+fn heading_conversion() {
+    assert_eq!(es_heading(0.0), 0);
+    assert_eq!(es_heading(90.0), 1036);
+    assert_eq!(es_heading(180.0), 2072);
+    assert_eq!(es_heading(270.0), 3112);
 }

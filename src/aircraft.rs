@@ -1,6 +1,6 @@
 use rand::seq::SliceRandom;
 use serde::Deserialize;
-use std::fmt;
+use std::fmt::{self};
 
 use crate::{
     aircraft::FlightRule::{I, V},
@@ -57,10 +57,15 @@ pub struct Aircraft {
 
 impl fmt::Display for Aircraft {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let squawk = match self.squawk {
+            Some(s) => format!("{s:04o}"),
+            None => String::new(),
+        };
+
         let aircraft_position = format!(
             "@N:{}:{}:1:{}:{}:0:{}:0",
             self.callsign,
-            string_if_none(self.squawk, ""),
+            squawk,
             self.spawn_coords,
             self.spawn_altitude,
             string_if_none(self.spawn_hdg, "")
@@ -122,9 +127,11 @@ pub fn assign_squawks(aircraft: &mut [Aircraft]) {
     let mut pool = SquawkPool::new(&mut rand::rng());
 
     for a in aircraft.iter_mut() {
-        a.squawk = Some(match a.flight_rule {
-            V => 7000,
-            I => pool.allocate().expect("squawk pool exhausted"),
-        });
+        if a.squawk.is_none() {
+            a.squawk = Some(match a.flight_rule {
+                V => 0o7000,
+                I => pool.allocate().expect("squawk pool exhausted"),
+            });
+        }
     }
 }
