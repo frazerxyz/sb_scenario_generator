@@ -55,10 +55,10 @@ pub struct Controller {
 #[derive(Debug, Deserialize)]
 pub struct Airline {
     pub icao: String,
-    pub terminal: Vec<u8>,
+    pub terminals: Vec<u32>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum ReferenceCode {
     A,
     B,

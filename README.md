@@ -10,11 +10,7 @@ Alternatively download the source code as zip, though tracking via git makes it 
 
 I will release a compiled executable at some point once more features are working.
 
-## Known issues
-- ADC not supported
-- CTR not supported
-
 ## Disclaimer
 I am new to to coding and Rust, please be kind!
 
-**This is a WIP and WILL have bugs!**
+**This is a WIP. If you find any bugs, please let me know by opening an issue.**
