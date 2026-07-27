@@ -54,13 +54,252 @@
         {"callsign": "EGKK_APP", "frequency": 126.825}
     ],
     "airlines": [
-        {"icao": "EZY", "terminals": [4,5,6]},
-        {"icao": "EFW", "terminals": [1,2,3]},
-        {"icao": "TOM", "terminals": [4,5,6]}
+        {"icao": "AEA", "terminals": [1, 3, 9]},
+        {"icao": "AEE", "terminals": [4]},
+        {"icao": "AFL", "terminals": [6]},
+        {"icao": "AIC", "terminals": [2]},
+        {"icao": "AMC", "terminals": [2, 4]},
+        {"icao": "AUA", "terminals": [4]},
+        {"icao": "AUR", "terminals": [1, 9]},
+        {"icao": "AWC", "terminals": [3, 4]},
+        {"icao": "BAV", "terminals": [2]},
+        {"icao": "BAW", "terminals": [1, 2, 3, 4, 9, 10]},
+        {"icao": "BDR", "terminals": [3]},
+        {"icao": "BEE", "terminals": [9]},
+        {"icao": "BRU", "terminals": [4]},
+        {"icao": "BTI", "terminals": [3, 4]},
+        {"icao": "CAI", "terminals": [3]},
+        {"icao": "CFE", "terminals": [1]},
+        {"icao": "CPA", "terminals": [4]},
+        {"icao": "EFW", "terminals": [1, 2, 3]},
+        {"icao": "EIN", "terminals": [1, 4]},
+        {"icao": "EJU", "terminals": [7]},
+        {"icao": "EXS", "terminals": [3]},
+        {"icao": "EZE", "terminals": [1]},
+        {"icao": "EZS", "terminals": [1, 6, 7]},
+        {"icao": "EZY", "terminals": [1, 2, 3, 5, 6, 7, 9, 10]},
+        {"icao": "FUA", "terminals": [5, 6, 7, 9]},
+        {"icao": "GCR", "terminals": [5]},
+        {"icao": "GMI", "terminals": [4, 9]},
+        {"icao": "GVH", "terminals": [8]},
+        {"icao": "IBS", "terminals": [3]},
+        {"icao": "ICE", "terminals": [5]},
+        {"icao": "ISS", "terminals": [5]},
+        {"icao": "KMM", "terminals": [2, 4]},
+        {"icao": "LBT", "terminals": [2]},
+        {"icao": "LLC", "terminals": [4]},
+        {"icao": "MAC", "terminals": [3, 4]},
+        {"icao": "MON", "terminals": [4, 9]},
+        {"icao": "NOZ", "terminals": [2, 3]},
+        {"icao": "NSZ", "terminals": [2, 3]},
+        {"icao": "PRD", "terminals": [11]},
+        {"icao": "RAM", "terminals": [5]},
+        {"icao": "RUK", "terminals": [1, 3]},
+        {"icao": "RYR", "terminals": [1, 3]},
+        {"icao": "SEH", "terminals": [3]},
+        {"icao": "SHT", "terminals": [1, 4, 9, 10]},
+        {"icao": "SXS", "terminals": [2, 3]},
+        {"icao": "TAP", "terminals": [2, 3, 4]},
+        {"icao": "TAR", "terminals": [3]},
+        {"icao": "TCX", "terminals": [4, 9]},
+        {"icao": "THY", "terminals": [3]},
+        {"icao": "TKJ", "terminals": [3]},
+        {"icao": "TOM", "terminals": [5, 6, 7, 9]},
+        {"icao": "TSC", "terminals": [4]},
+        {"icao": "TVS", "terminals": [4]},
+        {"icao": "UAE", "terminals": [6]},
+        {"icao": "UBT", "terminals": [2]},
+        {"icao": "UKV", "terminals": [5]},
+        {"icao": "VIR", "terminals": [6]},
+        {"icao": "VLG", "terminals": [1, 2, 3, 5, 6]},
+        {"icao": "WJA", "terminals": [5]},
+        {"icao": "WMT", "terminals": [1, 2, 3]},
+        {"icao": "WOW", "terminals": [4]},
+        {"icao": "WUK", "terminals": [2, 3]},
+        {"icao": "WZZ", "terminals": [1, 2, 3]}
     ],
     "terminals": [
-        {"id": 1, "label": "Pier 1", "stands": [
-                {"id": 1, "coords": "51.154869:-0.164379", "bearing": 77.6, "max_size": "C"}
+        {
+            "id": 1,
+            "label": "Pier 1",
+            "stands": [
+                {"id": 1, "coords": "51.15490556:-0.1641528", "bearing": 77.6, "max_size": "C"},
+                {"id": 2, "coords": "51.15448333:-0.1640083", "bearing": 77.6, "max_size": "C"},
+                {"id": 3, "coords": "51.15406111:-0.1638611", "bearing": 77.6, "max_size": "C"},
+                {"id": 4, "coords": "51.15380833:-0.1634333", "bearing": 347.6, "max_size": "C"},
+                {"id": 5, "coords": "51.15389167:-0.1627889", "bearing": 347.6, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 2,
+            "label": "Pier 2 north side",
+            "stands": [
+                {"id": 13, "coords": "51.15614778:-0.1656361", "bearing": 167.6, "max_size": "E"},
+                {"id": 15, "coords": "51.15600083:-0.1665706", "bearing": 167.6, "max_size": "E"},
+                {"id": 17, "coords": "51.15583167:-0.1677464", "bearing": 167.6, "max_size": "E"},
+                {"id": 19, "coords": "51.15569444:-0.1689783", "bearing": 167.6, "max_size": "E"},
+                {"id": 21, "coords": "51.15553972:-0.1699408", "bearing": 167.6, "max_size": "E"},
+                {"id": 23, "coords": "51.15541111:-0.1709269", "bearing": 167.6, "max_size": "E"},
+                {"id": 25, "coords": "51.15526944:-0.1717081", "bearing": 140.0, "max_size": "E"}
+            ]
+        },
+        {
+            "id": 3,
+            "label": "Pier 2 south side",
+            "stands": [
+                {"id": 10, "coords": "51.15555139:-0.1654628", "bearing": 347.6, "max_size": "C"},
+                {"id": 11, "coords": "51.15546583:-0.1660644", "bearing": 347.6, "max_size": "C"},
+                {"id": 12, "coords": "51.15539361:-0.1666239", "bearing": 347.6, "max_size": "C"},
+                {"id": 14, "coords": "51.15532444:-0.1672611", "bearing": 347.6, "max_size": "C"},
+                {"id": 16, "coords": "51.15524278:-0.1678653", "bearing": 347.6, "max_size": "C"},
+                {"id": 18, "coords": "51.15513361:-0.1684808", "bearing": 347.6, "max_size": "C"},
+                {"id": 20, "coords": "51.15505917:-0.1690719", "bearing": 347.6, "max_size": "C"},
+                {"id": 22, "coords": "51.15496222:-0.1696928", "bearing": 347.6, "max_size": "C"},
+                {"id": 24, "coords": "51.15487611:-0.1703028", "bearing": 347.6, "max_size": "C"},
+                {"id": 27, "coords": "51.15481139:-0.1715386", "bearing": 45.0, "max_size": "E"},
+                {"id": 28, "coords": "51.15479583:-0.1709050", "bearing": 347.6, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 4,
+            "label": "Pier 3",
+            "stands": [
+                {"id": 31, "coords": "51.15780694:-0.1675658", "bearing": 329.0, "max_size": "E"},
+                {"id": 32, "coords": "51.15769333:-0.1684106", "bearing": 5.8, "max_size": "E"},
+                {"id": 33, "coords": "51.15782861:-0.1690428", "bearing": 49.3, "max_size": "E"},
+                {"id": 34, "coords": "51.15826028:-0.1693161", "bearing": 93.7, "max_size": "E"},
+                {"id": 35, "coords": "51.15867972:-0.1690350", "bearing": 135.7, "max_size": "E"},
+                {"id": 36, "coords": "51.15881556:-0.1684606", "bearing": 171.8, "max_size": "E"},
+                {"id": 37, "coords": "51.15873361:-0.1677994", "bearing": 212.8, "max_size": "E"},
+                {"id": 38, "coords": "51.15841194:-0.1673853", "bearing": 252.0, "max_size": "E"}
+            ]
+        },
+        {
+            "id": 5,
+            "label": "Pier 4",
+            "stands": [
+                {"id": 46, "coords": "51.16037639:-0.1696558", "bearing": 329.0, "max_size": "D"},
+                {"id": 47, "coords": "51.16031750:-0.1707403", "bearing": 329.0, "max_size": "D"},
+                {"id": 48, "coords": "51.15967028:-0.1715206", "bearing": 310.0, "max_size": "D"},
+                {"id": 49, "coords": "51.15910250:-0.1724847", "bearing": 329.0, "max_size": "D"},
+                {"id": 50, "coords": "51.15899472:-0.1733008", "bearing": 329.0, "max_size": "D"},
+                {"id": 51, "coords": "51.15887917:-0.1741744", "bearing": 347.6, "max_size": "E"},
+                {"id": 52, "coords": "51.15873944:-0.1752569", "bearing": 347.6, "max_size": "E"},
+                {"id": 53, "coords": "51.15859417:-0.1763319", "bearing": 347.6, "max_size": "E"},
+                {"id": 54, "coords": "51.15843667:-0.1775225", "bearing": 347.6, "max_size": "E"}
+            ]
+        },
+        {
+            "id": 6,
+            "label": "Pier 5",
+            "stands": [
+                {"id": 552, "coords": "51.15758611:-0.1787861", "bearing": 329.0, "max_size": "C"},
+                {"id": 553, "coords": "51.15744722:-0.1794861", "bearing": 45.0, "max_size": "C"},
+                {"id": 554, "coords": "51.15808333:-0.1797278", "bearing": 77.6, "max_size": "C"},
+                {"id": 555, "coords": "51.15862583:-0.1790672", "bearing": 77.6, "max_size": "D"},
+                {"id": 558, "coords": "51.15936083:-0.1790308", "bearing": 77.6, "max_size": "F"},
+                {"id": 561, "coords": "51.15998500:-0.1792836", "bearing": 77.6, "max_size": "E"},
+                {"id": 563, "coords": "51.16058778:-0.1795153", "bearing": 77.6, "max_size": "E"},
+                {"id": 564, "coords": "51.16071833:-0.1799981", "bearing": 77.6, "max_size": "C"},
+                {"id": 565, "coords": "51.16109361:-0.1801144", "bearing": 77.6, "max_size": "C"},
+                {"id": 567, "coords": "51.16157444:-0.1802636", "bearing": 77.6, "max_size": "C"},
+                {"id": 568, "coords": "51.16191972:-0.1800475", "bearing": 77.6, "max_size": "E"},
+                {"id": 571, "coords": "51.16254639:-0.1802878", "bearing": 77.6, "max_size": "E"},
+                {"id": 573, "coords": "51.16315528:-0.1805736", "bearing": 77.6, "max_size": "E"}
+            ]
+        },
+        {
+            "id": 7,
+            "label": "Pier 6",
+            "stands": [
+                {"id": 681, "coords": "51.15613139:-0.1756639", "bearing": 347.6, "max_size": "C"},
+                {"id": 682, "coords": "51.15656944:-0.1762167", "bearing": 167.6, "max_size": "E"},
+                {"id": 683, "coords": "51.15605444:-0.1762844", "bearing": 347.6, "max_size": "C"},
+                {"id": 684, "coords": "51.15647222:-0.1769222", "bearing": 167.6, "max_size": "C"},
+                {"id": 685, "coords": "51.15597361:-0.1768897", "bearing": 347.6, "max_size": "C"},
+                {"id": 687, "coords": "51.15587500:-0.1776017", "bearing": 347.6, "max_size": "C"},
+                {"id": 688, "coords": "51.15634806:-0.1778708", "bearing": 167.6, "max_size": "C"},
+                {"id": 689, "coords": "51.15576917:-0.1782292", "bearing": 347.6, "max_size": "C"},
+                {"id": 690, "coords": "51.15621889:-0.1784642", "bearing": 167.6, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 8,
+            "label": "North West apron",
+            "stands": [
+                {"id": 64, "coords": "51.16263444:-0.1837814", "bearing": 257.6, "max_size": "E"},
+                {"id": 65, "coords": "51.16194778:-0.1835861", "bearing": 257.6, "max_size": "E"},
+                {"id": 66, "coords": "51.16127417:-0.1833247", "bearing": 257.6, "max_size": "E"},
+                {"id": 67, "coords": "51.16088889:-0.1827667", "bearing": 280.0, "max_size": "C"},
+                {"id": 68, "coords": "51.16071667:-0.1830528", "bearing": 280.0, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 9,
+            "label": "130s",
+            "stands": [
+                {"id": 130, "coords": "51.15456028:-0.1752550", "bearing": 167.6, "max_size": "E"},
+                {"id": 131, "coords": "51.15443667:-0.1760822", "bearing": 167.6, "max_size": "E"},
+                {"id": 132, "coords": "51.15432167:-0.1769603", "bearing": 167.6, "max_size": "E"},
+                {"id": 133, "coords": "51.15419889:-0.1777706", "bearing": 167.6, "max_size": "E"},
+                {"id": 134, "coords": "51.15408472:-0.1786319", "bearing": 167.6, "max_size": "E"},
+                {"id": 135, "coords": "51.15397278:-0.1794267", "bearing": 167.6, "max_size": "E"},
+                {"id": 136, "coords": "51.15388472:-0.1801394", "bearing": 167.6, "max_size": "D"}
+            ]
+        },
+        {
+            "id": 10,
+            "label": "140s",
+            "stands": [
+                {"id": 140, "coords": "51.15383222:-0.1750392", "bearing": 347.6, "max_size": "D"},
+                {"id": 141, "coords": "51.15371583:-0.1759675", "bearing": 347.6, "max_size": "D"},
+                {"id": 142, "coords": "51.15357472:-0.1769942", "bearing": 347.6, "max_size": "D"},
+                {"id": 143, "coords": "51.15343444:-0.1780042", "bearing": 347.6, "max_size": "D"},
+                {"id": 144, "coords": "51.15330250:-0.1790650", "bearing": 347.6, "max_size": "D"},
+                {"id": 145, "coords": "51.15316278:-0.1800583", "bearing": 347.6, "max_size": "D"}
+            ]
+        },
+        {
+            "id": 11,
+            "label": "Cargo apron",
+            "stands": [
+                {"id": 150, "coords": "51.15539694:-0.1846492", "bearing": 167.6, "max_size": "E"},
+                {"id": 151, "coords": "51.15526528:-0.1857103", "bearing": 167.6, "max_size": "E"},
+                {"id": 152, "coords": "51.15509000:-0.1868175", "bearing": 167.6, "max_size": "E"},
+                {"id": 153, "coords": "51.15693611:-0.1838556", "bearing": 347.6, "max_size": "C"},
+                {"id": 154, "coords": "51.15686389:-0.1845833", "bearing": 347.6, "max_size": "C"},
+                {"id": 158, "coords": "51.15640278:-0.1881278", "bearing": 347.6, "max_size": "C"},
+                {"id": 159, "coords": "51.15624444:-0.1889167", "bearing": 347.6, "max_size": "C"},
+                {"id": 160, "coords": "51.15474528:-0.1846581", "bearing": 257.6, "max_size": "E"},
+                {"id": 161, "coords": "51.15381861:-0.1838769", "bearing": 257.6, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 12,
+            "label": "West apron",
+            "stands": [
+                {"id": 170, "coords": "51.15198972:-0.1886531", "bearing": 257.6, "max_size": "E"},
+                {"id": 171, "coords": "51.15243306:-0.1855917", "bearing": 77.6, "max_size": "E"},
+                {"id": 172, "coords": "51.15266111:-0.1889811", "bearing": 257.6, "max_size": "E"},
+                {"id": 173, "coords": "51.15309694:-0.1858353", "bearing": 77.6, "max_size": "E"},
+                {"id": 174, "coords": "51.15332583:-0.1891911", "bearing": 257.6, "max_size": "E"},
+                {"id": 175, "coords": "51.15376194:-0.1860453", "bearing": 77.6, "max_size": "E"},
+                {"id": 176, "coords": "51.15400250:-0.1893689", "bearing": 257.6, "max_size": "E"},
+                {"id": 177, "coords": "51.15442694:-0.1862556", "bearing": 77.6, "max_size": "E"},
+                {"id": 178, "coords": "51.15478917:-0.1894056", "bearing": 257.6, "max_size": "C"},
+                {"id": 180, "coords": "51.15534472:-0.1894383", "bearing": 257.6, "max_size": "C"}
+            ]
+        },
+        {
+            "id": 13,
+            "label": "Maintenance Area 3",
+            "stands": [
+                {"id": 230, "coords": "51.15131806:-0.1943256", "bearing": 77.6, "max_size": "F"},
+                {"id": 231, "coords": "51.15211750:-0.1945981", "bearing": 77.6, "max_size": "F"},
+                {"id": 232, "coords": "51.15288556:-0.1948675", "bearing": 77.6, "max_size": "F"},
+                {"id": 233, "coords": "51.15367444:-0.1951392", "bearing": 77.6, "max_size": "F"},
+                {"id": 234, "coords": "51.15443222:-0.1953911", "bearing": 77.6, "max_size": "F"},
+                {"id": 235, "coords": "51.15521083:-0.1956617", "bearing": 77.6, "max_size": "F"}
             ]
         }
     ],
