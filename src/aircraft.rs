@@ -26,7 +26,6 @@ pub enum FlightType {
     Departure,
     Arrival,
     Local,
-    Overflight,
 }
 
 #[derive(Debug, Deserialize)]
