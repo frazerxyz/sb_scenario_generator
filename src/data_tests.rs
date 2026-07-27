@@ -227,13 +227,13 @@ fn aircraft_type_in_ukcp() {
 
         for dep in airport.departure_routes {
             for t in dep.types {
-                type_codes.push((dep.dest.clone(), t));
+                type_codes.push((format!("departure to {}", dep.dest.clone()), t));
             }
         }
 
         for arr in airport.arrival_routes {
             for t in arr.types {
-                type_codes.push((arr.dep.clone(), t));
+                type_codes.push((format!("arrival from {}", arr.dep.clone()), t));
             }
         }
 
