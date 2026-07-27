@@ -2,7 +2,10 @@ use rand::seq::SliceRandom;
 use serde::Deserialize;
 use std::fmt;
 
-use crate::{aircraft::FlightRule::{I, V}, airport::ReferenceCode};
+use crate::{
+    aircraft::FlightRule::{I, V},
+    airport::ReferenceCode,
+};
 
 pub enum FlightRule {
     I,
