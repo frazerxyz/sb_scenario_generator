@@ -2,7 +2,7 @@ use rand::seq::SliceRandom;
 use serde::Deserialize;
 use std::fmt;
 
-use crate::aircraft::FlightRule::{I, V};
+use crate::{aircraft::FlightRule::{I, V}, airport::ReferenceCode};
 
 pub enum FlightRule {
     I,
@@ -29,7 +29,7 @@ pub enum FlightType {
 #[derive(Debug, Deserialize)]
 pub struct UkcpAircraft {
     pub code: String,
-    pub aerodrome_reference_code: String,
+    pub aerodrome_reference_code: ReferenceCode,
 }
 
 pub struct Aircraft {
