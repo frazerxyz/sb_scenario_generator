@@ -121,7 +121,8 @@ pub fn airport_from_json(path: &str) -> Airport {
 
 pub struct AppConfig {
     airport: Airport,
-    selected_runway: usize,
+    selected_dep_runway: usize,
+    selected_arr_runway: usize,
     dep_interval: u8,
     arr_interval: u8,
     duration: u8,
@@ -132,8 +133,11 @@ pub struct AppConfig {
 }
 
 impl AppConfig {
-    pub fn runway(&self) -> &Runway {
-        &self.airport.runways[self.selected_runway]
+    pub fn dep_runway(&self) -> &Runway {
+        &self.airport.runways[self.selected_dep_runway]
+    }
+    pub fn arr_runway(&self) -> &Runway {
+        &self.airport.runways[self.selected_arr_runway]
     }
 }
 
@@ -151,8 +155,15 @@ pub fn app_wizard() -> AppConfig {
 
     let runways = &airport.runways;
 
-    let runway_index = Select::with_theme(&ColorfulTheme::default())
-        .with_prompt("Select runway")
+    let dep_runway_index = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select departure runway")
+        .default(0)
+        .items(runways)
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let arr_runway_index = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select arrival runway")
         .default(0)
         .items(runways)
         .interact()
@@ -238,7 +249,8 @@ pub fn app_wizard() -> AppConfig {
 
     AppConfig {
         airport,
-        selected_runway: runway_index,
+        selected_dep_runway: dep_runway_index,
+        selected_arr_runway: arr_runway_index,
         dep_interval,
         arr_interval,
         duration,
@@ -297,13 +309,13 @@ pub fn stage_app_departures(
             let filed_route = route_parser(
                 &route.filed_route,
                 &config.airport.standard_routes,
-                &config.runway().designator,
+                &config.dep_runway().designator,
                 &Filed,
             );
             let flown_route = route_parser(
                 &route.flown_route,
                 &config.airport.standard_routes,
-                &config.runway().designator,
+                &config.dep_runway().designator,
                 &Flown,
             );
             let rfl = route.rfl;
@@ -341,13 +353,13 @@ pub fn stage_app_arrivals(
                 let filed_route = route_parser(
                     &route.filed_route,
                     &config.airport.standard_routes,
-                    &config.runway().designator,
+                    &config.arr_runway().designator,
                     &Filed,
                 );
                 let flown_route = route_parser(
                     &pos.flown_route,
                     &config.airport.standard_routes,
-                    &config.runway().designator,
+                    &config.arr_runway().designator,
                     &Flown,
                 );
                 let spawn_coords = Some(pos.spawn_coords.clone());
@@ -429,7 +441,7 @@ pub fn app_departures(config: &AppConfig) -> Vec<Aircraft> {
             callsign: a.callsign,
             aircraft_type: a.aircraft_type,
             squawk: None,
-            spawn_coords: config.runway().dep_spawn.clone(),
+            spawn_coords: config.dep_runway().dep_spawn.clone(),
             spawn_altitude: config.airport.round_elevation(),
             spawn_hdg: None, //not needed for radar departures
             origin: config.airport.icao.clone(),
@@ -626,7 +638,8 @@ pub fn configure_vfr(airport: &Airport, initial_pseudo_pilot: &str) -> Vec<Aircr
 
 struct AdcConfig {
     airport: Airport,
-    arrival_runway: usize,
+    selected_dep_runway: usize,
+    selected_arr_runway: usize,
     departures: u8,
     arr_interval: u8,
     duration: u8,
@@ -636,8 +649,11 @@ struct AdcConfig {
 }
 
 impl AdcConfig {
-    pub fn runway(&self) -> &Runway {
-        &self.airport.runways[self.arrival_runway]
+    pub fn dep_runway(&self) -> &Runway {
+        &self.airport.runways[self.selected_dep_runway]
+    }
+    pub fn arr_runway(&self) -> &Runway {
+        &self.airport.runways[self.selected_arr_runway]
     }
 }
 
@@ -711,13 +727,13 @@ fn stage_adc_arrivals(arrival_routes: &[ArrivalRoute], config: &AdcConfig) -> Ve
                 let filed_route = route_parser(
                     &route.filed_route,
                     &config.airport.standard_routes,
-                    &config.runway().designator,
+                    &config.arr_runway().designator,
                     &Filed,
                 );
                 let flown_route = route_parser(
                     &pos.flown_route,
                     &config.airport.standard_routes,
-                    &config.runway().designator,
+                    &config.arr_runway().designator,
                     &Flown,
                 );
                 let spawn_coords = Some(pos.spawn_coords.clone());
@@ -789,8 +805,15 @@ fn adc_wizard() -> AdcConfig {
 
     let runways = &airport.runways;
 
-    let runway_index = Select::with_theme(&ColorfulTheme::default())
-        .with_prompt("Select runway")
+    let dep_runway_index = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select departure runway")
+        .default(0)
+        .items(runways)
+        .interact()
+        .expect(INPUT_ERROR);
+
+    let arr_runway_index = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select arrival runway")
         .default(0)
         .items(runways)
         .interact()
@@ -855,7 +878,8 @@ fn adc_wizard() -> AdcConfig {
 
     AdcConfig {
         airport,
-        arrival_runway: runway_index,
+        selected_dep_runway: dep_runway_index,
+        selected_arr_runway: arr_runway_index,
         departures,
         arr_interval,
         duration,
@@ -956,13 +980,13 @@ fn stage_adc_departures(
             let filed_route = route_parser(
                 &route.filed_route,
                 &config.airport.standard_routes,
-                &config.runway().designator,
+                &config.dep_runway().designator,
                 &Filed,
             );
             let flown_route = route_parser(
                 &route.flown_route,
                 &config.airport.standard_routes,
-                &config.runway().designator,
+                &config.dep_runway().designator,
                 &Flown,
             );
             let rfl = route.rfl;
