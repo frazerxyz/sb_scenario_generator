@@ -1,4 +1,5 @@
 use rand::seq::SliceRandom;
+use serde::Deserialize;
 use std::fmt;
 
 use crate::aircraft::FlightRule::{I, V};
@@ -25,6 +26,12 @@ pub enum FlightType {
     Overflight,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct UkcpAircraft {
+    pub code: String,
+    pub aerodrome_reference_code: String,
+}
+
 pub struct Aircraft {
     pub flight_type: FlightType,
     pub flight_rule: FlightRule,
@@ -45,6 +52,7 @@ pub struct Aircraft {
     pub initial_pseudo_pilot: String,
     pub has_flight_plan: bool,
 }
+
 
 impl fmt::Display for Aircraft {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

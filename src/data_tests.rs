@@ -1,6 +1,6 @@
-use std::{fs, path::PathBuf};
+use std::{fmt::format, fs, path::PathBuf};
 
-use crate::airport::{Airport, PositionRoute};
+use crate::{aircraft::UkcpAircraft, airport::{Airport, PositionRoute}};
 
 const DATA_DIR: &str = "data/airports";
 
@@ -187,6 +187,61 @@ fn spawn_coords_contains_colon() {
                 if !c.contains(':') {
                     problems.push(format!("{}: One or more ground VFR spawn coordinates are formatted incorrectly. Must be \"LATITUDE:LONGITUDE\"", path.display()));
                 }
+            }
+        }
+    }
+
+    assert!(
+        problems.is_empty(),
+        "airport data problems:\n{}",
+        problems.join("\n")
+    );
+}
+
+#[test]
+fn aircraft_type_in_ukcp() {
+    let  mut problems = Vec::new();
+
+    let ukcp_json = fs::read_to_string("data/ukcp_aircraft.json").expect("could not read UKCP aircraft data");
+
+    let ukcp_aircraft: Vec<UkcpAircraft> = match serde_json::from_str(&ukcp_json) {
+        Ok(a) => a,
+        Err(e) => panic!("could not parse UKCP aircraft data {e}"),
+    };
+
+    let available_types: Vec<String> = ukcp_aircraft.iter().map(|a| a.code.clone()).collect();
+
+    for path in airport_files() {
+        let json = fs::read_to_string(&path).expect("could not read airport file");
+
+        let airport: Airport = match serde_json::from_str(&json) {
+            Ok(a) => a,
+            Err(_) => continue,
+        };
+
+        let mut type_codes: Vec<(String, String)> = Vec::new();
+
+        for dep in airport.departure_routes {
+            for t in dep.types {
+                type_codes.push((dep.dest.clone(), t));
+            }
+        }
+
+        for arr in airport.arrival_routes {
+            for t in arr.types {
+                type_codes.push((arr.dep.clone(), t));
+            }
+        }
+
+        if let Some(local) = airport.local_vfr {
+            for local in local {
+                type_codes.push((local.callsign, local.aircraft_type));
+            }
+        }
+
+        for (c,t) in type_codes {
+            if !&available_types.iter().any(|ac_type| *ac_type == t) {
+                problems.push(format!("{c} has invalid type code {t}"));
             }
         }
     }
