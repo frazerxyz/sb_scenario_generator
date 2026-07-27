@@ -53,7 +53,6 @@ pub struct Aircraft {
     pub has_flight_plan: bool,
 }
 
-
 impl fmt::Display for Aircraft {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let aircraft_position = format!(

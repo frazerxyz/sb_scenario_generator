@@ -1,6 +1,9 @@
 use std::{fmt::format, fs, path::PathBuf};
 
-use crate::{aircraft::UkcpAircraft, airport::{Airport, PositionRoute}};
+use crate::{
+    aircraft::UkcpAircraft,
+    airport::{Airport, PositionRoute},
+};
 
 const DATA_DIR: &str = "data/airports";
 
@@ -200,9 +203,10 @@ fn spawn_coords_contains_colon() {
 
 #[test]
 fn aircraft_type_in_ukcp() {
-    let  mut problems = Vec::new();
+    let mut problems = Vec::new();
 
-    let ukcp_json = fs::read_to_string("data/ukcp_aircraft.json").expect("could not read UKCP aircraft data");
+    let ukcp_json =
+        fs::read_to_string("data/ukcp_aircraft.json").expect("could not read UKCP aircraft data");
 
     let ukcp_aircraft: Vec<UkcpAircraft> = match serde_json::from_str(&ukcp_json) {
         Ok(a) => a,
@@ -239,7 +243,7 @@ fn aircraft_type_in_ukcp() {
             }
         }
 
-        for (c,t) in type_codes {
+        for (c, t) in type_codes {
             if !&available_types.iter().any(|ac_type| *ac_type == t) {
                 problems.push(format!("{c} has invalid type code {t}"));
             }
