@@ -418,6 +418,590 @@
             "rfl": 35000,
             "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL XEPLA BCN CORDA CORD5V",
             "flown_route": "$DEP_S_SITET ETRAT"
+        },
+        {
+            "callsigns": ["BEE45U"],
+            "dest": "EGNS",
+            "types": ["DH8D"],
+            "rfl": 180,
+            "filed_route": "$DEP_N_LAM L10 BPK N601 LESTA P6 RODOL L28 AGLIL M146 LUSOD DCT IOM",
+            "flown_route": "$DEP_N_LAM BPK"
+        },
+        {
+            "callsigns": ["EZY25T"],
+            "dest": "EGPE",
+            "types": ["A320"],
+            "rfl": 360,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 TLA DCT FOYLE N560 NESDI DCT GUSSI",
+            "flown_route": "$DEP_N_LAM BPK"
+        },
+        {
+            "callsigns": ["EZY897V", "EZY898H", "EZY849U"],
+            "dest": "EGAA",
+            "types": ["A320"],
+            "rfl": 260,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 LESTA UP6 RODOL UM65 TENSO L603 BELOX DCT REMSI DCT UVPOK M147 ROBOP M146 IPSET P6 BELZU",
+            "flown_route": "$DEP_N_LAM BPK"
+        },     
+        {
+            "callsigns": ["EZY20KV"],
+            "dest": "LFPG",
+            "types": ["A320"],
+            "rfl": 250,
+            "filed_route": "$DEP_SE_XIDIL UM605 BIBAX",
+            "flown_route": "$DEP_SE_XIDIL"
+        },
+        {
+            "callsigns": ["EZY29P"],
+            "dest": "LGAV",
+            "types": ["A320"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN UL607 KOK M150 GEBDA Y173 PABLA UZ721 UTABA L607 ELMEM N606 OTRES T307 BABAG N606 PEVAL DCT ZDA DCT DOPUT DCT VEDUR DCT PETAK DCT PINDO UL607 PIKOS L607 XORKI",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EZY41BP"],
+            "dest": "LGAV",
+            "types": ["A20N"],
+            "rfl": 330,
+            "filed_route": "$DEP_E_KONAN UL607 KOK M150 GEBDA Y173 PABLA UZ721 UTABA L607 ELMEM N606 OTRES T307 BABAG N606 PEVAL DCT ZDA DCT DOPUT DCT VEDUR DCT PETAK DCT PINDO UL607 PIKOS L607 XORKI",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EZY36DH"],
+            "dest": "LEAL",
+            "types": ["A319"],
+            "rfl": 350,
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN LMG PIMQO AGN ANETO POSSY XIMPE RIMES N860 VLC",
+            "flown_route": "$DEP_S_SITET"
+        },
+        {
+            "callsigns": ["EZY91EV"],
+            "dest": "LEMH",
+            "types": ["A319"],
+            "rfl": 350,
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN GEANT N727 SARGO",
+            "flown_route": "$DEP_S_SITET"
+        },
+        {
+            "callsigns": ["VLG2PZ", "VLG7YD"],
+            "dest": "LEBL",
+            "types": ["A320"],
+            "rfl": 370,
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL",
+            "flown_route": "$DEP_S_SITET"
+        },
+        {
+            "callsigns": ["BAW2067"],
+            "dest": "DGAA",
+            "types": ["B772"],
+            "rfl": 350,
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL XEPLA BCN GARBI LARPA TOLSO LISAS MJV XILPA GENIO MOGIL UB31 ZEM UZ333 KAHIL UB726 GHA UM114 ZAWAT GASON UG855 NY UB726 KILMO LITEX ",
+            "flown_route": "$DEP_S_SITET"
+        },
+        {
+            "callsigns": ["KMM117"],
+            "dest": "LMML",
+            "types": ["A20N"],
+            "rfl": 390,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA KOGAS MEDAM NITAM MOGBO TIDKA KONER POKAV MARON L12 GZO ",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["EZY93MK"],
+            "dest": "LGRP",
+            "types": ["A20N"],
+            "rfl": 390,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN LATAN OSDES TRL UM601 MIL UN134 TIPAS UN136 LOKNA",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["EFW44X"],
+            "dest": "LGRP",
+            "types": ["A321"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN LATAN OSDES TRL UM601 MIL UN134 TIPAS UN136 LOKNA",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["UAE1CL", "UAE1HJ", "UAE1GF", "UAE1DF", "UAE1TR"],
+            "dest": "OMDB",
+            "types": ["A388"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB  UL612 RESMI TEPRI POGZI GELTA LUVAL BEGAR TRA GAMSA GEDSO VEKEN DARZA PINDO PAXIS Y707 OBRAN FYM M872 BDB Y214 RAPMA KUVSO KATIT PEKEM M628 RIGIL G783 ASPED Q308 KIPOK Q568 IMPED",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["AZW725"],
+            "dest": "FVRG",
+            "types": ["A333"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB UL612 VEULE DEKOD DISAK DIRMO ETAMO ADEKA MOKDI MEN AMLIR FJR DIVKO JUSQO FIRRA SUXER KAMER UR978 CSO UA605 DJA UB730 DIR UA607 VHA ",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["SXS1JM"],
+            "dest": "LTAI",
+            "types": ["B738"],
+            "rfl": 370,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN LABIN PUL MEDUX UM867 KOGAT DISOR PEREN UN128 LMO UP14 LAVTA UN135 NESIL",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["SWR5PC"],
+            "dest": "LSZH",
+            "types": ["BCS3"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB BOGNA UL612 VEULE TEPRI UN491 POGZI GELTA MANAG PEVIT BLM ",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["NSZ2ES"],
+            "dest": "ESSA",
+            "types": ["B738"],
+            "rfl": 390,
+            "filed_route": "$DEP_NE_GIVPO ROKAN LARGA INBOB LINVI BINRO GURLI XENTA KORET ELTOK",
+            "flown_route": "$DEP_NE_GIVPO"
+        },
+        {
+            "callsigns": ["BTI6BM"],
+            "dest": "EVRA",
+            "types": ["BCS3"],
+            "rfl": 370,
+            "filed_route": "$DEP_NE_SOMVA MAVAS ANDIK LOMPU NINTA ADAXA ORVIX",
+            "flown_route": "$DEP_NE_SOMVA"
+        },
+        {
+            "callsigns": ["CSN5094"],
+            "dest": "ZGGG",
+            "types": ["B789"],
+            "rfl": 330,
+            "filed_route": "$DEP_NE_SOMVA MAVAS SPY ALASA DEREX LOGNA TUKMA P989 OBIBA P997 AKUGI T635 SADER T580 ADMUR G117 XV R229 BA R104 ABK A308 TR P982 DARNO Y746 NIXAL B208 SQ W45 IKAVO",
+            "flown_route": "$DEP_NE_SOMVA"
+        },
+        {
+            "callsigns": ["BAW2279"],
+            "dest": "CYVR",
+            "types": ["B772"],
+            "rfl": 380,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 LESTA UP6 RODOL UL28 PENIL M144 BAGSO REVNU SUNOT 59N020W 62N030W 65N040W 67N050W YJI VIPDI BK 63N100W IKLIX Q915 SAVEL YZU BOOTH",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["EZY298K"],
+            "dest": "EGAC",
+            "types": ["A319"],
+            "rfl": 320,
+            "filed_route": "$DEP_N_LAM  L10 BPK UN601 LESTA UP6 RODOL UM65 TENSO L603 BELOX REMSI NINEB M148 MAGEE", 
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["BEE67D"],
+            "dest": "EGAC",
+            "types": ["DH8D"],
+            "rfl": 240,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 LESTA UP6 RODOL UM65 TENSO L603 BELOX REMSI NINEB M148 MAGEE",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["BEE45J"],
+            "dest": "EGPD",
+            "types": ["E170"],
+            "rfl": 320,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 LESTA UY250 KEFTE MADAD P18 EPCAN",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["EZY825U"],
+            "dest": "EZY825U",
+            "types": ["A319"],
+            "rfl": 380,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 RIBEL ABEVI INPIP TLA FOYLE N560 NESDI GUSSI",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["SHT1480"],
+            "dest": "EGPF",
+            "types": ["A320"],
+            "rfl": 360,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 RIBEL ASLIB",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["EZY642P"],
+            "dest": "EGPH",
+            "types": ["A320"],
+            "rfl": 340,
+            "filed_route": "$DEP_N_LAM L10 BPK UN601 RIBEL INPIP",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["FLI417"],
+            "dest": "EKVG",
+            "types": ["A320"],
+            "rfl": 370,
+            "filed_route": "$DEP_N_LAM L10 BUZAD T420 AKUPA UY250 KEFTE BINTI OTBUN LAMMA BONBY NALAN SUDUR",
+            "flown_route": "$DEP_N_LAM"
+        },
+        {
+            "callsigns": ["EZY48VN"],
+            "dest": "LIPZ",
+            "types": ["A319"],
+            "rfl": 370,
+            "filed_route": "$DEP_E_KONAN KOK DENOX REMBA ARCKY LIRSU KRH BATUB M738 TIRUL Y740 NATAG LORLO UNTAD ADOSA L612 ALBET",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["KQA109"],
+            "dest": "HKJK",
+            "types": ["B788"],
+            "rfl": 370,
+            "filed_route": "$DEP_E_KONAN UL607 REMBA M624 DIK N852 SUTAL GTQ POGOL LASAT DEVDI RIPUS RESIA LATAN UM872 PLH UL604 SALUN N705 MMA L613 KIVIL N710 TAKRI P751 LXR M999 JDW G650 RASKA UG650 KONET UM308 LOTAS",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EWG473"],
+            "dest": "EDDK",
+            "types": ["A320"],
+            "rfl": 370,
+            "filed_route": "$DEP_E_KONAN UL607 SPI T857 DENOV T861 ERUKI",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EZY49XQ"],
+            "dest": "LTBS",
+            "types": ["A320"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN KOK DENOX SPI VIBOM NOMBO RIDAR LATLO OBEDI CEPRA PODET LURID VABEK UL603 OLOTA RUGAS PEREN LMO UP14 ODNOD UT491 SONUP ",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["CCA852"],
+            "dest": "ZBAA",
+            "types": ["A359"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN KOK LIRSU LALMI ABTAL RIDAR ALUTU ESEGA STEIN TEGRI LUGEB UDROS BAMUP ROLIN N644 ODILI BARAD M747 SUBUT T916 PIGAL M610 RULAD A343 POSOT B215 FKG W188 LIKMI W270 DKO W69 GUVBA",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["AWG651R"],
+            "dest": "LROP",
+            "types": ["BCS3"],
+            "rfl": 330,
+            "filed_route": "$DEP_E_KONAN KOK REMBA SPI GUBAX BARSU MOOCE RUDNO DEXIT TEGRI NEKUL LAMIT TOSVI ",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["ETH719"],
+            "dest": "HAAB",
+            "types": ["B788"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN KOK UL607 FERDI REMBA LIRSU KRH KUNOD GEDSO VEKEN DARZA PINDO PAXIS Y707 OBRAN L321 REXUM M872 SEMRU A727 LXR P751 TOMRU KSL ALRAP T124 AMUDO",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EWG8GJ"],
+            "dest": "EDDS",
+            "types": ["A319"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN KOK UL607 FERDI REMBA RITAX PITES M150 KRH T128 BADSO",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["ENT403"],
+            "dest": "LDZD",
+            "types": ["B738"],
+            "rfl": 370,
+            "filed_route": "$DEP_E_KONAN UL607 FERDI DENOX REMBA M624 RITAX SUTAL GTQ BEGAR TRA SUXAN LABIN IXONA LOS",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EFW24AD"],
+            "dest": "LCLK",
+            "types": ["A320"],
+            "rfl": 330,
+            "filed_route": "$DEP_E_KONAN UL607 FERDI LIRSU LALMI ABTAL LATLO OBEDI CEPRA PODET SOMUN NISVA RODIP UN131 DEN UT39 TOMBI M855 DASNI M601 BONEK ",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["TOM8BX"],
+            "dest": "LGZA",
+            "types": ["B738"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN UL607 FERDI REMBA ARCKY LIRSU KRH UTABA BEMKI ELMEM DIRAB BUSER VIE LUPAL LATAN UM872 ASTUS",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["SIA309"],
+            "dest": "WSSS",
+            "types": ["A359"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN UL607 KOK REMBA MATUG AMASI BOMBI TENLO DEXIT PESAT TEGRI LUGEB UDROS CRM UM11 TBN UR317 REBLO M11 LUSAL N199 BAKUV N701 LARGI B701 KRS A240 INRAK B449 DOLOS B475 RUBAD A846 RANAH L750 ZB G202 RK P628 IBANI L510 GIVAL P628 VPL Y503 RINBA Y507 MAKNA Y511 TOPOR A464 ARAMA TEBUN",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EZY59ZF"],
+            "dest": "LGSR",
+            "types": ["A320"],
+            "rfl": 370,
+            "filed_route": "$DEP_E_KONAN UL607 KOK REMBA SPI ULNOK VIBOM NOMBO RIDAR RADIZ DETSA AGOMO BUSER VIE LATAN TRL UM601 PEXAN",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["THY3XR"],
+            "dest": "LFTM",
+            "types": ["A21N"],
+            "rfl": 390,
+            "filed_route": "$DEP_E_KONAN UL607 KOK REMBA UL607 SPI GUBAX KOMIB L984 OKG ODNEM ERGOM TEGRI TIMUR L606 GASRU T390 RILEX",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EZY46HL"],
+            "dest": "LEPA",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN ",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["EZY61JA"],
+            "dest": "LGSK",
+            "types": ["A20N"],
+            "rfl": 390,
+            "filed_route": "$DEP_E_KONAN UL607 KOK RITAX KRH UTABA MOMUK GEDSO VEKEN RUDIK MEDUX UM867 KOGAT ERANA UL737 TSL UL617 IBIDI",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["CCA848"],
+            "dest": "ZSPD",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_E_KONAN UL607 MATUG BOMBI LEPSA RTB PINQI PESAT TEGRI OSTAL LUGEB UDROS UM859 KARDE UN644 ROLIN N644 ADEKI LEYLA N161 SARIN A368 FKG W188 LIKMI DKO W64 LAXIB W560 TODAM B208 HFE R343 SASAN",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["WZZ2863"],
+            "dest": "LHBP",
+            "types": ["A20N"],
+            "rfl": 370,
+            "filed_route": "$DEP_E_KONAN UL607 MATUG GUBAX BOREP ENITA PEPIK NIT M748 ARFOX",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["CFG1AY"],
+            "dest": "EDDF",
+            "types": ["A20N"],
+            "rfl": 390,
+            "filed_route": "$DEP_E_KONAN UL607 SPI T180 NIVNU T847 IMCOM",
+            "flown_route": "$DEP_E_KONAN"
+        },
+        {
+            "callsigns": ["RYR12MM"],
+            "dest": "EIDW",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_NW_OKSAW BIBPE OKTAD MEDOG KRAGY PEMOB M17 VATRY",
+            "flown_route": "$DEP_NW_OKSAW"
+        },
+        {
+            "callsigns": ["TAP1329"],
+            "dest": "LPPR",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_SW_LORKU EBOMO COQUE KORUL ELTEP T328 ASPOR",
+            "flown_route": "$DEP_SW_LORKU"
+        },
+        {
+            "callsigns": ["IBS1862"],
+            "dest": "LEMD",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_SW_LORKU NOVAN DELOG VADOX SNR TITAN RATAS NEA N864 NONTU ",
+            "flown_route": "$DEP_SW_LORKU"
+        },
+        {
+            "callsigns": ["MAC102"],
+            "dest": "LDDU",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_SW_LORKU NOVAN DELOG VADOX SNR TITAN RATAS NEA NONTU ORBIS DISKO TLD DOPEN MONTO N857 MOLIN VJF N10 LINTO NOLRO",
+            "flown_route": "$DEP_SW_LORKU"
+        },
+        {
+            "callsigns": ["BAW2239"],
+            "dest": "TTPP",
+            "types": ["B772"],
+            "rfl": 340,
+            "filed_route": "$DEP_W_ADKIK JOZMA GAPLI OMOKO 48N015W 45N020W 42N025W 39N030W 35N035W 31N040W 27N045W 23N050W 19N055W FISST BGI UR515 TAB",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["BAW9VA"],
+            "dest": "TLPL",
+            "types": ["A20N"],
+            "rfl": 340,
+            "filed_route": "$DEP_W_ADKIK JOZMA GAPLI OMOKO 48N015W 46N020W 43N030W 39N040W 35N046W 32N050W 25N055W DRDGE 16N060W FOF A324 BNE",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["EZY49GT"],
+            "dest": "LPFR",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_W_ADKIK JOZMA TALIG EKVEB BALDA ABUPI",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["EXS36LP"],
+            "dest": "LPFR",
+            "types": ["A20N"],
+            "rfl": 370,
+            "filed_route": "$DEP_W_ADKIK JOZMA TALIG EKVEB BALDA ABUPI ALAGU",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["RYR533D"],
+            "dest": "EICK",
+            "types": ["A20N"],
+            "rfl": 360,
+            "filed_route": "$DEP_W_ADKIK MOPAT ERTER",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["BAW12J"],
+            "dest": "KTPA",
+            "types": ["A20N"],
+            "rfl": 360,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL DANOL KAYCC KYLOH NELIE Q75 TEUFL BAAMF ",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["JBU1926"],
+            "dest": "KBOS",
+            "types": ["A20N"],
+            "rfl": 360,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL N568A ALLEX Q822 AJJAY",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["BAW43C"],
+            "dest": "KMCO",
+            "types": ["A20N"],
+            "rfl": 380,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL N572A TOPPS BEEKN Q97 KALDA Q131 WAALT Y289 BAHAA HIBAC ",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["UBT70A"],
+            "dest": "KJFK",
+            "types": ["A20N"],
+            "rfl": 380,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL N572A TOPPS ENE",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["BAW9605"],
+            "dest": "MMUN",
+            "types": ["A20N"],
+            "rfl": 380,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL N572A TOPPS ENE JFK CYN SBY KEMPR SKARP AR22 IDOLS RAZZL AR19 MAJIK DVALL EYW MAXIM MUPKI UB879 NOSAT",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["TSC123"],
+            "dest": "CYYZ",
+            "types": ["A20N"],
+            "rfl": 360,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL N576B ANATI Q812 OBTEK LETAK",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["TSC729"],
+            "dest": "LEAL",
+            "types": ["A20N"],
+            "rfl": 360,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL QUBIS ATENE KEBIG",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["WJA41"],
+            "dest": "CYHZ",
+            "types": ["A20N"],
+            "rfl": 380,
+            "filed_route": "$DEP_W_ADKIK MOPAT RESNO NATF RIKAL YDF CAYLY",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["ICE19A"],
+            "dest": "BIKF",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_W_ADKIK UNFIT PENWU NICXI VATRY ULTAG ERNAN KUGUR AGORI 61N020W BASLU",
+            "flown_route": "$DEP_W_ADKIK"
+        },
+        {
+            "callsigns": ["EXS14Q"],
+            "dest": "LGIR",
+            "types": ["A20N"],
+            "rfl": 370,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN IPKIS KOFER DIMIS IPTES UL604 TRL UM601 MIL UL617 XAVIS ",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["TOM86G"],
+            "dest": "HESH",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN INVOP SRN EKPAL PES DIVKU LUXIL MOKTO LATAN UM872 PLH UL604 SALUN N705 BOPIX N710 TAKRI M720 FYM M872 SEMRU W727 SHM",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["CXI9CM"],
+            "dest": "LGIR",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN IPKIS KOFER DIMIS IPTES UL604 TRL UM601 MIL UL617 XAVIS ",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["EZY18JU"],
+            "dest": "LDDU",
+            "types": ["A20N"],
+            "rfl": 370,
+            "filed_route": "$DEP_SE_XAMAB UL612 VEULE TEPRI POGZI GELTA LUVAL SHARA DEVDI RIPUS RESIA BORMI ROTAR LOS SIPAL",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["EZY36MQ"],
+            "dest": "LGKR",
+            "types": ["A20N"],
+            "rfl": 370,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA GEVEA ORSUD BIBAN IPKIS AMUGO KOFER RODON LIMJA N732 PITAS",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["EZY78UG"],
+            "dest": "HEGN",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_SE_XAMAB UL612 OGULO OKASI OKEKO MOU MADIV MOKIP TUFTA KOGAS MEDAM NITAM MOGBO ELB GILIO DIRED LEVDI NIMAN ARLOS UN4 SALUN N705 MMA P751 DASUM Y234 FYM M872 BOPOB",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["EZY8387"],
+            "dest": "LFKF",
+            "types": ["A20N"],
+            "rfl": 330,
+            "filed_route": "$DEP_SE_XAMAB UL612 VEULE KOTAP KETEX KOTIS KUKOR UTUVA TITVA NOQAS OTROT RETNO KOLON OMARD M623 VAREK",
+            "flown_route": "$DEP_SE_XAMAB"
+        },
+        {
+            "callsigns": ["APO7579"],
+            "dest": "DNMM",
+            "types": ["A20N"],
+            "rfl": 350,
+            "filed_route": "$DEP_S_SITET UN859 SOPIL BALAN EVPOK NARAK GAI LOMRA ROCAN PUMAL N859 GENIO BUYAH UN855 ALR UJ66 BSA UM989 GHA UA615 TMS A604 EREBO MIGNI UY333 KIGRA B731 BUDSI",
+            "flown_route": "$DEP_S_SITET"
         }
     ],
     "arrival_routes": [
