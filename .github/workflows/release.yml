@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  release:
+    name: release
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Check tag matches Cargo.toml
+        shell: pwsh
+        run: |
+          $version = (Select-String -Path Cargo.toml -Pattern '^version = "(.+)"' | Select-Object -First 1).Matches[0].Groups[1].Value
+          $tag = "${{ github.ref_name }}" -replace '^v', ''
+          if ($version -ne $tag) {
+            throw "Cargo.toml says $version but the tag is $tag"
+          }
+          Write-Host "Cargo.toml $version matches tag ${{ github.ref_name }}"
+
+      - name: Run tests
+        run: cargo test --locked
+
+      - name: Build release binary
+        run: cargo build --release --locked
+
+      - name: Stage files
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path dist | Out-Null
+          Copy-Item target/release/sb_scenario_generator.exe dist/
+          Copy-Item data dist/data -Recurse
+
+      - name: Create zip
+        shell: pwsh
+        run: Compress-Archive -Path dist/* -DestinationPath sb_scenario_generator-${{ github.ref_name }}-windows.zip
+
+      - name: Publish draft release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create ${{ github.ref_name }} sb_scenario_generator-${{ github.ref_name }}-windows.zip --generate-notes --draft

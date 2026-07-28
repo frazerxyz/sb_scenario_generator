@@ -3,12 +3,24 @@
 ![Screenshot of the scenario generator in action](/.github/media/example.png)
 
 ## How to run
-- Clone the repo using `git clone https://github.com/frazerxyz/sb_scenario_generator.git` in terminal where you'd like it to live.  
-Alternatively download the source code as zip, though tracking via git makes it easy to pull updates to the generator and airport data files.
-- Install [Rust](https://rust-lang.org/tools/install/)
-- In terminal, `cargo run` from the project root
+1. Download the latest release [**here**](https://github.com/frazerxyz/sb_scenario_generator/releases/latest)
+2. Unzip the folder, making sure the .exe lives alongside the data folder
+3. Double click the .exe file to run
+```
+sb_scenario_generator/
+├─ sb_scenario_generator.exe
+├─ data/
+│  ├─ airports/
+│  │  ├─ EGKK.json
+│  │  ├─ ...
+│  ├─ aircraft_perf.txt
+│  ├─ global.json
+│  ├─ ukcp_aircraft.json
+```
 
-I will release a compiled executable at some point once more features are working.
+### Windows SmartScreen
+You will most likely encounter a "Windows protected your PC" error when running the exe.  
+Click **More info** -> **Run anyway** to bypass.
 
 ## Disclaimer
 I am new to to coding and Rust, please be kind!
