@@ -3,6 +3,7 @@ mod airport;
 mod generator;
 mod global;
 mod route_parser;
+mod update_check;
 
 use std::io::{self, Write};
 
@@ -10,6 +11,7 @@ use dialoguer::{Select, theme::ColorfulTheme};
 use generator::SessionType;
 
 use crate::generator::{generate_adc, generate_app};
+use crate::update_check::check_for_updates;
 
 #[cfg(test)]
 mod data_tests;
@@ -29,6 +31,8 @@ pub fn config_error(message: &str) -> ! {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    check_for_updates();
+
     let session_types = &[SessionType::Adc, SessionType::App];
 
     let scenario = Select::with_theme(&ColorfulTheme::default())
