@@ -169,6 +169,7 @@ pub struct GroundVfr {
 
 #[derive(Debug, Deserialize)]
 pub struct Airport {
+    pub update_url: Option<String>,
     pub icao: String,
     pub elevation: f32,
     pub runways: Vec<Runway>,

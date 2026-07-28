@@ -1,5 +1,6 @@
 {
     "icao": "EGPH",
+    "update_url": "https://raw.githubusercontent.com/frazerxyz/sb_scenario_generator/refs/heads/main/data/airports/EGPH.json",
     "elevation": 136.0,
     "runways": [
         {"designator": "24", "threshold": "55.9558841:-3.3551289", "track": 239, "dep_spawn": "55.940446:-3.400193"},

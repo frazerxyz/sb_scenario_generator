@@ -116,3 +116,16 @@ pub fn check_for_updates() {
         println!("{message}");
     }
 }
+
+pub fn fetch_data_file(url: &str) -> Result<String, Box<dyn std::error::Error>> {
+    let mut spinner = Spinner::new(
+        Spinners::Dots,
+        "Checking for airport data file updates".into(),
+    );
+
+    let res = reqwest::blocking::get(url)?.error_for_status()?.text()?;
+
+    spinner.stop_with_message(String::new());
+
+    Ok(res)
+}

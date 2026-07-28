@@ -22,6 +22,7 @@ use crate::{
         RouteType::{Filed, Flown},
         route_parser,
     },
+    update_check::fetch_data_file,
 };
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -42,6 +43,8 @@ impl fmt::Display for SessionType {
 
 static FILE_ERROR: &str = "File I/O error";
 static INPUT_ERROR: &str = "Input error";
+
+static AIRPORT_DATA_FOLDER: &str = "data/airports/";
 
 static FILE_MESSAGE: &str =
     "; ----- Made using https://github.com/frazerxyz/sb_scenario_generator -----";
@@ -119,7 +122,7 @@ pub fn airport_from_json(path: &str) -> Airport {
     serde_json::from_str(&json).expect(FILE_ERROR)
 }
 
-// ----- Shared wizard prompts -----
+// Shared wizard prompts ----------
 
 fn select_airport() -> Airport {
     let airport_configs = get_airport_configs();
@@ -131,7 +134,36 @@ fn select_airport() -> Airport {
         .interact()
         .expect(INPUT_ERROR);
 
-    airport_from_json(&format!("data/airports/{}", airport_configs[selection]))
+    let path = format!("{AIRPORT_DATA_FOLDER}{}", airport_configs[selection]);
+    let cached = airport_from_json(&path);
+
+    let update_url = match &cached.update_url {
+        Some(url) => url,
+        None => return cached,
+    };
+
+    let body = match fetch_data_file(update_url) {
+        Ok(body) => body,
+        Err(_) => {
+            println!("Could not download the airport data file.\nUsing cached version.");
+            return cached;
+        }
+    };
+
+    // parse before overwrite
+    match serde_json::from_str::<Airport>(&body) {
+        Ok(updated) => {
+            match fs::write(&path, &body) {
+                Ok(()) => println!("Airport data file updated"),
+                Err(e) => println!("Using updated airport data but could not save it ({e})"),
+            }
+            updated
+        }
+        Err(e) => {
+            println!("Downloaded airport data could not be read ({e}).\nUsing cached version.");
+            cached
+        }
+    }
 }
 
 /// Returns the runway index (departure, arrival)
