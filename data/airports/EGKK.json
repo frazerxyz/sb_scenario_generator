@@ -53,7 +53,19 @@
     ],
     "controllers": [
         {"callsign": "EGKK_N_GND", "frequency": 121.540},
-        {"callsign": "EGKK_APP", "frequency": 126.825}
+        {"callsign": "EGKK_TWR", "frequency": 124.230},
+        {"callsign": "EGKK_F_APP", "frequency": 118.950},
+        {"callsign": "EGKK_APP", "frequency": 126.825},
+        {"callsign": "LTC_SE_CTR", "frequency": 120.530},
+        {"callsign": "LTC_SW_CTR", "frequency": 133.180},
+        {"callsign": "LTC_CTR", "frequency": 135.805},
+        {"callsign": "LON_H_CTR", "frequency": 134.440},
+        {"callsign": "LON_S_CTR", "frequency": 129.430},
+        {"callsign": "EGLL_N_APP", "frequency": 119.730},
+        {"callsign": "ESSEX_APP", "frequency": 120.625},
+        {"callsign": "EGKA_A_APP", "frequency": 123.155},
+        {"callsign": "EGLF_APP", "frequency": 134.355},
+        {"callsign": "THAMES_APP", "frequency": 132.700}
     ],
     "airlines": [
         {"icao": "AEA", "terminals": [1, 3, 9]},
