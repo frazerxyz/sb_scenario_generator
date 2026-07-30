@@ -157,6 +157,20 @@
             ]
         },
         {
+            "name": "DEP_GRICE",
+            "routes": [
+                {"runway": "24", "filed_route": "", "flown_route": "UW/6000 TLA33 TLA38 GRICE"},
+                {"runway": "06", "filed_route": "", "flown_route": "D050C/6000 D046G SAB46 TLA38 GRICE"}
+            ]
+        },
+                {
+            "name": "DEP_TLA",
+            "routes": [
+                {"runway": "24", "filed_route": "", "flown_route": "UW/6000 D239G D344S D344X TLA"},
+                {"runway": "06", "filed_route": "", "flown_route": "D050C/6000 D046G PH24TARTN03 PH24TARTN02 TL30A TLA30 TLA"}
+            ]
+        },
+        {
             "name": "ADC_ARR",
             "routes": [
                 {"runway": "24", "filed_route": "", "flown_route": "[55.987570,-3.008209]/3000 [56.050938,-3.070343] [56.039755,-3.101410] ILS24#VL"},
@@ -172,7 +186,503 @@
             "rfl": 37000,
             "filed_route": "GOSAM P600 FENIK L612 NAVSO AKOMU VAMEB NUGRA",
             "flown_route": "$DEP_GOSAM FENIK"
-        }
+        },
+        {
+            "callsigns": ["ACA807"],
+            "dest": "CYYZ",
+            "types": ["B789"],
+            "rfl": 340,
+            "filed_route": "GOSAM DCT GOW Q602 BRUCE DCT GOMUP/M078F340 NATB NEEKO/N0456F340 N624C ANATI Q812 UKPAM DCT CATOG Q824 LETAK",
+            "flown_route": "$DEP_GOSAM GOW"
+        },
+        {
+            "callsigns": ["AAL83"],
+            "dest": "KJFK",
+            "types": ["A21N"],
+            "rfl": 360,
+            "filed_route": "GOSAM DCT GOW Q602 BRUCE AMLAD DCT RUXIN DCT SUNOT/M078F360 NATC RIKAL/N0452F360 N572A TOPPS DCT ENE",
+            "flown_route": "$DEP_GOSAM GOW"
+        },
+        {
+            "callsigns": ["UAL37"],
+            "dest": "KEWR",
+            "types": ["B752"],
+            "rfl": 340,
+            "filed_route": "GOSAM DCT GOW Q602 BRUCE AMLAD DCT RUXIN DCT SUNOT/M079F340 NATC RIKAL/N0462F340 N576B ANATI DCT IMORI DCT HANAA",
+            "flown_route": "$DEP_GOSAM GOW"
+        },
+        {
+            "callsigns": ["DAL35"],
+            "dest": "KATL",
+            "types": ["B763"],
+            "rfl": 340,
+            "filed_route": "GOSAM DCT GOW Q602 BRUCE AMLAD DCT RUXIN DCT SUNOT/M079F340 NATC RIKAL/N0463F340 N574A HULTN DCT ALB J49 DARBO DCT SEG DCT PSK DCT MHONY",
+            "flown_route": "$DEP_GOSAM GOW"
+        },
+        {
+            "callsigns": ["EZY34RH"],
+            "dest": "EGBB",
+            "types": ["A320"],
+            "rfl": 230,
+            "filed_route": "GOSAM P600 FENIK L612 CROFT",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["NPT4S"],
+            "dest": "EGNX",
+            "types": ["B738"],
+            "rfl": 270,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO AKOMU DCT VAMEB UL612 CROFT",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["MUK6565"],
+            "dest": "EGNX",
+            "types": ["B762"],
+            "rfl": 270,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO AKOMU DCT VAMEB UL612 CROFT",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["AFR29TM", "AFR73GL"],
+            "dest": "LFPG",
+            "types": ["BCS3"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO AKOMU DCT VAMEB UL612 EMKUK DCT SFD UM605 BIBAX",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EZY96BL"],
+            "dest": "LFLL",
+            "types": ["A20N"],
+            "rfl": 390,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO AKOMU DCT VAMEB UL612 XAMAB DCT VEULE DCT INPAX DCT RESMI DCT ODEBU DCT OGULO DCT OKASI DCT OKEKO DCT OKEPI DCT MOU A3 FEDZI",
+            "flown_route": "$DEP_GOSAM FENIK NAVSO"
+        },
+        {
+            "callsigns": ["EZY41MV"],
+            "dest": "EGKK",
+            "types": ["A320"],
+            "rfl": 350,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT ADZOP DCT EGTOC DCT KEPAD L151 DISIT",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["BEE43G"],
+            "dest": "EGFF",
+            "types": ["DH8D"],
+            "rfl": 250,
+            "filed_route": "TLA N864 EGTOC DCT NOKIN N862 KARNO DCT ALHUP DCT LUCSA N862 WEVBE",
+            "flown_route": "$DEP_TLA DCS"
+        },
+        {
+            "callsigns": ["SCO55RF"],
+            "dest": "EGJJ",
+            "types": ["E135"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT ADZOP DCT EGTOC DCT NOKIN N862 KARNO DCT ALHUP DCT ABWIV DCT PACSE DCT TONQU N862 SKERY",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EZY57CP"],
+            "dest": "EGGD",
+            "types": ["A320"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO ADZOP DCT EGTOC DCT NOKIN N862 KARNO DCT ALHUP DCT LUCSA N862 WEVBE",
+            "flown_route": "$DEP_GOSAM FENIK NAVSO"
+        },
+        {
+            "callsigns": ["SHT9N", "SHT9H", "SHT9G", "SHT9E", "SHT9S"],
+            "dest": "EGLL",
+            "types": ["A320", "A21N"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB DCT NUGRA",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["RYR211Y", "RYR9189"],
+            "dest": "LEPA",
+            "types": ["B38M", "B738"],
+            "rfl": 370,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 HON DCT SITET UN859 SOPIL DCT BALAN DCT EVPOK DCT NARAK DCT GAI DCT LOMRA DCT ROCAN DCT IBRAP DCT LUKEV DCT LORES",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["VLG412U"],
+            "dest": "LEBL",
+            "types": ["A320"],
+            "rfl": 350,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 HON DCT SITET UN859 SOPIL DCT BALAN DCT EVPOK DCT NARAK DCT GAI DCT LOMRA DCT ROCAN DCT PUMAL",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["RYR36PL"],
+            "dest": "LEBL",
+            "types": ["B38M"],
+            "rfl": 350,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 HON DCT SITET UN859 SOPIL DCT BALAN DCT EVPOK DCT NARAK DCT GAI DCT LOMRA DCT ROCAN DCT PUMAL",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["RYR7PG"],
+            "dest": "LFML",
+            "types": ["B738"],
+            "rfl": 290,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 HON DCT XAMAB UL612 RESMI UM728 KETEX DCT KOTIS DCT KUKOR DCT UTUVA DCT LERGA",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EZY79PL"],
+            "dest": "EGSS",
+            "types": ["A320"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 LISTO",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EZY89TW"],
+            "dest": "EGGW",
+            "types": ["A320"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 LISTO",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["CFE99B"],
+            "dest": "EGLC",
+            "types": ["E190"],
+            "rfl": 310,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 LISTO",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EXS23T"],
+            "dest": "LMML",
+            "types": ["B738"],
+            "rfl": 350,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 OGULO DCT OKASI DCT OKEKO DCT MOU DCT MADIV DCT MOKIP DCT TUFTA DCT KOGAS DCT MEDAM DCT NITAM DCT MOGBO DCT BAKRO DCT TINTO DCT POKAV DCT BETOT DCT RUVIP DCT RONAB DCT GIANO DCT PAL DCT ALOKU DCT MARON DCT EKOLA L12 GZO",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EZY101E"],
+            "dest": "LFMN",
+            "types": ["A21N"],
+            "rfl": 390,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO DCT AKOMU DCT VAMEB UL612 VEULE DCT KOTAP UM728 KETEX DCT KOTIS DCT KUKOR DCT UTUVA DCT LERGA DCT LIQID DCT LATAM DCT TUNUR DCT NISAR NISA8R",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["EZY984M"],
+            "dest": "EGAA",
+            "types": ["A320"],
+            "rfl": 200,
+            "filed_route": "GOSAM P600 BLACA DCT BELZU",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["RUK7QL"],
+            "dest": "EGAA",
+            "types": ["B738"],
+            "rfl": 200,
+            "filed_route": "GOSAM P600 BLACA DCT BELZU",
+            "flown_route": "$DEP_GOSAM FENIK BLACA"
+        },
+        {
+            "callsigns": ["RYR4ZZ"],
+            "dest": "GCRR",
+            "types": ["B38M"],
+            "rfl": 360,
+            "filed_route": "GOSAM P600 TRN DCT BLACA DCT NELBO DCT NIMAT DCT BANBA DCT PAVLO DCT TALIG DCT KORUL DCT ASPOR DCT TAKAV DCT VEDOD UN857 TERTO",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["RYR86GY"],
+            "dest": "EIDW",
+            "types": ["B738"],
+            "rfl": 220,
+            "filed_route": "GOSAM P600 BLACA P620 NIMAT",
+            "flown_route": "$DEP_GOSAM FENIK BLACA"
+        },
+        {
+            "callsigns": ["EAI59L"],
+            "dest": "EIDW",
+            "types": ["AT76"],
+            "rfl": 220,
+            "filed_route": "TLA DCT TRN P600 BLACA P620 NIMAT",
+            "flown_route": "$DEP_TLA TRN"
+        },
+        {
+            "callsigns": ["N869QS"],
+            "dest": "EIDW",
+            "types": ["C700"],
+            "rfl": 220,
+            "filed_route": "GOSAM P600 TRN DCT BLACA P620 NIMAT",
+            "flown_route": "$DEP_GOSAM FENIK"
+        },
+        {
+            "callsigns": ["BEE58H"],
+            "dest": "EIKN",
+            "types": ["DH8D"],
+            "rfl": 240,
+            "filed_route": "GOSAM P600 BLACA P620 NIMAT DCT DUB DCT OLAPO DCT CON DCT",
+            "flown_route": "$DEP_GOSAM TRN"
+        },
+        {
+            "callsigns": ["RYR716A"],
+            "dest": "LOWW",
+            "types": ["A320"],
+            "rfl": 390,
+            "filed_route": "TLA Y96 OTBUN GODOS DCT AMGOD DCT OTMEC DCT EKSAK DCT SWALM DCT GASKA DCT ENITA DCT ETVIS DCT BUDEX",
+            "flown_route": "$DEP_TLA OTBUN"
+        },
+        {
+            "callsigns": ["RYR5SP"],
+            "dest": "EYKA",
+            "types": ["B38M"],
+            "rfl": 370,
+            "filed_route": "GRICE P600 ASNUD ALOTI DCT AMSEV DCT MAKUR DCT VEDEN DCT RONUS DCT IRZUK",
+            "flown_route": "$DEP_GRICE ASNUD"
+         },
+         {
+            "callsigns": ["LOG41EG"],
+            "dest": "EGPA",
+            "types": ["AT76"],
+            "rfl": 180,
+            "filed_route": "GRICE P600 ADN DCT WIK N560 KOKAL",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["FIN2HA"],
+            "dest": "EFHK",
+            "types": ["A320"],
+            "rfl": 390,
+            "filed_route": "GRICE P600 ASNUD DCT ALOTI DCT IBVUT Y363 LAKUT",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["RYR228K"],
+            "dest": "ESGG",
+            "types": ["B38M"],
+            "rfl": 370,
+            "filed_route": "GRICE P600 ASNUD DCT ALOTI DCT AMSEV DCT KUVUS N607 MAKUR",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["SAS2542"],
+            "dest": "ESSA",
+            "types": ["A20N"],
+            "rfl": 370,
+            "filed_route": "GRICE P600 ASNUD DCT LESNI DCT OVDAN DCT KLONN DCT IBSAT DCT VATEX DCT KSD DCT EBURI Z166 ARGIB Z183 ELTOK",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["LOG71DP"],
+            "dest": "EGPB",
+            "types": ["AT76"],
+            "rfl": 230,
+            "filed_route": "GRICE P600 ADN DCT PETOX DCT WAFIL DCT",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["EZY37JZ"],
+            "dest": "BIKF",
+            "types": ["A320"],
+            "rfl": 380,
+            "filed_route": "GRICE DCT FOYLE N560 ERSON ATSIX ATSIX/M076F380 DCT ALDAN DCT ASRUN",
+            "flown_route": "$DEP_GRICE FOYLE"
+         },
+         {
+            "callsigns": ["CHH408"],
+            "dest": "ZBAA",
+            "types": ["B789"],
+            "rfl": 330,
+            "filed_route": "GRICE P600 ASNUD SURAT DCT PETIL DCT BAVTA DCT NIKDA DCT PEROM DCT BINKA DCT ATMEV DCT REGLI DCT REVMA DCT ABULI DCT BADOR DCT ROMAG DCT UDROS UM859 KARDE UN644 ROLIN N644 ODILI DCT BARAD M747 SUBUT T916 BALUN/K0887F330 T916 PIGAL M610 RULAD/K0880S1005 A343 POSOT B215 FKG W188 LIKMI W270 DKO W69 GUVBA",
+            "flown_route": "$DEP_GRICE ASNUD"
+         },
+         {
+            "callsigns": ["RYR6AV"],
+            "dest": "EKCH",
+            "types": ["B38M"],
+            "rfl": 370,
+            "filed_route": "GRICE P600 ASNUD SURAT DCT PETIL DCT TESPI",
+            "flown_route": "$DEP_GRICE ASNUD"
+         },
+         {
+            "callsigns": ["NSZ73N"],
+            "dest": "EKCH",
+            "types": ["B738"],
+            "rfl": 370,
+            "filed_route": "GRICE P600 ASNUD SURAT DCT PETIL DCT TESPI",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["SAS2514"],
+            "dest": "EKCH",
+            "types": ["CRJ9"],
+            "rfl": 370,
+            "filed_route": "GRICE P600 ASNUD SURAT DCT PETIL DCT TESPI",
+            "flown_route": "$DEP_GRICE ADN"
+         },
+         {
+            "callsigns": ["SGP402"],
+            "dest": "LEPP",
+            "types": ["C56X"],
+            "rfl": 370,
+            "filed_route": "TLA N864 DCS ADZOP DCT EGTOC DCT NOKIN N862 KARNO DCT ALHUP DCT ABWIV DCT PACSE DCT TONQU DCT SALCO DCT DEGEX DCT DESAB DCT NENEM P152 PODUX",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["NGN7072"],
+            "dest": "LOWG",
+            "types": ["A320"],
+            "rfl": 390,
+            "filed_route": "TLA Y96 OTBUN AVRAL DCT VALBO DCT SUTEB DCT GASTU DCT NOMKA DCT ABERU T703 DEXIT DCT MILGO DCT LEOBE",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["CFE9769"],
+            "dest": "EGTE",
+            "types": ["E190"],
+            "rfl": 330,
+            "filed_route": "GOSAM P600 FENIK L612 NAVSO ADZOP DCT EGTOC DCT NOKIN N862 KARNO DCT ALHUP DCT WEVBE DCT ABWIV N862 PACSE N92 EXMOR DCT TIVER DCT",
+            "flown_route": "$DEP_GOSAM NAVSO"
+         },
+         {
+            "callsigns": ["LOG99RB"],
+            "dest": "EGNS",
+            "types": ["AT76"],
+            "rfl": 160,
+            "filed_route": "TLA N864 DCS DCT IOM",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["LOG18FR"],
+            "dest": "EGTE",
+            "types": ["AT76"],
+            "rfl": 170,
+            "filed_route": "TLA N864 DCS L612 BARTN P17 NOKIN N862 PACSE N92 EXMOR DCT TIVER",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["AUR635"],
+            "dest": "EGJB",
+            "types": ["AT76"],
+            "rfl": 190,
+            "filed_route": "TLA N864 DCS L612 BARTN P17 NOKIN N862 PACSE N92 WIGGU N864 ABBEW N90 ENHEL N862 SKERY",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["SCO16RS"],
+            "dest": "EGGP",
+            "types": ["TBM7"],
+            "rfl": 230,
+            "filed_route": "TLA N864 DCS L612 CROFT DCT WAL DCT BAROS DCT TIPOD DCT",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["AWH95S"],
+            "dest": "EDDV",
+            "types": ["C425"],
+            "rfl": 370,
+            "filed_route": "TLA6C TLA N864 DCS N57 POL UPTON L975 GOLES Y70 BODSO L17 PETIK P62 PAM L620 SUVOX Q234 JUWGI Y850 FUWUG T463 NIE ",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["N152QS"],
+            "dest": "EGLF",
+            "types": ["GLEX"],
+            "rfl": 250,
+            "filed_route": "TLA N864 EGTOC DCT KEPAD L151 KIDLI N859 CPT",
+            "flown_route": "$DEP_TLA DCS"
+         },
+         {
+            "callsigns": ["UAE24"],
+            "dest": "OMDB",
+            "types": ["A359"],
+            "rfl": 330,
+            "filed_route": "TLA Y96 OTBUN LONAM DCT NOMKA DCT KILNU DCT DITIS DCT VAJDI DCT MOPUG DCT GUPRO DCT LELTI DCT XANEX L606 GASRU DCT ETOPO DCT ADORU UG80 EKI UN739 TUMER UT38 VESAR DCT BALMA UR655 CAK UN310 LATEB DCT ZELAF R785 RASLI P559 TRF R23 NEVOL N318 TAMRO T503 KSA M321 RESAL T533 RAPMA DCT KUVSO DCT KATIT DCT PEKEM M628 RIGIL G783 ASPED Q308 KIPOK Q568 IMPED",
+            "flown_route": "$DEP_TLA HAVEN"
+         },
+         {
+            "callsigns": ["UKV659"],
+            "dest": "OMDB",
+            "types": ["A306"],
+            "rfl": 310,
+            "filed_route": "TLA Y96 OTBUN LONAM DCT NOMKA DCT KILNU DCT DITIS DCT VAJDI DCT MOPUG DCT GUPRO DCT LELTI DCT XANEX L606 GASRU DCT ETOPO DCT ADORU UG80 EKI UN739 TUMER UT38 VESAR DCT BALMA UR655 CAK UN310 LATEB DCT ZELAF R785 RASLI P559 TRF R23 NEVOL N318 TAMRO T503 KSA M321 RESAL T533 RAPMA DCT KUVSO DCT KATIT DCT PEKEM M628 RIGIL G783 ASPED Q308 KIPOK Q568 IMPED",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["DHK2135"],
+            "dest": "EDDP",
+            "types": ["B752"],
+            "rfl": 370,
+            "filed_route": "TLA Y96 OTBUN LONAM DCT NORTA DCT ADMOS T959 KOJEC",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["QTR62W"],
+            "dest": "OTHH",
+            "types": ["B788"],
+            "rfl": 330,
+            "filed_route": "TLA Y96 OTBUN GODOS DCT BERGI DCT DOJOH DCT DODEN DCT NEGIX DCT DINKU DCT BESNI DCT GOMIG DCT GOLVA DCT ADULA DCT IDABO DCT NISVA DCT RODIP DCT BELGI UT38 VESAR L620 BALMA UR655 CAK UN310 LATEB DCT ZELAF R785 RASLI P559 TRF R23 NEVOL N318 TAMRO T503 LABIS L604 KFA N687 ROTEL N572 DAVRI L704 DANOB P559 ROSAN R659 VEDED",
+            "flown_route": "$DEP_TLA HAVEN"
+         },
+         {
+            "callsigns": ["TAY2DI"],
+            "dest": "EGNV",
+            "types": ["B734"],
+            "rfl": 190,
+            "filed_route": "TLA Y96 NATEB ",
+            "flown_route": "$DEP_TLA NATEB"
+         },
+         {
+            "callsigns": ["SAZ73"],
+            "dest": "LIPZ",
+            "types": ["CL60"],
+            "rfl": 370,
+            "filed_route": "TLA Y96 OTBUN DCT ERKIT N110 DOLAS DCT NAVPI DCT MAVAS DCT ODVIL DCT WOODY N872 NIK M624 REMBA DCT SUTAL DCT GTQ DCT DEVDI DCT RIPUS DCT RESIA DCT ADOSA L612 ALBET",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["RYR70MX"],
+            "dest": "LIPE",
+            "types": ["B738"],
+            "rfl": 370,
+            "filed_route": "TLA Y96 OTBUN DCT ERKIT N110 DOLAS DCT NAVPI DCT UMUPU DCT TUSUK DCT BATUB DCT TIRUL M738 NATAG DCT LORLO DCT LEDKO DCT ADOSA M738 BENUS",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["KLM96L"],
+            "dest": "EHAM",
+            "types": ["A21N"],
+            "rfl": 370,
+            "filed_route": "TLA Y96 OTBUN DCT ERKIT N110 DOLAS L603 LAMSO",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["KLM924"],
+            "dest": "EHAM",
+            "types": ["E295"],
+            "rfl": 310,
+            "filed_route": "TLA Y96 OTBUN DCT ERKIT N110 DOLAS L603 LAMSO",
+            "flown_route": "$DEP_TLA OTBUN"
+         },
+         {
+            "callsigns": ["VJH763"],
+            "dest": "EIDW",
+            "types": ["E35L"],
+            "rfl": 240,
+            "filed_route": "GOSAM P600 BLACA P620 NIMAT",
+            "flown_route": "$DEP_GOSAM FENIK BLACA"
+         },
+         {
+            "callsigns": ["EZY69RP"],
+            "dest": "LKPR",
+            "types": ["A21N"],
+            "rfl": 350,
+            "filed_route": "TLA6C TLA Y96 OTBUN ERKIT N110 DOLAS L603 LAMSO EVELI NOMKA L620 BIRKA Z21 DRN T620 GOLOP",
+            "flown_route": "$DEP_TLA OTBUN"
+         }
     ],
     "arrival_routes": [
         {
