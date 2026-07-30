@@ -151,19 +151,34 @@ fn select_airport() -> Airport {
     };
 
     // parse before overwrite
-    match serde_json::from_str::<Airport>(&body) {
-        Ok(updated) => {
-            match fs::write(&path, &body) {
-                Ok(()) => println!("Airport data file updated"),
-                Err(e) => println!("Using updated airport data but could not save it ({e})"),
-            }
-            updated
-        }
+    let updated: Airport = match serde_json::from_str(&body) {
+        Ok(updated) => updated,
         Err(e) => {
             println!("Downloaded airport data could not be read ({e}).\nUsing cached version.");
-            cached
+            return cached;
         }
+    };
+
+    if updated.version <= cached.version {
+        return cached;
     }
+
+    // only ask to overwrite once file verified good
+    if !Confirm::with_theme(&ColorfulTheme::default())
+        .with_prompt("New version of this file found, overwrite?")
+        .default(true)
+        .interact()
+        .expect(INPUT_ERROR)
+    {
+        return cached;
+    }
+
+    match fs::write(&path, &body) {
+        Ok(()) => println!("Airport data file updated"),
+        Err(e) => println!("Using updated airport data but could not save it ({e})"),
+    }
+
+    updated
 }
 
 /// Returns the runway index (departure, arrival)

@@ -1,5 +1,6 @@
 {
     "icao": "EGXX",
+    "version": 1,
     "elevation": 100.4,
     "runways": [
         {"designator": "09L", "threshold": "51.5000000:-0.5000000", "track": 92.5, "dep_spawn": "N051.30.00.000:W000.30.00.000"},
