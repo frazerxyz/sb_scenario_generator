@@ -22,20 +22,6 @@ sb_scenario_generator/
 You will most likely encounter a "Windows protected your PC" error when running the exe.  
 Click **More info** -> **Run anyway** to bypass.
 
-## Custom airport files
-Airport files containing an update URL like the example below will be automatically overwritten by the generator.
-```json
-{
-    "icao": "EGKK",
-    "update_url": "https://raw.githubusercontent.com/...",
-    "elevation": 203.2,
-    ...
-}
-```
-If you want to make your own changes, it's recommended to duplicate the file you want to modfy, give it a different name, and **remove the update URL**.
-
-If you feel like your changes could benefit other users, consider contributing via a PR.
-
 ## Disclaimer
 I am new to to coding and Rust, please be kind!
 

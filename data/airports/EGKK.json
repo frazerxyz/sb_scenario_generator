@@ -1,5 +1,6 @@
 {
     "icao": "EGKK",
+    "version": 1,
     "update_url": "https://raw.githubusercontent.com/frazerxyz/sb_scenario_generator/refs/heads/main/data/airports/EGKK.json",
     "elevation": 203.2,
     "runways": [
