@@ -1096,7 +1096,7 @@
             "rfl": 37000,
             "filed_route": "GOSA1C GOSAM P600 FENIK L612 NAVSO ADZOP EGTOC KEPAD L151 DISIT",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "MID TUFOZ $HOLLY_WILLO"},
+            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "MID/15000 TUFOZ $HOLLY_WILLO"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -1106,7 +1106,7 @@
             "rfl": 36000,
             "filed_route": "KUTLI L519 ATUDO M318 GOLGU M550 RIBOT MIGMA ITRUX Y511 PMA Z712 WEJ L677 CVO L617 TANSA KOR TUMBO VAKSU ROTAR BORMI RESIA ELMUR RIPUS L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV KUNA1G",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -1116,7 +1116,7 @@
             "rfl": 38000,
             "filed_route": "KUTLI L519 ATUDO M318 GOLGU M550 RIBOT MIGMA ITRUX Y511 PMA Z712 WEJ L677 CVO L617 TANSA KOR TUMBO VAKSU ROTAR BORMI RESIA ELMUR RIPUS L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV KUNA1G",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -1126,7 +1126,7 @@
             "rfl": 36000,
             "filed_route": "EKNUD UQ26 BKZ IBLAL RASUB PADGU DIRER PODET LUMUS UMVEG KPT L856 RAVED Y112 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -1156,7 +1156,7 @@
             "rfl": 38000,
             "filed_route": "PHA M31 GENOS PEDER EVENO BENEM UN127 ADHOT TALAS PEP ENFAR POD PEVAL BABAG SUMIR SAFFA ELMUR L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
@@ -1236,7 +1236,7 @@
             "rfl": 38000,
             "filed_route": "DATRI L564 MIGMA M628 AMBAG M321 KSA T503 OVANO L768 SOKAN FIRAS NIKAS L619 VESAR UB545 OKLAM UL619 OSVEL UQ23 OSDAN UQ26 DIGBO UL615 VADEN EFCOM GOL ROVAM DOLAP VEBAR RUGOG RIFEN SAFFA ELMUR RIPUS L613 HOC LUL RLP ROTSI KOTUN NINAL KESAX KUNAV KUNA1G",
             "ctr_route": {"spawn_coords": "49.739359:-2.092978", "spawn_alt": 5000, "flown_route": ""},
-            "app_route": {"spawn_coords": "51.363973:-1.045708", "spawn_alt": 15000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
+            "app_route": {"spawn_coords": "50.478399:1.135638", "spawn_alt": 20000, "flown_route": "KUNAV/16000 AMDUT/16000 KKE64/10000 TIMBA/8000"},
             "adc_route": {"spawn_coords": "50.960865:-0.109917", "spawn_alt": 7000, "flown_route": "$ADC_ARR"}
         },
         {
